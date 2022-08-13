@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ES">
+<head>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/boot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+</head>
+<body class="container-fluid">
+        <img src="/media/img.jpg" alt="fondo" class="bg">
+    <header>
+        <h1>Cody ChatBot</h1>
+    </header>
+    <article>
+        <p id="desc" class="row-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+        <div class="container-fluid" >
+
+            <section id="carousel" class="container-fluid carousel slide" data-interval="3000" data-bs-ride="carousel">
+                <div class="carousel-inner p-2">
+                
+                  <div class="carousel-item active">
+                    <img src="https://www.semana.com/resizer/EEYBvk_LbjxghBLPfw7RasEt6yY=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/WRUVPART7ND3LMLL2EFO7XKAJU.jpg" alt="..." width="600px" height="400px">
+                  </div>
+              
+                  <div class="carousel-item">
+                    <img src="https://www.sena.edu.co/es-co/Noticias/NoticiasImg/Fueron-327-mil-los-colombianos-inscritos-para-formacion-titulada-en-el-SENA.jpg" alt="..." width="600px" height="400px">
+                  </div>
+                  
+                  <div class="carousel-item">
+                    <img src="https://repositorio.sena.edu.co/bitstream/handle/11404/2600/SENA-F-05053-2013052267.jpg?sequence=1&isAllowed=y" alt="..." width="600px" height="400px" >
+                  </div>
+                </div>
+            </section>
+        </div>
+        
+        <div id="user_area">
+            <!-- Aside Bar -->
+            <aside>
+                <div class="container-fluid col-9">
+                    <button class="btn btn-secondary" href="#" onclick="showlogin()" class="btns_left" id="a">Iniciar Sesión</button> 
+                        <br><br>
+                    <button class="btn btn-secondary" href="#" onclick="showregister()" class="btns_left" id="b">Registro</button> 
+                        <br><br>
+                    <button class="btn btn-secondary" href="#" onclick="" class="btns_left" id="c">Anonimo</button>
+                </div>
+            </aside>
+                <br>
+
+            <section id="login_section" class="col">
+                <!-- Navigation Bar -->
+                <nav id="rol_selection">
+                    <a class="role" id="usuario_role" onclick="showusuario()">Usuario</a> 
+                    <a class="role" id="admin_role" onclick="showadmin()">Admin</a> 
+                </nav>
+
+                <form action="#" method="post" id="login_credentials_usuario" class="credentials" >
+                    <!-- Inicio de sesion Usuario -->
+                    <div class="container-fluid col-9" >
+                        <label for="correo_usuario">Correo:</label>
+                            <br>
+                        <input type="email" class="form-control" placeholder="Ingrese su correo">
+                            <br><br>
+                        <label for="contraseña_usuario">Contraseña:</label>
+                            <br>
+                        <input type="password" id="contraseña_usuario" class="user_input, form-control" 
+                        placeholder="Ingrese su contraseña" class="form_control" >
+                            <br><br>
+                        <input type="submit" value="Ingresar" class="btn btn-secondary" onclick="log_in()">
+                    </div>
+                </form>
+                
+                <form action="#" method="post" id="login_credentials_admin" class="credentials">
+                    <!-- Inicio de sesion Administrador -->
+                    <div class="container-fluid col-9" >
+                        <label for="cedula_admin">Cedula:</label>
+                            <br>
+                        <input type="email" id="cedula_admin" class="user_input, form-control" placeholder="Ingrese su correo">
+                            <br><br>
+                        <label for="contraseña_admin">Contraseña:</label>
+                            <br>
+                        <input type="password" id="contraseña_admin" class="user_input, form-control" placeholder="Ingrese su contraseña">
+                            <br><br>
+                        <input type="submit" id="btn_login" class="btn btn-secondary" onclick="log_in()">
+                    </div>
+                </form>
+            </section>
+
+            <section id="register_section">
+                <form action="#" method="post" id="register_credentials_usuario" class="container-fluid">
+                    <div class="container-fluid col-9">
+                        <!-- Registro de Usuario -->
+                        <label for="reg_nombre_usuario">Nombre:</label>
+                        <input type="text" id="reg_nombre_usuario" class="user_input, form-control" placeholder="Ingrese su nombre">
+                            <br>
+                        <label for="reg_apellido_usuario">Apellido/s:</label>
+                        <input type="" id="reg_apellido_usuario" class="user_input, form-control" placeholder="Ingrese su apellido/s">
+                            <br>
+                            
+                        <label for="reg_correo_usuario">Correo Electronico:</label>
+                        <input type="email" id="reg_correo_usuario" class="user_input, form-control" placeholder="Ingrese su correo">
+                            <br>
+                        
+                        <label for="reg_contraseña">Contraseña:</label>
+                        <input type="password" id="reg_contraseña" class="user_input , form-control" placeholder="Ingrese su contraseña">
+                            <br>
+                            
+                        <label for="reg_contraseña_check">Confirmar Contraseña:</label>
+                        <input type="password" id="reg_contraseña_check" class="user_input , form-control" placeholder="Vuelva a ingresar su contraseña">
+                            <br>
+                            
+                        <input type="submit" value="Registrase" class="btn btn-secondary" onclick="log_in()" id="btn_register" class="black_btns"> 
+                    </div>
+                </form>
+            </section>
+        </div>
+    </article>
+    <script src="/styles/bundle.min.js"></script>
+<script>
+    
+    let login = document.getElementById("login_section");
+    let register = document.getElementById("register_section");
+    register.style.display = "none"
+
+    function showlogin(){
+        if(login.style.display === "none"){
+        login.style.display = "block"
+        register.style.display = "none"
+        }
+    }
+
+    function showregister(){
+        if(register.style.display === "none"){
+        register.style.display = "block"
+        login.style.display = "none"
+        }
+    }
+
+    let y = document.getElementById("login_credentials_usuario");
+    let x = document.getElementById("login_credentials_admin");
+    x.style.display = "none"
+    
+    function showusuario(){
+        if(y.style.display === "none"){
+        y.style.display = "block"
+        x.style.display = "none"
+        }
+
+    }
+    function showadmin(){
+
+        if(x.style.display === "none"){
+        x.style.display = "block"
+        y.style.display = "none"
+        }
+
+    }
+    function log_in(){
+    let username = document.getElementById("correo_usuario").value;
+    let password = document.getElementById("contraseña_usuario").value;
+    (username == "cody@prototype.com" && password == 12345 ) 
+    ? location.replace("chat.html") : alert("El correo y/o contraseña son incorrectos, intente nuevamente")
+    }
+</script>
+</body>
+</html>

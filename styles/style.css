@@ -1,0 +1,123 @@
+*{
+    font-family: Ubuntu, sans-serif;
+    text-align: center; box-sizing: border-box;
+    text-rendering:optimizeLegibility;
+}
+/*----------------------------------------------- Sombras -----------------------------------------------*/
+header,article{
+    box-shadow: 0 0 10px;
+}
+html{
+    overflow: auto;
+    min-width: 96vw;
+}
+
+img.bg{
+    opacity: 90%;
+    pointer-events: none;
+    min-height: 100%;
+    min-width: 110vh;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header{
+    transition: ease 2s;
+    background-color: #FF6B00;
+    border-radius: 10px;
+    position:relative;
+    margin: 0 6%; padding: 0 1em;
+    font-size: large;
+}
+
+article{
+    transition:ease 2s;
+    border-radius: 10px;
+    position: relative;
+    background-color: #fdfcfcbe;
+    overflow: auto;
+    min-height: 100%;
+    margin: 0 6%;
+    padding: 1.9vw;
+    font-size: large;
+}
+
+#carousel{
+    width: 60vw;
+}
+
+img{border-radius: 10px; box-shadow: 0 0 8px black;}
+
+#user_area{
+    border-radius: 10px;
+    display: flex;
+}
+aside {
+    font-size: 1.5em;
+    border-radius: 10px;
+    min-width: 35vw;
+    padding: 13vh 4vh;
+    background-color: #FF6B00;
+}
+
+.btn.btn-secondary {
+    font-size: x-large;
+}
+
+section{
+    font-weight:bold;
+    font-size: 1em;color: white;
+    width:65vw;
+}
+
+nav#rol_selection{
+    display: flex;
+    min-width: 100%;
+    overflow: visible;
+}
+
+.role{
+    box-shadow: none;
+    width: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+}
+
+#usuario_role{
+    background-color: #669900;
+}
+#admin_role{
+    background-color:#7DBC00;
+}
+
+.credentials{
+    min-width: 35vw;
+    padding: 11.1vh 4vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#login_credentials_usuario{
+    background-color: #669900;
+}
+
+#register_credentials_usuario{
+    background-color: #669900;
+    padding: 11.1vh 4vh;
+    min-width: 35vw;
+    border-radius: 10px;
+    text-align: left;
+}
+#login_credentials_admin{
+    background-color: #7DBC00;
+}
+
+@media screen and (max-width: 600px){
+    *{
+        font-size: .9em;
+    }
+}

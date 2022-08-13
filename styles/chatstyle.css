@@ -1,0 +1,134 @@
+*{
+    font-family: Ubuntu, sans-serif;
+    text-align: center; box-sizing: border-box;
+    text-rendering:optimizeLegibility;
+}
+html{
+    overflow: auto;
+    min-width: 96vw;
+}
+header,article,aside,section,span{
+    box-shadow: 0 2.5px 1px 0 rgba(0, 0, 0, 0.250);
+}
+
+button{   
+    padding: 2px 1em;
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 2px;
+    color: inherit;
+    text-decoration: none;}
+
+button:hover{
+    transition: 100ms;
+    background-color: #E5E5E5;
+    outline: 1px solid #4F4F4F;
+}
+img.bg{
+    opacity: 90%;
+    pointer-events: none;
+    min-height: 100%;
+    min-width: 110vh;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header{
+    transition:ease 2s;
+    background-color: #ff6b00;
+    border-radius: 10px;
+    position:relative;
+    margin: 0 6%; padding: 0 1em;
+    font-size: large;
+}
+
+article{
+    display: flex;
+    transition:ease 2s;
+    border-radius: 10px;
+    position: relative;
+    background-color: #fdfcfcbe;
+    overflow: auto;
+    margin: 0 6%;
+    padding: 1.9vw;
+    font-size: large;
+
+}
+aside{
+    border: 1px solid;
+    border-radius: 10px 0 0 10px;
+    width: 25%;
+}
+
+section#chat_area{
+    border: 1px solid;
+    display: block;
+    background-color: rgb(195, 195, 195);
+    font-size: 1em;
+    width:75%;
+    border-radius: 0 10px 10px 0;
+    
+}
+span{
+    transition: ease 1ms;
+    position: relative;
+    padding:3px 8px 5px 0;
+    border: 1px solid; border-radius: 5px;
+    background-color: #7DBC00;
+}
+span::before{
+    transition: ease 2s;
+    position: relative;
+    top: 60px;
+    width: 0;
+    height: 0;
+    border-right: 20px solid transparent;
+    border-top: 30px solid #7DBC00;
+    content: "";
+}
+
+#conversation{
+    text-align: left;
+    padding: 2%;
+    height: 75%;
+    overflow: auto;
+}
+#message_area{
+    display: flex;
+    width: 100%;
+    padding: 5px;
+}
+#message_input{
+    text-align: left;
+    width: 90%;
+    height: 25px;
+    background-color: #ffffff;
+    border: none;
+}
+#message_send{
+    margin-left: 5px;
+    height: 25px;
+    width: 10%;
+}
+
+@media screen and (max-width: 600px) {
+    article{
+      font-size: 4vw;
+    }
+    span{
+    font-size: .9em;
+    }
+    span::before{
+    top: 45px;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #7DBC00;
+    }
+    aside{
+        font-size: 1em;
+        min-width: 17vw;
+        padding: 6vh 2vh;
+    }
+  }
