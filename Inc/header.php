@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="ES">
 <head>
+    <!-- Fuente Importada de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Public/Css/boot.css">
-    <link rel="stylesheet" href="../Public/Css/style.css">
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="Public/Css/boot.css">
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="Public/Css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jujomi</title>
 </head>
-<body class="container-fluid p-0 bg-claro">
+<div>
+    <img src="https://media4.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif?cid=ecf05e47za126yvzsxj648mwdag39xrr70em494c6davxha4&rid=giphy.gif&ct=g" alt="... " id="loadingscreen">
+</div>
+<body class="container-fluid p-0 bg-claro" onload="setTimeout(load,1000)">
     <!-- Header Navbar-->
-    <header>
+    <header class="bg-primario">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">JUJOMI</a>
                 <span>
-                    <button class="btn btn-secondary shadow-sm" data-bs-toggle="modal" data-bs-target="#Loginpopup" id="a">Iniciar Sesión</button> 
+                    <button class="btn bg-primario shadow-sm" data-bs-toggle="modal" data-bs-target="#Loginpopup" id="a">Iniciar Sesión</button> 
                     <button class="btn btn-secondary shadow-sm" data-bs-toggle="modal" data-bs-target="#Registerpopup" id="b">Registro</button>
                 </span>
             </div>
@@ -33,23 +39,29 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" id="login_credentials_usuario" class="form-floating">
+                        <form action="#" method="post" id="login_credentials_usuario" class="form-floating needs-validation" novalidate>
                             <div class="container-fluid" >
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="text" class="form-control col" id="username_login" placeholder="Ingresa tu usuario">
+                                    <input type="text" class="form-control col" id="username_login" placeholder="Ingresa tu usuario" required>
                                     <label for="username_login">Ingresa tu usuario</label>
+                                    <div class="invalid-feedback">
+                                        Debes escribir tu nombre de usuario.
+                                    </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="email" class="form-control col" id="password_login" placeholder="Ingresa tu contraseña">
+                                    <input type="password" class="form-control col" id="password_login" placeholder="Ingresa tu contraseña" required>
                                     <label for="password_login">Ingresa  tu contraseña</label>
+                                    <div class="invalid-feedback">
+                                        Debes escribir tu contraseña.
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="Logininput" class="btn btn-primary" onclick="log_in()">Ingresar</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" id="Logininput" class="btn btn-primary">Ingresar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -63,34 +75,74 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" id="register_credentials_usuario" class="form-floating">
-                            <div class="container-fluid" >
+                        <form action="#" method="post" id="register_credentials_usuario" class="form-floating needs-validation" novalidate>
+                            <div class="container-fluid">
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="email" class="form-control col" id="email_register" placeholder="Ingresa un Correo Electronico">
+                                    <input type="email" class="form-control col" id="email_register" placeholder="Ingresa un Correo Electronico" required>
                                     <label for="email_register">Ingresa un Correo Electronico</label>
+                                    <div class="invalid-feedback">
+                                        Debes escribir una direccion de correo valida.
+                                    </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="text" class="form-control col" id="username_register" placeholder="Ingresa un usuario">
+                                    <input type="text" class="form-control col" id="username_register" placeholder="Ingresa un usuario" required>
                                     <label for="username_register">Ingresa un Nombre de Usuario</label>
+                                    <div class="invalid-feedback">
+                                        Debes escribir un nombre de usuario.
+                                    </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="password" class="form-control col" id="password_register" placeholder="Ingresa una Contraseña">
+                                    <input type="password" class="form-control col" id="password_register" placeholder="Ingresa una Contraseña" required>
                                     <label for="password_register">Ingresa una Contraseña</label>
+                                    <div class="invalid-feedback">
+                                        Debes escribir una contraseña.
+                                    </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="password" id="reg_contraseña_check" class="user_input , form-control" placeholder="Vuelve a ingresar la contraseña">
+                                    <input type="password" id="reg_contraseña_check" class="user_input , form-control" placeholder="Vuelve a ingresar la contraseña" required>
                                     <label for="password_register">Vuelve a ingresar la contraseña</label>
+                                    <div class="invalid-feedback">
+                                        Debes volver a escribir la contraseña.
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="Registerinput" class="btn btn-primary">Crear Cuenta</button>
-                    </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" id="Registerinput" class="btn btn-primary">Crear Cuenta</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
         
-        <script src="../Public/Js/bundle.min.js"></script>
+        <script src="Public/Js/bundle.min.js"></script>
+        <script>
+            //Loading Screen Delay
+            function load(){
+                let loadingscreen = document.getElementById('loadingscreen');
+                loadingscreen.style.display = 'none';
+            }
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+                }, false)
+            })
+            })()
+
+        </script>
     </header>

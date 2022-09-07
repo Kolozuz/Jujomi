@@ -1,4 +1,4 @@
-<?php include('../Inc/header.php') ?>
+<?php include 'Inc/header.php' ?>
 
     <div class="container-fluid shadow-sm mt-4 bg-oscuro">
         <article id="carousel" class="container-fluid carousel slide" data-interval="3000" data-bs-ride="carousel">
@@ -16,8 +16,26 @@
         </article>
     </div>
 
-    <article class="m-5">
-        <p>La verdad es que cuando por ejemplo, entonces tambien pensamos el porque pero aveces depronto y asi. Un sitio en el que el aburrimiento no tiene lugar consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+    <article class="container-fluid">
+        <div class="row m-4">
+            <div class="col-6">
+                <p>La verdad es que cuando por ejemplo, entonces tambien pensamos el porque pero aveces depronto y asi. Un sitio en el que el aburrimiento no tiene lugar consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+            </div>
+            <div class="col-6">
+                <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
+            </div>
+        </div>
+    </article>
+
+    <article class="container-fluid">
+        <div class="row m-4">
+            <div class="col-6">
+                <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
+            </div>
+            <div class="col-6">
+                <p>La verdad es que cuando por ejemplo, entonces tambien pensamos el porque pero aveces depronto y asi. Un sitio en el que el aburrimiento no tiene lugar consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+            </div>
+        </div>
     </article>
 
 <!-- <script>
@@ -80,5 +98,5 @@
     }
 </script> -->
 
-<?php include('../Inc/footer.php') ?>
+<?php include 'Inc/footer.php' ?>
 
