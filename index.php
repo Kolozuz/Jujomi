@@ -1,25 +1,44 @@
 <?php include 'Inc/header.php' ?>
 
-    <div class="container-fluid shadow-sm mt-4 bg-oscuro">
-        <article id="carousel" class="container-fluid carousel slide" data-interval="3000" data-bs-ride="carousel">
-            <div class="carousel-inner p-2">
-                <div class="carousel-item active">
-                    <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="d-block w-100">
+    <article class="container-fluid shadow-sm bg-space text-light">
+        <div class="row my-4 p-5 d-flex text-center align-items-center">
+                <div class="col-6">
+                    <h2>Aprende a programar mientras te diviertes, es completamente gratis!</h2>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="d-block w-100">
+
+                <div class="col-6 text-dark">
+                    <div class="row py-4">
+                        <div class="col">
+                            <button class="btn bg-secundario">Comienza Ahora</button>
+                        </div>
+                    </div>
+                    <div class="row py-4 text-start">
+                        <div class="col form-floating p-0">
+                            <input type="search" name="course_search" id="course_search" class="form-control bg-claro" placeholder="O busca nuestros cursos">
+                            <label for="course_search">O busca nuestros cursos</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="d-block w-100">
-                </div>
-            </div>
-        </article>
-    </div>
+        </div>
+    </article>
 
     <article class="container-fluid">
-        <div class="row m-4">
+        <div class="row m-4 d-flex text-end align-items-center">
             <div class="col-6">
-                <p>La verdad es que cuando por ejemplo, entonces tambien pensamos el porque pero aveces depronto y asi. Un sitio en el que el aburrimiento no tiene lugar consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+                <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
+            </div>
+            <div class="col-6">
+                <h2>¿No sabes por donde empezar?</h2>
+                <p>No te preocupes!, en Jujomi te brindamos distintas rutas de aprendizaje, para que elijas la que mas se acomode a tus objetivos</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="container-fluid">
+        <div class="row m-4 d-flex text-start align-items-center">
+            <div class="col-6">
+                <h2>Aprende a tu manera!</h2>
+                <p>Con nuestros cursos puedes ir a tu propio ritmo, estableciendo metas diarias que se ajusten a tu rutina</p>
             </div>
             <div class="col-6">
                 <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
@@ -28,12 +47,25 @@
     </article>
 
     <article class="container-fluid">
-        <div class="row m-4">
+        <div class="row m-4 d-flex text-end align-items-center">
             <div class="col-6">
                 <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
             </div>
             <div class="col-6">
-                <p>La verdad es que cuando por ejemplo, entonces tambien pensamos el porque pero aveces depronto y asi. Un sitio en el que el aburrimiento no tiene lugar consectetur adipiscing elit. Cras vitae egestas diam. Donec vehicula luctus ipsum, ac feugiat lectus ullamcorper non. Duis condimentum ultrices sem, quis vulputate metus sollicitudin nec. Praesent faucibus risus non ex dictum consectetur. Duis enim urna, rutrum a odio dictum, consectetur placerat lectus. Etiam porta libero eu arcu hendrerit eleifend. Nullam laoreet mollis est eu egestas.</p>
+                <h2>Trackea tu progreso</h2>
+                <p>Por medio de nuestro sistema de experiencia, podras analizar tu progreso y seguir mejorando</p>
+            </div>
+        </div>
+    </article>
+
+    <article class="container-fluid">
+        <div class="row m-4 d-flex text-start align-items-center">
+            <div class="col-6">
+                <h2>¡No estas solo!</h2>
+                <p>Nuestro bot Jujomi te acompañara todo el tiempo, dandonte tips y motivandote a seguir aprendiendo</p>
+            </div>
+            <div class="col-6">
+                <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
             </div>
         </div>
     </article>
