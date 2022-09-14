@@ -12,21 +12,23 @@
     --secundario: #51C4D3;
     --claro: #D8E3E7;
     --oscuro: #132C33;
+    --space: url(../../Public/img/stars_pattern.svg);
 }
 
 .bg-primario{background-color: var(--primario);}
 .bg-secundario{background-color: var(--secundario);}
+.bg-secundario:hover{
+    background-color: #51B4C3;
+    outline: solid var(--oscuro) .1rem;
+}
 .bg-claro{background-color: var(--claro);}
 .bg-oscuro{background-color: var(--oscuro);}
+.bg-space{background-image: var(--space);}
 
 /*----------------------------------------------- Cabecera -----------------------------------------------*/
 
+/*----------------------------------------------- Lorem1 -----------------------------------------------*/
 
-#a,#b,#Logininput,#Registerinput{
-    background-color: var(--secundario);
-    border: none;
-    color: initial;
-}
 /*----------------------------------------------- Loading Screen -----------------------------------------------*/
 
 #loadingscreen {
