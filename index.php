@@ -49,7 +49,7 @@
     <article class="container-fluid">
         <div class="row m-4 d-flex text-end align-items-center">
             <div class="col-6">
-                <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="..." class="container-fluid p-0">
+                <img src="https://th.bing.com/th/id/OIP.s6zSNqXhqNgBYlU7UKQMOgHaD2?pid=ImgDet&rs=1" alt="#" class="container-fluid p-0">
             </div>
             <div class="col-6">
                 <h2>Trackea tu progreso</h2>
