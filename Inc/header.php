@@ -17,15 +17,24 @@
 <div>
     <img src="https://media4.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif?cid=ecf05e47za126yvzsxj648mwdag39xrr70em494c6davxha4&rid=giphy.gif&ct=g" alt="... " id="loadingscreen">
 </div>
-<body class="container-fluid p-0 bg-claro" onload="setTimeout(load,1000)">
+<body class="container-fluid p-0 bg-claro" onload="setTimeout(load,250)">
     <!-- Header Navbar-->
     <header class="bg-primario">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">JUJOMI</a>
+                <a class="navbar-brand fs-2" href="#">JUJOMI</a>
                 <span>
-                    <button class="btn bg-primario shadow-sm" data-bs-toggle="modal" data-bs-target="#Loginpopup" id="a">Iniciar Sesión</button> 
-                    <button class="btn btn-secondary shadow-sm" data-bs-toggle="modal" data-bs-target="#Registerpopup" id="b">Registro</button>
+                    <span class="dropdown">
+                        <a href="#" class="dropdown-toggle btn bg-secundario shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
+                        <ul class="dropdown-menu my-3">
+                            <li><a class="dropdown-item" href="Cursos.php">Cursos</a></li>
+                            <li><a class="dropdown-item" href="#">¿Por que estudiar programacion?</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                        </ul>
+                    </span>
+                    
+                    <button class="btn bg-claro shadow-sm" data-bs-toggle="modal" data-bs-target="#Loginpopup" id="a">Iniciar Sesión</button> 
+                    <button class="btn bg-secundario shadow-sm" data-bs-toggle="modal" data-bs-target="#Registerpopup" id="b">Registro</button>
                 </span>
             </div>
         </nav>
