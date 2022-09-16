@@ -6,8 +6,19 @@
     class UsuarioController extends Usuario{
 
         public function CursosView(){
-            include '../Views/Usuario/CursosUsuario.php';
+            header('Location: ../Views/Usuario/CursosUsuario.php');
+            // if (empty($_SESSION['contrasena_u'])) {
+            //     echo 'No ha iniciado sesion';
+            // }
+            // else{
+            //     echo 'Ya inicio sesion';
+            // }
+
         }
+
+        // public function RedirectLogin() {
+        //     header('Location: UsuarioController.php?action=login'); 
+        // }
 
         public function ListInformation($email_u,$nombre_u,$contrasenaencripted){
 
@@ -31,18 +42,15 @@
                     $_SESSION['username_login'] = $usuario_u->nombre_u;
                     $_SESSION['password_login'] = $usuario_u->contrasena_u;
 
-                    // header('Location: UsuarioController.php?action=start');
+                    header('Location: UsuarioController.php?action=start');
             }
 
             else{
                     echo 'La Contraseña es Incorrecta';
             }
-
         }
         
-        public function RedirectLogin() {
-            header('Location: UsuarioController.php?action=login'); 
-        }
+        
 
         
     }
@@ -60,9 +68,9 @@
         $usuariocontroller->VerifyLogin($_POST['username_login'], $_POST['password_login']);
     }
 
-    // if(isset($_GET['action']) && $_GET['action'] == 'start'){
-    //     $usuariocontroller = new UsuarioController();
-    //     $usuariocontroller->LoadStart();
-    // }
+    if(isset($_GET['action']) && $_GET['action'] == 'start'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->CursosView();
+    }
     
 ?> 
