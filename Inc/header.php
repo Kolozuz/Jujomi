@@ -19,10 +19,10 @@
 </div>
 <body class="container-fluid p-0 bg-claro" onload="setTimeout(load,250)">
     <!-- Header Navbar-->
-    <header class="bg-primario">
+    <header class="bg-primario fw-normal">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-                <a class="navbar-brand fs-2" href="#">JUJOMI</a>
+                <a class="navbar-brand fs-2 fw-semibold " href="#">JUJOMI</a>
                 <span>
                     <span class="dropdown">
                         <a href="#" class="dropdown-toggle btn bg-secundario shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
@@ -48,17 +48,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" id="login_credentials_usuario" class="form-floating needs-validation" novalidate>
+                        <form action="Controllers/UsuarioController.php" method="post" id="login_credentials_usuario" class="form-floating needs-validation" novalidate>
                             <div class="container-fluid" >
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="text" class="form-control col" id="username_login" placeholder="Ingresa tu usuario" required>
+                                    <input type="hidden" name="action" value="login">
+                                    <input type="text" class="form-control col" name="username_login" placeholder="Ingresa tu usuario" required>
                                     <label for="username_login">Ingresa tu usuario</label>
                                     <div class="invalid-feedback">
                                         Debes escribir tu nombre de usuario.
                                     </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="password" class="form-control col" id="password_login" placeholder="Ingresa tu contraseña" required>
+                                    <input type="password" class="form-control col" name="password_login" placeholder="Ingresa tu contraseña" required>
                                     <label for="password_login">Ingresa  tu contraseña</label>
                                     <div class="invalid-feedback">
                                         Debes escribir tu contraseña.
@@ -84,34 +85,28 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" id="register_credentials_usuario" class="form-floating needs-validation" novalidate>
+                        <form action="Controllers/UsuarioController.php" method="post" id="register_credentials_usuario" class="form-floating needs-validation" novalidate>
                             <div class="container-fluid">
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="email" class="form-control col" id="email_register" placeholder="Ingresa un Correo Electronico" required>
+                                    <input type="hidden" name="action" value="insertar">
+                                    <input type="email" class="form-control col" name="email_register" placeholder="Ingresa un Correo Electronico" required>
                                     <label for="email_register">Ingresa un Correo Electronico</label>
                                     <div class="invalid-feedback">
                                         Debes escribir una direccion de correo valida.
                                     </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="text" class="form-control col" id="username_register" placeholder="Ingresa un usuario" required>
+                                    <input type="text" class="form-control col" name="username_register" placeholder="Ingresa un usuario" required>
                                     <label for="username_register">Ingresa un Nombre de Usuario</label>
                                     <div class="invalid-feedback">
                                         Debes escribir un nombre de usuario.
                                     </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="password" class="form-control col" id="password_register" placeholder="Ingresa una Contraseña" required>
+                                    <input type="password" class="form-control col" name="password_register" placeholder="Ingresa una Contraseña" required>
                                     <label for="password_register">Ingresa una Contraseña</label>
                                     <div class="invalid-feedback">
                                         Debes escribir una contraseña.
-                                    </div>
-                                </div>
-                                <div class="row ms-5 me-5 form-floating mb-3">
-                                    <input type="password" id="reg_contraseña_check" class="user_input , form-control" placeholder="Vuelve a ingresar la contraseña" required>
-                                    <label for="password_register">Vuelve a ingresar la contraseña</label>
-                                    <div class="invalid-feedback">
-                                        Debes volver a escribir la contraseña.
                                     </div>
                                 </div>
                             </div>

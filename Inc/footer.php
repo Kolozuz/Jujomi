@@ -12,16 +12,16 @@
                 </div>
                 <div class="col-3">
                     <h5>Desarrolladores</h5>
-                        <ul class="nav flex-column">
+                        <span class="nav flex-column">
                             <lh class="nav-item mb-2"><a href="https://github.com/Kolozuz" class="nav-link text-white">Juan Pablo Morales</a></lh>
                             <li class="nav-item mb-2"><a href="https://github.com/JuanJo2804" class="nav-link text-white">Juan Jose Ocampo</a></li>
-                        </ul>
+                        </span>
                 </div>
                 <div class="col-2">
-                    <h5>Contactos</h5>
+                    <h5>Contacto</h5>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">abc</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">def</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">moralesjuanpablo1122@gmail.com</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link text-white">jjocampo49@misena.edu.co</a></li>
                         </ul>
                 </div>
             </div>

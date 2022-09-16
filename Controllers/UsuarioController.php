@@ -20,22 +20,22 @@
         }
 
         public function VerifyLogin($nombre_u,$contrasena_u){
-
             $this->nombre_u = $nombre_u;
             $this->contrasena_u = $contrasena_u;
             $usuarioinfo = $this->CheckUsuarioFromDB();
 
-            foreach ($usuarioinfo as $u){}
-            if(password_verify($contrasena_u, $u->contrasenaencripted)){
+            foreach ($usuarioinfo as $usuario_u){}
+            // var_dump($usuario_u);
+            if(password_verify($contrasena_u, $usuario_u->contrasena_u)){
                 echo 'Contraseña Correcta';
-                    $_SESSION['username_login'] = $u->nombre_u;
-                    $_SESSION['password_login'] = $u->contrasena_u;
+                    $_SESSION['username_login'] = $usuario_u->nombre_u;
+                    $_SESSION['password_login'] = $usuario_u->contrasena_u;
 
-                    header('Location: UsuarioController.php?action=start');
+                    // header('Location: UsuarioController.php?action=start');
             }
 
             else{
-                    echo 'Contraseña Incorrecta';
+                    echo 'La Contraseña es Incorrecta';
             }
 
         }
