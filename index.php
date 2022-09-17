@@ -3,7 +3,7 @@
     <article class="container-fluid shadow-sm bg-space text-light">
         <div class="row my-4 p-5 d-flex text-center align-items-center">
                 <div class="col-6">
-                    <h2>Aprende a programar mientras te diviertes, es completamente gratis!</h2>
+                    <h2> Aprende a programar mientras te diviertes, ¡es completamente gratis! </h2>
                 </div>
 
                 <div class="col-6 text-dark">
@@ -70,12 +70,25 @@
         </div>
     </article>
 
+    <article class="container shadow-sm bg-space text-light px-1">
+        <div class="my-4 p-5 text-center align-items-center">
+                <div class="row py-4">
+                    <h2>¿Que esperas?</h2>
+                </div>
+
+                <div class="row text-dark py-4">
+                        <div class="col">
+                            <button class="btn bg-secundario">Empieza Ahora</button>
+                        </div>
+                </div>
+        </div>
+    </article>
 <!-- <script>
 
     let user_area = document.getElementById("user_area");
     let cover = document.getElementById("cover");
     user_area.style.display = "none";
-    cover.style.display = "none"
+    cover.style.display = "none";
 
     function showlogin(){
 
@@ -129,6 +142,5 @@
         ? location.replace("chat/chat.html") : alert("El correo y/o contraseña son incorrectos, intente nuevamente")
     }
 </script> -->
-
 <?php include 'Inc/footer.php' ?>
 

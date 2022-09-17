@@ -22,7 +22,7 @@
     <header class="bg-primario fw-normal">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-semibold " href="#">JUJOMI</a>
+                <a class="navbar-brand fs-2 fw-semibold " href="index.php">JUJOMI</a>
                 <span>
                     <span class="dropdown">
                         <a href="#" class="dropdown-toggle btn bg-secundario shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>

@@ -27,7 +27,6 @@
             $this->contrasena_u = $contrasenaencripted;
             echo 'success';
             $this->SaveUsuario();
-            $this->RedirectLogin();
         }
 
         public function VerifyLogin($nombre_u,$contrasena_u){
@@ -36,7 +35,6 @@
             $usuarioinfo = $this->CheckUsuarioFromDB();
 
             foreach ($usuarioinfo as $usuario_u){}
-            // var_dump($usuario_u);
             if(password_verify($contrasena_u, $usuario_u->contrasena_u)){
                 echo 'Contraseña Correcta';
                     $_SESSION['username_login'] = $usuario_u->nombre_u;

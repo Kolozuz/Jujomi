@@ -46,7 +46,7 @@
                         </svg>
                     </a>
                 </div>
-                <span>© 2022 Jujomi Entertainment. All rights reserved.</span>
+                <span>© 2022 Jujomi Org. All rights reserved.</span>
             </div>
         </footer>
     </div>
