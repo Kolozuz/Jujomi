@@ -6,13 +6,20 @@
     class UsuarioController extends Usuario{
 
         public function CursosView(){
-            header('Location: ../Views/Usuario/CursosUsuario.php');
-            // if (empty($_SESSION['contrasena_u'])) {
-            //     echo 'No ha iniciado sesion';
-            // }
-            // else{
-            //     echo 'Ya inicio sesion';
-            // }
+            // header('Location: ../Views/Usuario/CursosUsuario.php');
+            $usuarioinfo = $this->CheckUsuarioFromDB();
+
+            foreach ($usuarioinfo as $usuario_u){}
+            if(empty($_SESSION['username_login'])){
+                echo 'No has iniciado sesion';
+                
+            }
+
+            else{
+                echo 'Ya inicio sesion';
+                header('Location: ../Views/Usuario/CursosUsuario.php');
+            }
+            
 
         }
 
