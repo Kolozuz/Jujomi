@@ -31,7 +31,7 @@
                     </div> 
                         <ul class="dropdown-menu my-3">
                             <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="CursosUsuario.php">Mis Cursos</a></li>
+                            <li><a class="dropdown-item" href="../Usuario/CursosUsuario.php">Mis Cursos</a></li>
                             <li><a class="dropdown-item" href="#">Configuracion</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
                         </ul>
