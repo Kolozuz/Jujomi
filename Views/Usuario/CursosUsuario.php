@@ -3,7 +3,7 @@ include '../../Inc/userheader.php';
 include '../../Models/Curso.php';
 ?>
 <div class="row container-fluid text-center p-4">
-<?php foreach($cursoobjeto as $c){ ?>
+<?php foreach($htmlobj as $c){ ?>
     <article class="col-3">
         <div class="container-fluid bg-light p-2 mx-2 rounded">
             <a href="../Cursos/html5.php" class="row">

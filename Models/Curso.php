@@ -1,6 +1,8 @@
 <?php
     include '../../Config/Conexion.php';
+    
 
+    //Todos los cursos
     $conexion = new Conexion();
     $sql = "SELECT * FROM cursos";
 
@@ -9,10 +11,14 @@
     
     $cursoobjeto = $read->fetchAll(PDO::FETCH_OBJ);
 
-    $htmlsql = "SELECT * FROM cursos WHERE ";
+
+    //Curso HTML5
+    $htmlsql = "SELECT * FROM cursos WHERE id_curso= 1";
 
     $htmlread = $conexion->stm->prepare($htmlsql);
     $htmlread->execute();
     
     $htmlobj = $htmlread->fetchAll(PDO::FETCH_OBJ);
+
+
  ?>

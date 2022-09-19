@@ -1,7 +1,7 @@
 <?php
 include '../../Inc/userheader.php';
 include '../../Models/Curso.php';
-foreach($cursoobjeto as $c){
+foreach($htmlobj as $c){
 ?>
     <div class="container-fluid">
         <div class="row m-4 d-flex align-items-center">

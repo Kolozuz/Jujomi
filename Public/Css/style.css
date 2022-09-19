@@ -10,7 +10,7 @@
 :root {
     --primario: #126E82;
     --secundario: #51C4D3;
-    --claro: #D8E3E7;
+    --claro: #D8E3E7 ;
     --oscuro: #132C33;
     --space: url(../../Public/img/stars_pattern.svg);
 }
@@ -21,7 +21,9 @@
     background-color: #51B4C3;
     outline: solid var(--oscuro) .1rem;
 }
-.bg-claro{background-color: var(--claro);}
+.bg-claro{
+    background: var(--claro);
+    background: linear-gradient(280deg, var(--secundario) 0%, var(--claro) 0%); }
 .bg-oscuro{background-color: var(--oscuro);}
 .bg-space{background-image: var(--space);}
 
@@ -40,8 +42,69 @@
     z-index: 1;
 }
 
-
-
+/*----------------------------------------------- Custom Switch -----------------------------------------------*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    border-radius: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-image: url(../img/light_moon.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--primario);
+  }
+  
+  
+  input:checked + .slider:before {
+    background-image: url(../img/dark_moon.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 0%;
+  }
 
 
 /*----------------------------------------------- Loading Screen -----------------------------------------------*/

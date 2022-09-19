@@ -1,7 +1,12 @@
 <?php
     session_start();
+    // ini_set('display_errors', 0);
+    // ini_set('display_startup_errors', 0);
+    // error_reporting(-1);
     //Variables de Sesion
     require '../Models/Usuario.php';
+
+    $nombre = $_POST['username_login'];
 
     class UsuarioController extends Usuario{
 
@@ -51,8 +56,10 @@
             }
 
             else{
-                    echo 'La Contraseña es Incorrecta';
+                    echo '¿Eres nuevo en Jujomi? Click aquí para crear una cuenta <br> Click <a>aqui</a> para crear una cuenta';
             }
+
+
         }
         
         

@@ -1,5 +1,18 @@
 <?php
-    require '../Config/Conexion.php';
+    include '../Config/Conexion.php';
+    include '../../Config/Conexion.php';
+
+    $nombre = $_POST['username_login'];
+
+    $conexion = new Conexion();
+            $sql = "SELECT * FROM usuario WHERE nombre_u = '$nombre'";
+
+            $usuario = $conexion->stm->prepare($sql); 
+            $usuario->execute();
+      
+            $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
+            return $usuarioobjeto;
+
     class Usuario{
         protected $id_u;
         protected $email_u;
@@ -28,6 +41,7 @@
             $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
             return $usuarioobjeto;
         }
+    
         
     }
 ?>
