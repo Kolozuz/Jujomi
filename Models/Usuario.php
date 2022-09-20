@@ -41,7 +41,31 @@
             $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
             return $usuarioobjeto;
         }
-    
-        
+
+        protected function UpdateUsuario($id_u,$nombre_u,$email_u){
+            $conexion = new Conexion();
+            
+            
+
+            $sql = "UPDATE usuario SET nombre_u='$nombre_u', email_u='$email_u' WHERE id_u = '$id_u'";
+
+            $update = $conexion->stm->prepare($sql);
+            $update->execute();
+
+            $personas = $update->fetchAll(PDO::FETCH_OBJ);
+            return $personas;
+        }
+
+        protected function DeleteUsuario(){
+            $conexion = new Conexion();
+            
+            $sql = "DELETE FROM usuario WHERE id_u = '$this->id_u'";
+
+            $delete = $conexion->stm->prepare($sql);
+            $delete->execute();
+
+            // $personas = $delete->fetchAll(PDO::FETCH_OBJ);
+            // return $personas;
+        }
     }
 ?>

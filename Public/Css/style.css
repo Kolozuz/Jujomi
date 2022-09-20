@@ -30,9 +30,6 @@
 /*--------------------------------------------------- Cabecera ---------------------------------------------------*/
 
 /*--------------------------------------------------- Lorem1 ---------------------------------------------------*/
-.banner{
-    text-shadow: 2px 0 var(--oscuro), -2px 0 var(--oscuro), 0 2px var(--oscuro), 0 -2px var(--oscuro), 1px 1px var(--oscuro), -1px -1px var(--oscuro), 1px -1px var(--oscuro), -1px 1px var(--oscuro);
-}
 /*----------------------------------------------- Loading Screen -----------------------------------------------*/
 
 #loadingscreen {
@@ -76,7 +73,7 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-image: url(../img/light_moon.svg);
+    background-image: url(../../Public/img/light_moon.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transition: .4s;
@@ -89,7 +86,7 @@
   
   
   input:checked + .slider:before {
-    background-image: url(../img/dark_moon.svg);
+    background-image: url(../../Public/img/dark_moon.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateX(26px);

@@ -1,6 +1,6 @@
 <?php
 
-class Conexion {
+class Conexion{
     public $stm;
     public function __construct(){
         try {

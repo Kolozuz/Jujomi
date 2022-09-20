@@ -13,7 +13,6 @@ $htmlobj = $curso->CheckCursoFromDB();
             <a href="../Cursos/html5.php" class="row" style="text-decoration:none">
             <span>
                 <?php echo $c->nombre_curso?>
-                <?php echo $_SESSION['password_login']; ?>
             </span>
             </a>
         </div>

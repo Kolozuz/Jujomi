@@ -15,7 +15,7 @@
             $usuarioinfo = $this->CheckUsuarioFromDB();
 
             foreach ($usuarioinfo as $usuario_u){}
-            if(empty($_SESSION['username_login'])){
+            if(empty($_SESSION['username_register'])){
                 echo 'No has iniciado sesion';
                 
             }
@@ -33,8 +33,22 @@
             include_once '../Views/Usuario/PerfilUsuario.php'; 
         }
 
-        public function ListInformation($email_u,$nombre_u,$contrasenaencripted){
+        public function RedirectConfig(){
+            include_once '../Views/Usuario/ConfigUsuario.php'; 
+        }
 
+        public function DeletePerfil($id_u){
+            $this->id_u = $id_u;
+            $this->DeleteUsuario();
+            // $this->Redir();
+        }
+        
+        public function Redir(){
+            header('Location: UsuarioController.php?action=start');
+        }
+
+        public function ListInformation($email_u,$nombre_u,$contrasenaencripted){
+            
             $this->email_u = $email_u;
             $this->nombre_u = $nombre_u;
             $this->contrasena_u = $contrasenaencripted;
@@ -58,6 +72,8 @@
                 
                     $_SESSION['username_register'] = $usuario_u->nombre_u;
                     $_SESSION['email_register'] = $usuario_u->email_u;
+                    $_SESSION['id_register'] = $usuario_u->id_u;
+
 
 
                     header('Location: UsuarioController.php?action=start');
@@ -69,10 +85,37 @@
 
 
         }
-        
+
+        public function Update(){
+            $id = $_SESSION['id_u'];
+            $nombre_u = $_SESSION['username_register'];
+            $email_u = $_SESSION['email_register'];
+            $personas = $this->UpdateUsuario($id,$nombre_u,$email_u);
+        }
         
 
         
+    }
+
+    //TOMAR ACTION PARA REDIRECCIONAR
+    if(isset($_GET['action']) && $_GET['action'] == 'start'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectStart();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'perfil'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectPerfil();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'config'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectConfig();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'delete'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->DeletePerfil($_GET['id_u']);
     }
 
     //TOMAR DATOS DE REGISTRO DESDE EL FORMULARIO Y GUARDARLOS EN LA DB, ENCRIPTANDO LA CONTRASEÑA
@@ -88,14 +131,4 @@
         $usuariocontroller->VerifyLogin($_POST['username_login'], $_POST['password_login']);
     }
 
-    if(isset($_GET['action']) && $_GET['action'] == 'start'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectStart();
-    }
-
-    if(isset($_GET['action']) && $_GET['action'] == 'perfil'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectPerfil();
-    }
-    
 ?> 

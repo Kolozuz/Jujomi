@@ -6,9 +6,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
     <!-- Bootsrap -->
-    <link rel="stylesheet" href="../Public/Css/boot.css">
+    <link rel="stylesheet" href="../Public/Css/boot.css?v=<?php echo time(); ?>">
     <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="../Public/Css/style.css">
+    <link rel="stylesheet" href="../Public/Css/style.css?v=<?php echo time(); ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +17,12 @@
 <div>
     <img src="https://media4.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif?cid=ecf05e47za126yvzsxj648mwdag39xrr70em494c6davxha4&rid=giphy.gif&ct=g" alt="... " id="loadingscreen">
 </div>
-<body class="container-fluid p-0 bg-claro" onload="setTimeout(load,250)">
+<body class="container-fluid p-0 bg-claro " onload="setTimeout(load,250)">
     <!-- Header Navbar-->
     <header class="bg-primario fw-normal">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-semibold " href="../../index.php">JUJOMI</a>
+                <a class="navbar-brand fs-2 fw-semibold " href="../index.php">JUJOMI</a>
                 <span class="dropstart">
                     <div class="dropdown-toggle btn bg-claro shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -32,7 +32,7 @@
                         <ul class="dropdown-menu my-3">
                             <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a></li>
                             <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=start">Mis Cursos</a></li>
-                            <li><a class="dropdown-item" href="../Usuario/ConfigUsuario.php">Configuracion</a></li>
+                            <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=config">Configuracion</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
                         </ul>
                 </span>
@@ -120,7 +120,7 @@
             </div>
         </div>
         
-        <script src="../Public/Js/bundle.min.js"></script>
+        <script src="../Public/Js/bundle.min.js?v=<?php echo time(); ?>"></script>
         <script>
             //Loading Screen Delay
             function load(){
