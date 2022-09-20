@@ -6,9 +6,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
     <!-- Bootsrap -->
-    <link rel="stylesheet" href="../../Public/Css/boot.css">
+    <link rel="stylesheet" href="../Public/Css/boot.css">
     <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="../../Public/Css/style.css">
+    <link rel="stylesheet" href="../Public/Css/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,8 +30,8 @@
                         </svg>
                     </div> 
                         <ul class="dropdown-menu my-3">
-                            <li><a class="dropdown-item" href="../Usuario/PerfilUsuario.php">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="../Usuario/CursosUsuario.php">Mis Cursos</a></li>
+                            <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a></li>
+                            <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=start">Mis Cursos</a></li>
                             <li><a class="dropdown-item" href="../Usuario/ConfigUsuario.php">Configuracion</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
                         </ul>
@@ -120,7 +120,7 @@
             </div>
         </div>
         
-        <script src="../../Public/Js/bundle.min.js"></script>
+        <script src="../Public/Js/bundle.min.js"></script>
         <script>
             //Loading Screen Delay
             function load(){

@@ -1,17 +1,17 @@
 <?php
     include '../Config/Conexion.php';
-    include '../../Config/Conexion.php';
+    // include '../../Config/Conexion.php';
 
-    $nombre = $_POST['username_login'];
+    // $nombre = $_POST['username_login'];
 
-    $conexion = new Conexion();
-            $sql = "SELECT * FROM usuario WHERE nombre_u = '$nombre'";
+    // $conexion = new Conexion();
+    //         $sql = "SELECT * FROM usuario WHERE nombre_u = '$nombre'";
 
-            $usuario = $conexion->stm->prepare($sql); 
-            $usuario->execute();
+    //         $usuario = $conexion->stm->prepare($sql); 
+    //         $usuario->execute();
       
-            $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
-            return $usuarioobjeto;
+    //         $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
+    //         return $usuarioobjeto;
 
     class Usuario{
         protected $id_u;

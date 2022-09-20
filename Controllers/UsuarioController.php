@@ -6,11 +6,11 @@
     //Variables de Sesion
     require '../Models/Usuario.php';
 
-    $nombre = $_POST['username_login'];
+    // $nombre = $_POST['username_login'];
 
     class UsuarioController extends Usuario{
 
-        public function CursosView(){
+        public function RedirectStart(){
             // header('Location: ../Views/Usuario/CursosUsuario.php');
             $usuarioinfo = $this->CheckUsuarioFromDB();
 
@@ -22,23 +22,29 @@
 
             else{
                 echo 'Ya inicio sesion';
-                header('Location: ../Views/Usuario/CursosUsuario.php');
+                include_once '../Views/Usuario/CursosUsuario.php';
             }
             
 
         }
 
-        // public function RedirectLogin() {
-        //     header('Location: UsuarioController.php?action=login'); 
-        // }
+
+        public function RedirectPerfil() {
+            include_once '../Views/Usuario/PerfilUsuario.php'; 
+        }
 
         public function ListInformation($email_u,$nombre_u,$contrasenaencripted){
 
             $this->email_u = $email_u;
             $this->nombre_u = $nombre_u;
             $this->contrasena_u = $contrasenaencripted;
-            echo 'success';
+            echo 'success';            
             $this->SaveUsuario();
+            // $usuarioinfo = $this->CheckUsuarioFromDB();
+            // foreach ($usuarioinfo as $usuario_u){}
+            // if
+            // $_SESSION['username_register'] = $usuario_u->nombre_u;
+            // $_SESSION['email_register'] = $usuario_u->email_u;
         }
 
         public function VerifyLogin($nombre_u,$contrasena_u){
@@ -49,8 +55,10 @@
             foreach ($usuarioinfo as $usuario_u){}
             if(password_verify($contrasena_u, $usuario_u->contrasena_u)){
                 echo 'Contraseña Correcta';
-                    $_SESSION['username_login'] = $usuario_u->nombre_u;
-                    $_SESSION['password_login'] = $usuario_u->contrasena_u;
+                
+                    $_SESSION['username_register'] = $usuario_u->nombre_u;
+                    $_SESSION['email_register'] = $usuario_u->email_u;
+
 
                     header('Location: UsuarioController.php?action=start');
             }
@@ -82,7 +90,12 @@
 
     if(isset($_GET['action']) && $_GET['action'] == 'start'){
         $usuariocontroller = new UsuarioController();
-        $usuariocontroller->CursosView();
+        $usuariocontroller->RedirectStart();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'perfil'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectPerfil();
     }
     
 ?> 
