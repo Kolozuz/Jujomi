@@ -58,12 +58,18 @@
 
         protected function DeleteUsuario(){
             $conexion = new Conexion();
+            // $usuarioinfo = $this->CheckUsuarioFromDB();
+            // foreach ($usuarioinfo as $usuario_u){}
             
-            $sql = "DELETE FROM usuario WHERE id_u = '$this->id_u'";
+            $id_u = $_GET['id'];
+            
+            $sql = "DELETE FROM usuario WHERE id_u = '$id_u'";
 
             $delete = $conexion->stm->prepare($sql);
             $delete->execute();
 
+            
+            
             // $personas = $delete->fetchAll(PDO::FETCH_OBJ);
             // return $personas;
         }

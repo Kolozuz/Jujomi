@@ -14,8 +14,8 @@
                     </div>
                     <div class="row py-4 text-start">
                         <div class="col form-floating p-0">
-                            <input type="search" name="course_search" id="course_search" class="form-control bg-claro" placeholder="O busca nuestros cursos">
-                            <label for="course_search">O busca nuestros cursos</label>
+                            <input type="search" name="course_search" id="course_search" class="form-control bg-claro" placeholder="busca nuestros cursos">
+                            <label for="course_search">busca nuestros cursos</label>
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="Controllers/UsuarioController.php?action=start" method="post" id="login_credentials_usuario" class="form-floating needs-validation" novalidate>
+                        <form action="Controllers/UsuarioController.php?action=login" method="post" id="login_credentials_usuario" class="form-floating needs-validation" novalidate>
                             <div class="container-fluid" >
                                 <div class="row ms-5 me-5 form-floating mb-3">
                                     <input type="hidden" name="action" value="login">
@@ -85,7 +85,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="Controllers/UsuarioController.php" method="post" id="register_credentials_usuario" class="form-floating needs-validation" novalidate>
+                        <form action="Controllers/UsuarioController.php?action=register" method="post" id="register_credentials_usuario" class="form-floating needs-validation" novalidate>
                             <div class="container-fluid">
                                 <div class="row ms-5 me-5 form-floating mb-3">
                                     <input type="hidden" name="action" value="insertar">
