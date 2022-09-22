@@ -13,7 +13,7 @@
             $usuarioinfo = $this->CheckUsuarioFromDB();
 
             foreach ($usuarioinfo as $usuario_u){}
-            if(empty($_SESSION['username_register'])){
+            if(empty($_SESSION['username_login'])){
                 echo 'No has iniciado sesion';
                 
             }
@@ -91,7 +91,7 @@
                 echo '<script type="text/javascript">';
                 echo 'document.write("';
                 echo "<div class='container-fluid bg-primario'>¿Eres nuevo en Jujomi? <br> Haz click";
-                echo "<button class='btn bg-secundario shadow-sm' data-bs-toggle='modal' data-bs-target='#Registerpopup'>Aqui</button> para volver al index y registrarte </div>";
+                echo "<a class='btn bg-secundario shadow-sm' data-bs-toggle='modal' data-bs-target='#Registerpopup'>Aqui</a> para volver al index y registrarte </div>";
                 echo '")</script>';
                 // $this->RedirectIndex();
                    

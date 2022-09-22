@@ -109,6 +109,9 @@
                                         Debes escribir una contraseña.
                                     </div>
                                 </div>
+                                <div class="row mx-5 px-2 mb-3 text-center">
+                                    <span><input type="checkbox" name="terms_&_conditions_checkbox" id="" required> Acepto los <a href="#">Terminos y Condiciones</a> </span>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">
