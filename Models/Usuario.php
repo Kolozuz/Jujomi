@@ -39,7 +39,12 @@
             $usuario->execute();
       
             $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
-            return $usuarioobjeto;
+            if ($usuarioobjeto){
+                return $usuarioobjeto;
+            }
+            else{
+                die ('No te encuentras registrado en Jujomi');
+            }
         }
 
         protected function UpdateUsuario($id_u,$nombre_u,$email_u){

@@ -14,8 +14,10 @@
 
             foreach ($usuarioinfo as $usuario_u){}
             if(empty($_SESSION['username_login'])){
-                echo 'No has iniciado sesion';
-                
+
+                session_destroy();
+                die ('No has iniciado sesion');
+                return;
             }
 
             else{
@@ -129,6 +131,15 @@
     if(isset($_GET['action']) && $_GET['action'] == 'config'){
         $usuariocontroller = new UsuarioController();
         $usuariocontroller->RedirectConfig();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'logout'){
+        $usuariocontroller = new UsuarioController();
+        session_destroy();
+        // session_destroy();
+
+        $usuariocontroller->RedirectStart();
+
     }
 
     if(isset($_GET['action']) && $_GET['action'] == 'delete'){
