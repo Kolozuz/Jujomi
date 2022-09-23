@@ -84,25 +84,25 @@ include '../Inc/userheader.php';
                             <label for="email_register">Ingresa un Correo Electronico</label>
                             
                             <div class="invalid-feedback">
-                                Debes escribir una direccion de correo valida.
+                                Debes escribir una nueva direccion de correo.
                             </div>
                         </div>
 
                         <div class="row ms-5 me-5 form-floating mb-3">
-                            <input type="text" class="form-control col" name="username_update" placeholder="Ingresa un usuario" value="<?php echo $_SESSION['username_register'] ?>" required>
+                            <input type="text" class="form-control col" name="username_update" placeholder="Ingresa un usuario" value="<?php echo $_SESSION['username_login'] ?>" required>
                             <label for="username_update">Ingresa un Nombre de Usuario</label>
 
                             <div class="invalid-feedback">
-                                Debes escribir un nombre de usuario valido.
+                                Debes escribir un nuevo nombre de usuario.
                             </div>
                         </div>
 
                         <div class="row ms-5 me-5 form-floating mb-3">
-                            <input type="password" class="form-control col" name="email_update" placeholder="Correo Electronico" required>
-                            <label for="password_register">Ingresa una Contraseña</label>
+                            <input type="password" class="form-control col" name="password_update" placeholder="Contraseña" required>
+                            <label for="password_login">Ingresa tu contraseña para confirmar los cambios</label>
 
                             <div class="invalid-feedback">
-                                Debes escribir un correo valido
+                                Debes escribir tu contraseña para confirmar los cambios
                             </div>
                         </div>
                         

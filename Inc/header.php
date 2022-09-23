@@ -6,20 +6,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
     <!-- Bootsrap -->
-    <link rel="stylesheet" href="Public/Css/boot.css">
+    <link rel="stylesheet" href="Public/Css/boot.css?v=<?php echo time(); ?>">
     <!-- Custom stylesheet -->
-    <link rel="stylesheet" href="Public/Css/style.css">
+    <link rel="stylesheet" href="Public/Css/style.css?v=<?php echo time(); ?>">
+    <!-- Whirl Loading Animations -->
+    <link rel="stylesheet" href="Public/Css/css/cube.css?v=<?php echo time(); ?>" >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jujomi</title>
 </head>
-<div>
-    <img src="https://media4.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif?cid=ecf05e47za126yvzsxj648mwdag39xrr70em494c6davxha4&rid=giphy.gif&ct=g" alt="... " id="loadingscreen">
-</div>
-<body class="container-fluid p-0 bg-claro" onload="setTimeout(load,250)">
+        <div class="container-fluid bg-secundario p-5 align-center" id="loadingscreen">
+            <div class="relleno"></div>
+            <div class="cube" >
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+<body class="container-fluid p-0 bg-claro fs-5" onload="setTimeout(load,750)">
+
     <!-- Header Navbar-->
-    <header class="bg-primario fw-normal">
+    <header class="bg-primario fw-normal fs-6">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
                 <a class="navbar-brand fs-2 fw-semibold " href="index.php">JUJOMI</a>
@@ -64,6 +70,9 @@
                                     <div class="invalid-feedback">
                                         Debes escribir tu contraseña.
                                     </div>
+                                </div>
+                                <div class="row row mx-5 px-2 mb-3 text-center">
+                                    <span>¿Has olvidado tu contraseña? <br> Haz click <a href="#">aqui</a> para restablecerla</span>
                                 </div>
                             </div>
                         </div>
@@ -126,10 +135,12 @@
         <script src="Public/Js/bundle.min.js"></script>
         <script src="https://kit.fontawesome.com/192d5c8398.js" crossorigin="anonymous"></script>
         <script>
-            //Loading Screen Delay
+            // Loading Screen Delay
             function load(){
                 let loadingscreen = document.getElementById('loadingscreen');
                 loadingscreen.style.display = 'none';
+                loadingscreen.style.justifyContent = 'center';
+                loadingscreen.style.justifyItems = 'center';
             }
 
             // Example starter JavaScript for disabling form submissions if there are invalid fields

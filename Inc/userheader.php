@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ES">
 <head>
@@ -9,15 +11,21 @@
     <link rel="stylesheet" href="../Public/Css/boot.css?v=<?php echo time(); ?>">
     <!-- Custom stylesheet -->
     <link rel="stylesheet" href="../Public/Css/style.css?v=<?php echo time(); ?>">
+    <!-- Whirl Loading Animations -->
+    <link rel="stylesheet" href="../Public/Css/css/cube.css?v=<?php echo time(); ?>" >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jujomi</title>
 </head>
-<div>
-    <img src="https://media4.giphy.com/media/hWZBZjMMuMl7sWe0x8/giphy.gif?cid=ecf05e47za126yvzsxj648mwdag39xrr70em494c6davxha4&rid=giphy.gif&ct=g" alt="... " id="loadingscreen">
+
+<div class="container-fluid bg-secundario p-5 align-center" id="loadingscreen">
+    <div class="cube" >
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
 </div>
-<body class="container-fluid p-0 bg-claro " onload="setTimeout(load,250)">
+
+<body class="container-fluid p-0 bg-claro " onload="setTimeout(load,750)">
     <!-- Header Navbar-->
     <header class="bg-primario fw-normal">
         <nav class="navbar shadow-sm bg-primario">
@@ -29,7 +37,7 @@
                     </div> 
                         <ul class="dropdown-menu my-3">
                             <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=start">Mis Cursos</a></li>
+                            <li><a class="dropdown-item" href="UsuarioController.php?action=start">Mis Cursos</a></li>
                             <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=config">Configuracion</a></li>
                             <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=faq">FAQ</a></li>
                             <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=logout">Cerrar Sesion</a></li>
@@ -126,6 +134,8 @@
             function load(){
                 let loadingscreen = document.getElementById('loadingscreen');
                 loadingscreen.style.display = 'none';
+                loadingscreen.style.justifyContent = 'center';
+                loadingscreen.style.justifyItems = 'center';
             }
 
             // Example starter JavaScript for disabling form submissions if there are invalid fields

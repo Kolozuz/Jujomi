@@ -29,6 +29,7 @@
             $insert->bindParam(2,$this->nombre_u);
             $insert->bindParam(3,$this->contrasena_u);
             $insert->execute();
+            return;
         }
         
         protected function CheckUsuarioFromDB(){
@@ -39,25 +40,29 @@
             $usuario->execute();
       
             $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
-            if ($usuarioobjeto){
+            // if ($usuarioobjeto){
                 return $usuarioobjeto;
-            }
-            else{
-                die ('No te encuentras registrado en Jujomi');
-            }
+            // }
+            // else{
+            //     var_dump($usuarioobjeto);
+
+            //     session_destroy();
+            //     die ('No te encuentras registrado en Jujomi');
+            //     // return $usuarioobjeto;
+
+            // }
         }
 
         protected function UpdateUsuario($id_u,$nombre_u,$email_u){
             $conexion = new Conexion();
             
-            
-
             $sql = "UPDATE usuario SET nombre_u='$nombre_u', email_u='$email_u' WHERE id_u = '$id_u'";
 
             $update = $conexion->stm->prepare($sql);
             $update->execute();
 
             $personas = $update->fetchAll(PDO::FETCH_OBJ);
+            
             return $personas;
         }
 
@@ -74,7 +79,8 @@
             $delete->execute();
 
             
-            
+            return $delete;
+
             // $personas = $delete->fetchAll(PDO::FETCH_OBJ);
             // return $personas;
         }
