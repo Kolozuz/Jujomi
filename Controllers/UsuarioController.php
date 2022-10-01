@@ -40,6 +40,10 @@
             include_once '../Views/Usuario/ConfigUsuario.php'; 
         }
 
+        public function RedirectFaq(){
+            include_once '../Views/Usuario/FaqUsuario.php'; 
+        }
+
         public function DeletePerfil(){
             $this->DeleteUsuario();
             echo '<script type="text/javascript">';
@@ -58,6 +62,10 @@
 
         public function Redirecthtml5(){
             include_once '../Views/Cursos/html5.php';
+        }
+
+        public function Redirectcss3(){
+            include_once '../Views/Cursos/css3.php';
         }
 
         public function ListInformation($email_u,$nombre_u,$contrasenaencripted){
@@ -163,6 +171,12 @@
         $usuariocontroller->RedirectConfig();
     }
 
+    //FAQ
+    if(isset($_GET['action']) && $_GET['action'] == 'faq'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectFaq();
+    }
+
     //Cerrar Sesion
     if(isset($_GET['action']) && $_GET['action'] == 'logout'){
         $usuariocontroller = new UsuarioController();
@@ -202,4 +216,8 @@
         $usuariocontroller->Redirecthtml5();
     }
 
+    if(isset($_GET['curso']) && $_GET['curso'] == 'css3'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->Redirectcss3();
+    }
 ?> 
