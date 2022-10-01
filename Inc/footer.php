@@ -13,7 +13,6 @@
                             <li class="nav-item mb-2"><a href="https://github.com/Kolozuz" class="text-white" style="text-decoration:none">Juan Pablo Morales</a></li>
                             <li class="nav-item mb-2"><a href="https://github.com/JuanJo2804" class="text-white" style="text-decoration:none">Juan Jose Ocampo</a></li>
                             <li class="nav-item mb-2"><a href="https://github.com/esteban-b" class="text-white" style="text-decoration:none">Juan Esteban Bedoya</a></li>
-                            <li class="nav-item mb-2"><a href="https://github.com/Miguexd" class="text-white" style="text-decoration:none">Miguel Angel Mieles</a></li>
                         </ul>
                 </div>
                 <div class="col-3">
@@ -23,7 +22,6 @@
                             <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">moralesjuanpablo1122@gmail.com</a></li>
                             <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">2804juanjo@gmail.com</a></li>
                             <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">esteb4n.bedoy4@gmail.com</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">mielesrendon@gmail.com</a></li>
                         </ul>
                 </div>
             </div>
