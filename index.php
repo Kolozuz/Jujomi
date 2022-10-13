@@ -71,7 +71,7 @@
         </div>
     </article>
 
-    <article class="container shadow-sm bg-space text-light px-1">
+    <article class="container-fluid shadow-sm bg-space text-light px-1">
         <div class="my-4 p-5 text-center align-items-center">
                 <div class="row py-4">
                     <h2>¿Que esperas?</h2>

@@ -16,13 +16,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jujomi</title>
 </head>
-        <div class="container-fluid bg-secundario p-5 align-center" id="loadingscreen">
-            <div class="relleno"></div>
-            <div class="cube" >
+        <div class="container-fluid bg-secundario p-5" id="loadingscreen" >
+            <div class="cube" style="margin-top:auto; margin-bottom:auto;">
                 <div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
         </div>
-<body class="container-fluid p-0 bg-claro fs-5" onload="setTimeout(load,750)">
+<body class="container-fluid p-0 bg-claro fs-5" onload="setTimeout(load,700)">
 
     <!-- Header Navbar-->
     <header class="bg-primario fw-normal fs-6">
@@ -75,7 +74,7 @@
                                     <span>¿Has olvidado tu contraseña? <br> Haz click <a href="#">aqui</a> para restablecerla</span>
                                 </div>
                             </div>
-                        </div>
+                    </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" id="Logininput" class="btn btn-primary">Ingresar</button>
@@ -140,8 +139,6 @@
             function load(){
                 let loadingscreen = document.getElementById('loadingscreen');
                 loadingscreen.style.display = 'none';
-                loadingscreen.style.justifyContent = 'center';
-                loadingscreen.style.justifyItems = 'center';
             }
 
             // JavaScript for disabling form submissions if there are invalid fields
