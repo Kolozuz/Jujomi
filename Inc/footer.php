@@ -8,20 +8,20 @@
                     </svg>
                 </div>
                 <div class="col-3">
-                    <h5>Desarrolladores <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></h5>
-                        <ul class="nav flex-column ps-2">
-                            <li class="nav-item mb-2"><a href="https://github.com/Kolozuz" class="text-white" style="text-decoration:none">Juan Pablo Morales</a></li>
-                            <li class="nav-item mb-2"><a href="https://github.com/JuanJo2804" class="text-white" style="text-decoration:none">Juan Jose Ocampo</a></li>
-                            <li class="nav-item mb-2"><a href="https://github.com/esteban-b" class="text-white" style="text-decoration:none">Juan Esteban Bedoya</a></li>
+                    <h5>Desarrolladores <i class="fa-solid fa-user"></i></h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="https://github.com/Kolozuz" class="text-white" style="text-decoration:none;">Juan Pablo Morales</a></li>
+                            <li class="nav-item mb-2"><a href="https://github.com/JuanJo2804" class="text-white" style="text-decoration:none;">Juan Jose Ocampo</a></li>
+                            <li class="nav-item mb-2"><a href="https://github.com/esteban-b" class="text-white" style="text-decoration:none;">Juan Esteban Bedoya</a></li>
                         </ul>
                 </div>
                 <div class="col-3">
-                    <h5>Contacto <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/></svg></h5>
+                    <h5>Contacto <i class="fa-solid fa-envelope"></i></h5>
                     
-                        <ul class="nav flex-column ps-2">
-                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">moralesjuanpablo1122@gmail.com</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">2804juanjo@gmail.com</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none">esteb4n.bedoy4@gmail.com</a></li>
+                        <ul class="nav flex-column ">
+                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none;">moralesjuanpablo1122@gmail.com</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none;">2804juanjo@gmail.com</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="text-white" style="text-decoration:none;">esteb4n.bedoy4@gmail.com</a></li>
                         </ul>
                 </div>
             </div>

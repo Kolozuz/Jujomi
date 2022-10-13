@@ -133,6 +133,7 @@
         </div>
         
         <script src="Public/Js/bundle.min.js"></script>
+        <!-- Font Awesome Icons -->
         <script src="https://kit.fontawesome.com/192d5c8398.js" crossorigin="anonymous"></script>
         <script>
             // Loading Screen Delay

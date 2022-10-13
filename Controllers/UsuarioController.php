@@ -1,6 +1,7 @@
 <?php
     session_start();
     
+    
     //Variables de Sesion
     require '../Models/Usuario.php';
     require '../Models/Curso.php';
@@ -15,8 +16,8 @@
             foreach ($usuarioinfo as $usuario_u){}
             if(empty($_SESSION['username_login'])){
 
-                session_destroy();
-                die ('No has iniciado sesion');
+                echo 'NO HAS INICIADO PERRA';
+                $this->RedirectIndex();
                 return;
             }
 
@@ -32,15 +33,27 @@
         }
 
 
-        public function RedirectPerfil() {     
+        public function RedirectPerfil() { 
+            // if(!$_SESSION){
+            //     $this->RedirectStart();
+            // } 
+
             include_once '../Views/Usuario/PerfilUsuario.php'; 
         }
 
         public function RedirectConfig(){
+            // if(!$_SESSION){
+            //     $this->RedirectStart();
+            // } 
+
             include_once '../Views/Usuario/ConfigUsuario.php'; 
         }
 
         public function RedirectFaq(){
+            // if(!$_SESSION){
+            //     $this->RedirectStart();
+            // } 
+
             include_once '../Views/Usuario/FaqUsuario.php'; 
         }
 
@@ -84,9 +97,9 @@
         }
 
         public function VerifyLogin($nombre_u,$contrasena_u){
-            // ini_set('display_errors', 0);
-            // ini_set('display_startup_errors', 0);
-            // error_reporting(-1);
+            ini_set('display_errors', 0);
+            ini_set('display_startup_errors', 0);
+            error_reporting(-1);
             $this->nombre_u = $nombre_u;
             $this->contrasena_u = $contrasena_u;
             $usuarioinfo = $this->CheckUsuarioFromDB();
@@ -111,6 +124,7 @@
             }
 
             else{
+                // die ('yo mama');
                 echo '
                     <link rel="stylesheet" href="../Public/Css/boot.css">
                     <link rel="stylesheet" href="../Public/Css/style.css"><br>';
@@ -120,6 +134,8 @@
                 echo "<div class='container-fluid bg-primario'>¿Eres nuevo en Jujomi? <br> Haz click";
                 echo "<a class='btn bg-secundario shadow-sm' data-bs-toggle='modal' data-bs-target='#Registerpopup'>Aqui</a> para volver al index y registrarte </div>";
                 echo '")</script>';
+                echo '';
+
                 // $this->RedirectIndex();
                    
             }
@@ -140,63 +156,10 @@
             // session_reset();
             // $_SESSION['username_login'] = $updateperson->nombre_u;
             // $_SESSION['email_register'] = $updateperson->email_u;
-
+            
         }
-        
-
-        
-    }
-
-    //TOMAR ACTION PARA REDIRECCIONAR
-    if(isset($_GET['action']) && $_GET['action'] == 'start'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectStart();
     }
     
-    //Index
-    if(isset($_GET['action']) && $_GET['action'] == 'index'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectIndex();
-    }
-
-    //Perfil
-    if(isset($_GET['action']) && $_GET['action'] == 'perfil'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectPerfil();
-    }
-
-    //Configuracion
-    if(isset($_GET['action']) && $_GET['action'] == 'config'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectConfig();
-    }
-
-    //FAQ
-    if(isset($_GET['action']) && $_GET['action'] == 'faq'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectFaq();
-    }
-
-    //Cerrar Sesion
-    if(isset($_GET['action']) && $_GET['action'] == 'logout'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->RedirectIndex($alert);
-    }
-
-    //Eliminar Cuenta
-    if(isset($_GET['action']) && $_GET['action'] == 'delete'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->DeletePerfil();
-        session_destroy();
-    }
-
-    //Actualizar Cuenta
-    if(isset($_GET['action']) && $_GET['action'] == 'update'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->Update();
-        // session_destroy();
-    }
-
     //TOMAR DATOS DE REGISTRO DESDE EL FORMULARIO Y GUARDARLOS EN LA DB, ENCRIPTANDO LA CONTRASEÑA
     if(isset($_POST['action']) && $_POST['action'] == 'insertar'){
         $usuariocontroller = new UsuarioController();
@@ -209,7 +172,7 @@
         $usuariocontroller = new UsuarioController();
         $usuariocontroller->VerifyLogin($_POST['username_login'], $_POST['password_login']);
     }
-
+    
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
     if(isset($_GET['curso']) && $_GET['curso'] == 'html5'){
         $usuariocontroller = new UsuarioController();
@@ -220,4 +183,62 @@
         $usuariocontroller = new UsuarioController();
         $usuariocontroller->Redirectcss3();
     }
-?> 
+    //TOMAR ACTION PARA REDIRECCIONAR
+    if(isset($_GET['action']) && $_GET['action'] == 'start'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectStart();
+    }
+    
+    
+    //Index
+    if(isset($_GET['action']) && $_GET['action'] == 'index'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectIndex();
+    }
+    //Cerrar Sesion
+    if(isset($_GET['action']) && $_GET['action'] == 'logout'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectIndex($alert);
+        session_destroy();
+    }
+    if(!$_SESSION){
+        $usuariocontroller =  new UsuarioController();
+        $usuariocontroller->RedirectStart();
+    }
+    
+    //Perfil
+    if(isset($_GET['action']) && $_GET['action'] == 'perfil'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectPerfil();
+    }
+
+    //Configuracion
+    if(isset($_GET['action']) && $_GET['action'] == 'config'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectConfig();
+    }
+    
+    //FAQ
+    if(isset($_GET['action']) && $_GET['action'] == 'faq'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->RedirectFaq();
+    }
+    
+    
+    //Eliminar Cuenta
+    if(isset($_GET['action']) && $_GET['action'] == 'delete'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->DeletePerfil();
+        session_destroy();
+    }
+    
+    //Actualizar Cuenta
+    if(isset($_GET['action']) && $_GET['action'] == 'update'){
+        $usuariocontroller = new UsuarioController();
+        $usuariocontroller->Update();
+        // session_destroy();
+    }
+    
+    
+    
+    ?> 

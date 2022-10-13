@@ -43,14 +43,14 @@
             // if ($usuarioobjeto){
                 return $usuarioobjeto;
             // }
-            // else{
-            //     var_dump($usuarioobjeto);
+        //     else{
+        //         var_dump($usuarioobjeto);
 
-            //     session_destroy();
-            //     die ('No te encuentras registrado en Jujomi');
-            //     // return $usuarioobjeto;
+        //         session_destroy();
+        //         die ('No te encuentras registrado en Jujomi');
+        //         return $usuarioobjeto;
 
-            // }
+        //     }
         }
 
         protected function UpdateUsuario($id_u,$nombre_u,$email_u){
