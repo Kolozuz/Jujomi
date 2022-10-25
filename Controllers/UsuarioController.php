@@ -16,7 +16,7 @@
             foreach ($usuarioinfo as $usuario_u){}
             if(empty($_SESSION['username_login'])){
 
-                echo 'NO HAS INICIADO PERRA';
+                echo 'NO HAS INICIADO SESION BRO';
                 $this->RedirectIndex();
                 return;
             }
@@ -27,7 +27,10 @@
                 // echo '</script>';
                 // var_dump($usuarioinfo);
                 // include_once '../Views/Usuario/CursosUsuario.php';
-                header('Location: CursoController.php');
+                
+                // echo $_SESSION['id_register'];
+                $id_u = $_SESSION['id_register'];
+                header("Location: CursoController.php?action=start&id={$id_u}") ;
             }
             
 
@@ -105,8 +108,8 @@
                 $_SESSION['password_login'] = $usuario_u->contrasena_u;
                 
                     $_SESSION['id_register'] = $usuario_u->id_u;
-                    $_SESSION['fecha_register'] = $usuario_u->fecha_u;
-                    $_SESSION['hora_register'] = $usuario_u->hora_u;
+                    $_SESSION['fecha_register'] = $usuario_u->fecha_register;
+                    $_SESSION['hora_register'] = $usuario_u->hora_register;
                     $_SESSION['email_register'] = $usuario_u->email_u;
 
                     // header('Location: UsuarioController.php?action=start'); 
