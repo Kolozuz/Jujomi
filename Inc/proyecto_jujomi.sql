@@ -54,7 +54,7 @@ INSERT INTO `cursos` (`id_curso`, `img_curso`, `nombre_curso`, `desc_curso`, `nu
 
 CREATE TABLE `usuario` (
   `id_u` int(11) NOT NULL AUTO_INCREMENT,
-  `fecha_u` date DEFAULT NULL,
+  `fecha_u` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `hora_u` time DEFAULT NULL,
   `email_u` varchar(150) DEFAULT NULL,
   `nombre_u` varchar(100) DEFAULT NULL,

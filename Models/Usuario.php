@@ -22,7 +22,7 @@
         
         public function SaveUsuario(){
             $conexion = new Conexion();
-            $sql = "INSERT INTO usuario(email_u, nombre_u, contrasena_u) VALUES (?,?,?)";
+            $sql = "INSERT INTO tbl_usuario(email_u, nombre_u, contrasena_u) VALUES (?,?,?)";
             
             $insert = $conexion->stm->prepare($sql);
             $insert->bindParam(1,$this->email_u);
@@ -34,7 +34,7 @@
         
         protected function CheckUsuarioFromDB(){
         $conexion = new Conexion();
-            $sql = "SELECT * FROM usuario WHERE nombre_u='$this->nombre_u'";
+            $sql = "SELECT * FROM tbl_usuario WHERE nombre_u='$this->nombre_u'";
 
             $usuario = $conexion->stm->prepare($sql); 
             $usuario->execute();
@@ -56,7 +56,7 @@
         protected function UpdateUsuario($id_u,$nombre_u,$email_u){
             $conexion = new Conexion();
             
-            $sql = "UPDATE usuario SET nombre_u='$nombre_u', email_u='$email_u' WHERE id_u = '$id_u'";
+            $sql = "UPDATE tbl_usuario SET nombre_u='$nombre_u', email_u='$email_u' WHERE id_u = '$id_u'";
 
             $update = $conexion->stm->prepare($sql);
             $update->execute();
@@ -73,7 +73,7 @@
             
             $id_u = $_GET['id'];
             
-            $sql = "DELETE FROM usuario WHERE id_u = '$id_u'";
+            $sql = "DELETE FROM tbl_usuario WHERE id_u = '$id_u'";
 
             $delete = $conexion->stm->prepare($sql);
             $delete->execute();

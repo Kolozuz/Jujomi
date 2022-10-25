@@ -4,7 +4,7 @@
     
     //Variables de Sesion
     require '../Models/Usuario.php';
-    require '../Models/Curso.php';
+    // require '../Models/Curso.php';
     // $nombre = $_POST['username_login'];
 
     class UsuarioController extends Usuario{
@@ -26,7 +26,8 @@
                 // echo "alert('Sesion iniciada con exito')";
                 // echo '</script>';
                 // var_dump($usuarioinfo);
-                include_once '../Views/Usuario/CursosUsuario.php';
+                // include_once '../Views/Usuario/CursosUsuario.php';
+                header('Location: CursoController.php');
             }
             
 
@@ -71,14 +72,6 @@
         
         public function RedirectIndex(){
             header('Location: ../index.php');
-        }
-
-        public function Redirecthtml5(){
-            include_once '../Views/Cursos/html5.php';
-        }
-
-        public function Redirectcss3(){
-            include_once '../Views/Cursos/css3.php';
         }
 
         public function ListInformation($email_u,$nombre_u,$contrasenaencripted){
@@ -134,7 +127,7 @@
                 echo "<div class='container-fluid bg-primario'>¿Eres nuevo en Jujomi? <br> Haz click";
                 echo "<a class='btn bg-secundario shadow-sm' data-bs-toggle='modal' data-bs-target='#Registerpopup'>Aqui</a> para volver al index y registrarte </div>";
                 echo '")</script>';
-                echo '';
+                echo '<script>alert("SIUUUUUUUUUUUUUUUUUUUUUUUUU")</script>';
 
                 // $this->RedirectIndex();
                    
@@ -173,16 +166,6 @@
         $usuariocontroller->VerifyLogin($_POST['username_login'], $_POST['password_login']);
     }
     
-    //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
-    if(isset($_GET['curso']) && $_GET['curso'] == 'html5'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->Redirecthtml5();
-    }
-
-    if(isset($_GET['curso']) && $_GET['curso'] == 'css3'){
-        $usuariocontroller = new UsuarioController();
-        $usuariocontroller->Redirectcss3();
-    }
     //TOMAR ACTION PARA REDIRECCIONAR
     if(isset($_GET['action']) && $_GET['action'] == 'start'){
         $usuariocontroller = new UsuarioController();

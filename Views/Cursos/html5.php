@@ -10,12 +10,12 @@ foreach($htmlobj as $c){
         <div class="row m-4 d-flex align-items-center">
             <div class="col-4 me-5">
                 <div class="container-fluid bg-light p-2 mx-2 rounded text-center">
-                <?php echo $c->img_curso ?>
+                <?php echo $c->img_c ?>
                 </div>
             </div>
             <div class="col-7">
-                <h2><?php echo $c->nombre_curso;?></h2>
-                <p><?php echo $c->desc_curso;?></p>
+                <h2><?php echo $c->nombre_c;?></h2>
+                <p><?php echo $c->desc_c;?></p>
             </div>
         </div>
     </div>
