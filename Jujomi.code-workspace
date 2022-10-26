@@ -9,7 +9,7 @@
 		
 		},
 			"workbench.iconTheme": "material-icon-theme",
-			"workbench.colorTheme": "Night Owl",
+			"workbench.colorTheme": "Dracula",
 			"liveServer.settings.donotShowInfoMsg": true,
 			"vscode-edge-devtools.webhint": false,
 			"tabnine.experimentalAutoImports": true,
@@ -27,5 +27,11 @@
 			"omnisharp.useModernNet": false,
 			"vsicons.dontShowNewVersionMessage": true,
 			"editor.defaultFormatter": "esbenp.prettier-vscode",
+		},
+		"extensions": {
+			"recommendations": [
+				"pkief.material-icon-theme",
+				"dracula-theme.theme-dracula"
+			]
 		}
 	}
