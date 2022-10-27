@@ -31,7 +31,8 @@
 		"extensions": {
 			"recommendations": [
 				"pkief.material-icon-theme",
-				"dracula-theme.theme-dracula"
+				"dracula-theme.theme-dracula",
+				"oderwat.indent-rainbow"
 			]
 		}
 	}
