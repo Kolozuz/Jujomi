@@ -8,7 +8,7 @@ create table if not exists tbl_usuario(
     id_u int(11) PRIMARY KEY AUTO_INCREMENT,
     email_u varchar(150),
     nombre_u varchar(100),
-    contrasena_u varchar(255)
+    contrasena_u varchar(255),
     fecha_u date default current_timestamp(),
     hora_u time default current_timestamp()
     );

@@ -59,10 +59,10 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
     <article class="col-md-3 col-sm-12 my-2">
         <div class="container-fluid bg-light p-2 mx-2 rounded text-center">
             <a href="UsuarioController.php?curso=html5" class="row">
-                <?php echo $c->img_curso?>
+                <?php echo $c->img_c?>
             <a href="UsuarioController.php?curso=html5" class="row" style="text-decoration:none">
             <span>
-                <?php echo $c->nombre_curso?>
+                <?php echo $c->nombre_c?>
             </span>
             </a>
         </div>
