@@ -1,48 +1,88 @@
-
 /*-------------------------------------------- Propiedades Globales --------------------------------------------------*/
 
-*{
+* {
     font-family: Dosis, sans-serif;
     text-rendering: optimizeLegibility;
+    box-sizing: border-box;
 }
 
 
 :root {
     --primario: #126E82;
     --secundario: #51C4D3;
-    --claro: #D8E3E7 ;
+    --claro: #D8E3E7;
     --oscuro: #132C33;
     --space: url(../../Public/img/stars_pattern.svg);
 }
 
-.bg-primario{background-color: var(--primario);}
-.bg-secundario{background-color: var(--secundario);}
-.bg-secundario:hover{
-    background-color: #51B4C3;
-    outline: solid var(--oscuro) .1rem;
+.bg-primario {
+    background-color: var(--primario);
 }
-.bg-claro{
+
+.btn-primario {
+    background-color: var(--primario);
+    border: none;
+    outline: none;
+}
+
+.btn-primario:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--secundario);
+}
+
+.bg-secundario {
+    background-color: var(--secundario);
+    border: none;
+    outline: none;
+}
+
+.bg-secundario:hover {
+    background-color: #51B4C3;
+    border: none;
+    outline: none;
+    /* outline: solid var(--oscuro) .1rem; */
+}
+
+.btn-secundario {
+    background-color: var(--secundario);
+}
+
+.btn-secundario:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--primario);
+}
+
+
+.bg-claro {
     background: var(--claro);
-    background: linear-gradient(280deg, var(--secundario) 0%, var(--claro) 0%); }
-.bg-oscuro{background-color: var(--oscuro);}
-.bg-space{background-image: var(--space);}
+    background: linear-gradient(280deg, var(--secundario) 0%, var(--claro) 0%);
+}
+
+.bg-oscuro {
+    background-color: var(--oscuro);
+}
+
+.bg-space {
+    background-image: var(--space);
+}
 
 /*--------------------------------------------------- Cabecera ---------------------------------------------------*/
 
 /*---------------------------------------------------- Index imgs ----------------------------------------------------*/
-.character_imgs{
-  width: 25vw;
-  mix-blend-mode:multiply;
+.character_imgs {
+    width: 25vw;
+    mix-blend-mode: multiply;
 }
+
 /*------------------------------------------------ Loading Screen ------------------------------------------------*/
 
-#loadingscreen{
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  justify-content: center;
+#loadingscreen {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    justify-content: center;
 
 }
 
@@ -53,15 +93,15 @@
     width: 60px;
     height: 34px;
     border-radius: 34px;
-  }
-  
-  .switch input { 
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .slider {
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -71,9 +111,9 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -85,33 +125,34 @@
     background-size: 100%;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
     background-color: var(--primario);
-  }
-  
-  
-  input:checked + .slider:before {
+}
+
+
+input:checked+.slider:before {
     background-image: url(../../Public/img/dark_moon.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+/* Rounded sliders */
+.slider.round {
     border-radius: 34px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 0%;
-  }
+}
+
 /*----------------------------------------------- Icons -----------------------------------------------*/
-.fa-whatsapp{
-  font-size: 2.4em;
+.fa-whatsapp {
+    font-size: 2.4em;
 }
 
 /*----------------------------------------------- Loading Screen -----------------------------------------------*/
@@ -127,15 +168,15 @@
     left: 0;
 } */
 
-#carousel{
+#carousel {
     width: 40vw;
 }
 
 /* img{border-radius: 10px; box-shadow: 0 0 8px black;} */
 
 
-@media screen and (max-width: 600px){
-    *{
+@media screen and (max-width: 600px) {
+    * {
         font-size: .9em;
     }
 }
@@ -143,3 +184,41 @@
 /* header h1{
     text-align: center;
 } */
+
+/*---------- Spin Animation ---------- */
+.spin_animation>i {
+    transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+
+.spin_animation:hover>i {
+    animation-name: spin_animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* background-color: red;  */
+    transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+}
+
+@keyframes spin_animation {
+    0% {
+        color: orangered;
+    }
+
+    25% {
+        color: orange
+    }
+
+    50% {
+        color: yellow;
+        transform: rotate(180deg);
+    }
+
+    75% {
+        color: greenyellow;
+    }
+
+    100% {
+        color: fuchsia;
+        transform: rotate(360deg);
+    }
+}
