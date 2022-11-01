@@ -45,7 +45,7 @@
         </nav>
 
         <!-- Inicio de sesion Usuario -->
-        <div class="modal" id="Loginpopup" tabindex="-1">
+        <div class="modal fade" id="Loginpopup" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Registro de Usuario -->
-        <div class="modal" id="Registerpopup" tabindex="-1">
+        <div class="modal fade" id="Registerpopup" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
