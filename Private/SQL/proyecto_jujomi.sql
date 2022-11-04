@@ -21,15 +21,20 @@ create table if not exists tbl_curso(
     nombre_c varchar(100),
     desc_c varchar(500),
     fecha_c date default current_timestamp(),
-    id_usuario int(11),
+    id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
 
 create table if not exists tbl_rating(
     id_rating int(11) PRIMARY KEY AUTO_INCREMENT,
     valor_rating float(3),
-    id_curso int(11),
-    id_usuario int(11),
+    id_curso int(11) NOT NULL,
+    id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
+
+create table if not exists tbl_config(
+    dark_mode bit(1) default 1
+    id_usuario int(11) NOT NULL,
+    FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
 
 # -> EN DEUSO POR EL MOMENTO FOREIGN KEY(id_usuario) REFERENCES tbl_curso(id_usuario)
 
