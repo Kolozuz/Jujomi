@@ -6,6 +6,8 @@ use proyecto_jujomi;
 
 create table if not exists tbl_usuario(
     id_u int(11) PRIMARY KEY AUTO_INCREMENT,
+    imgurl_u varchar(255),
+    img_u varchar(255),
     email_u varchar(150),
     nombre_u varchar(100),
     contrasena_u varchar(255),
@@ -14,7 +16,8 @@ create table if not exists tbl_usuario(
 
 create table if not exists tbl_curso(
     id_c int(11) PRIMARY KEY AUTO_INCREMENT,
-    img_c varchar(2000),
+    imgurl_c varchar(255),
+    img_c varchar(255),
     nombre_c varchar(100),
     desc_c varchar(500),
     fecha_c date default current_timestamp(),
