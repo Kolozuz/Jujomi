@@ -193,32 +193,16 @@ input:checked+.slider:before {
 .spin_animation:hover>i {
     animation-name: spin_animation;
     animation-duration: 2s;
-    animation-iteration-count: infinite;
+    /* animation-iteration-count: infinite; */
     /* background-color: red;  */
     transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 
 }
 
 @keyframes spin_animation {
-    0% {
-        color: orangered;
-    }
-
-    25% {
-        color: orange
-    }
-
-    50% {
-        color: yellow;
-        transform: rotate(180deg);
-    }
-
-    75% {
-        color: greenyellow;
-    }
-
+    50%{color: white;}
     100% {
-        color: fuchsia;
+        color: #212529;
         transform: rotate(360deg);
     }
 }
