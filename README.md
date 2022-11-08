@@ -1,5 +1,5 @@
 # Jujomi
-Welcome to Jujomi Project Repository
+Welcome to Jujomi Project Repository.
 You may be wondering what is this 'Jujomi' thing about, well, this is a lil project we came up with for SENA wich is where we are studying Software Development.
 The objective with it is to apply al the knwoledge we've been gatering trough the last year to create a software solution in the form of a webpage.
 
