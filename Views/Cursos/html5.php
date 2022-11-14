@@ -3,7 +3,7 @@ include '../Inc/userheader.php';
 // include '../../Controllers/CursoController.php?action=showcursos';
 // include '../Models/Usuario.php'; //Esto deberia ser Curso.php, NO Usuario.php!!!!
 $curso =  new Curso();
-$htmlobj = $curso->CheckCursoFromDB();
+$htmlobj = $curso->CheckCursoFromDB($id_c);
 foreach($htmlobj as $c){
 ?>
     <div class="container-fluid">
