@@ -2,7 +2,7 @@
     <article class="container-fluid shadow-sm bg-space text-light">
         <div class="row my-4 p-5 d-flex text-center align-items-center">
                 <div class="col-md-6 col-sm-12">
-                    <h2> Aprende a programar mientras te diviertes, ¡es completamente gratis! </h2>
+                    <h2> Aprende y enseña lo que quieras, ¡es completamente gratis! </h2>
                 </div>
 
                 <div class="col-md-6 col-sm-12 text-dark">
@@ -15,7 +15,7 @@
                         <form action="">
                             <div class="col form-floating p-0 fs-6">
                                 <input type="search" name="course_search" id="course_search" class="form-control bg-claro" placeholder="busca nuestros cursos">
-                                <label for="course_search">O busca nuestros cursos</label>
+                                <label for="course_search">O busca algun curso</label>
                             </div>
                         </form>
                     </div>

@@ -25,9 +25,9 @@
     outline: none;
 }
 
-.btn-primario:hover {
+.btn-primario:hover, .btn-primario:focus{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: var(--secundario);
+    background-color: #16829b;
 }
 
 .bg-secundario {
@@ -36,8 +36,8 @@
     outline: none;
 }
 
-.bg-secundario:hover {
-    background-color: #51B4C3;
+.bg-secundario:hover, .bg-secundario:focus {
+    background-color: #3f9aa7;
     border: none;
     outline: none;
     /* outline: solid var(--oscuro) .1rem; */
@@ -66,6 +66,9 @@
     background-image: var(--space);
 }
 
+.div-hover:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 /*--------------------------------------------------- Cabecera ---------------------------------------------------*/
 
 /*---------------------------------------------------- Index imgs ----------------------------------------------------*/
@@ -73,7 +76,6 @@
     width: 25vw;
     mix-blend-mode: multiply;
 }
-
 /*------------------------------------------------ Loading Screen ------------------------------------------------*/
 
 #loadingscreen {
@@ -154,7 +156,11 @@ input:checked+.slider:before {
 .fa-whatsapp {
     font-size: 2.4em;
 }
-
+/*--------------------------------------------------- Links ---------------------------------------------------*/
+a.link-dark{
+    text-decoration:none;
+    font-size:0;
+}
 /*----------------------------------------------- Loading Screen -----------------------------------------------*/
 /* img.bg{
     opacity: 90%;

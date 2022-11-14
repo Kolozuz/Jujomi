@@ -17,7 +17,7 @@ create table if not exists tbl_usuario(
 create table if not exists tbl_curso(
     id_c int(11) PRIMARY KEY AUTO_INCREMENT,
     imgurl_c varchar(255),
-    img_c varchar(255),
+    img_c varchar(1000),
     nombre_c varchar(100),
     desc_c varchar(500),
     fecha_c date default current_timestamp(),
@@ -32,7 +32,7 @@ create table if not exists tbl_rating(
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
 
 create table if not exists tbl_config(
-    dark_mode bit(1) default 1
+    dark_mode bit(1) default 1,
     id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
 

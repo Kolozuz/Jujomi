@@ -1,6 +1,7 @@
 <?php echo '<script>console.log("with ♥ by Jujomi Org.")</script>'; ?>
 <!DOCTYPE html>
 <html lang="ES">
+
 <head>
     <!-- Fuente Importada de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,35 +12,44 @@
     <!-- Custom stylesheet -->
     <link rel="stylesheet" href="Public/Css/style.css?v=<?php echo time(); ?>">
     <!-- Whirl Loading Animations -->
-    <link rel="stylesheet" href="Public/Css/css/cube.css?v=<?php echo time(); ?>" >
+    <link rel="stylesheet" href="Public/Css/css/cube.css?v=<?php echo time(); ?>">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jujomi</title>
 </head>
-        <div class="container-fluid bg-secundario p-5" id="loadingscreen" >
-            <div class="cube" style="margin-top:auto; margin-bottom:auto;">
-                <div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-        </div>
+<div class="container-fluid bg-secundario p-5" id="loadingscreen">
+    <div class="cube" style="margin-top:auto; margin-bottom:auto;">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
 <body class="container-fluid p-0 bg-claro fs-5" onload="setTimeout(load,700)">
 
     <!-- Header Navbar-->
     <header class="bg-primario fw-normal fs-6">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-semibold " href="index.php">JUJOMI</a>
+                <a class="navbar-brand fs-2 fw-semibold px-3 pb-2" href="index.php">
+                    <img src="Public/img/2.png" alt="logo" width="70px">
+                    <img src="Public/img/1.5.png" alt="brand logo" width="100px">
+                </a>
                 <span>
                     <span class="dropdown">
                         <a href="#" class="dropdown-toggle btn bg-secundario shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
                         <ul class="dropdown-menu my-3">
                             <li><a class="dropdown-item" href="Cursos.php">Cursos</a></li>
-                            <li><a class="dropdown-item" href="#">¿Por que estudiar programacion?</a></li>
+                            <li><a class="dropdown-item" href="#">¿Por que estudiar online?</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
                         </ul>
                     </span>
-                    
-                    <button class="btn bg-claro shadow-sm" data-bs-toggle="modal" data-bs-target="#Loginpopup" id="a">Iniciar Sesión</button> 
+
+                    <button class="btn bg-claro shadow-sm" data-bs-toggle="modal" data-bs-target="#Loginpopup" id="a">Iniciar Sesión</button>
                     <button class="btn bg-secundario shadow-sm" data-bs-toggle="modal" data-bs-target="#Registerpopup" id="b">Registro</button>
                 </span>
             </div>
@@ -55,7 +65,7 @@
                     </div>
                     <div class="modal-body">
                         <form action="Controllers/UsuarioController.php?action=login" method="post" id="login_credentials_usuario" class="form-floating needs-validation" novalidate>
-                            <div class="container-fluid" >
+                            <div class="container-fluid">
                                 <div class="row ms-5 me-5 form-floating mb-3">
                                     <input type="hidden" name="action" value="login">
                                     <input type="text" class="form-control col" name="username_login" placeholder="Ingresa tu usuario" required>
@@ -66,7 +76,7 @@
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
                                     <input type="password" class="form-control col" name="password_login" placeholder="Ingresa tu contraseña" required>
-                                    <label for="password_login">Ingresa  tu contraseña</label>
+                                    <label for="password_login">Ingresa tu contraseña</label>
                                     <div class="invalid-feedback">
                                         Debes escribir tu contraseña.
                                     </div>
@@ -76,10 +86,10 @@
                                 </div>
                             </div>
                     </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" id="Logininput" class="btn btn-primary">Ingresar</button>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="Logininput" class="btn btn-primary">Ingresar</button>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -122,45 +132,44 @@
                                     <span><input type="checkbox" name="terms_&_conditions_checkbox" id="" required> Acepto los <a href="#">Terminos y Condiciones</a> </span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" id="Registerinput" class="btn btn-primary">Crear Cuenta</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="Registerinput" class="btn btn-primary">Crear Cuenta</button>
+                    </div>
                     </form>
                 </div>
             </div>
         </div>
-        
+
         <script src="Public/Js/bundle.min.js"></script>
         <!-- Font Awesome Icons -->
         <script src="https://kit.fontawesome.com/192d5c8398.js" crossorigin="anonymous"></script>
         <script>
             // Loading Screen Delay
-            function load(){
+            function load() {
                 let loadingscreen = document.getElementById('loadingscreen');
                 loadingscreen.style.display = 'none';
             }
 
             // JavaScript for disabling form submissions if there are invalid fields
             (() => {
-            'use strict'
+                'use strict'
 
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll('.needs-validation')
 
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
 
-                form.classList.add('was-validated')
-                }, false)
-            })
+                        form.classList.add('was-validated')
+                    }, false)
+                })
             })()
-
         </script>
     </header>
