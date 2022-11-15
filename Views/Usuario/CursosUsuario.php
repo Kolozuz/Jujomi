@@ -13,7 +13,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
     </div>
     <div class="row mt-4 text-center">
         <div class="col-md-3 col-sm-5 my-2">
-            <a class="btn btn-primario spin_animation fs-5 fw-bold p-3 ">
+            <a href="CursoController.php?action=crearCurso" class="btn btn-primario spin_animation fs-5 fw-bold p-3">
                 <i class="fa-solid fa-plus"></i> Nuevo
             </a>
         </div>

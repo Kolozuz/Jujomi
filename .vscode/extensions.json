@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "bmewburn.vscode-intelephense-client"
+        "bmewburn.vscode-intelephense-client",
+        "yandeu.five-server",
+        "pkief.material-icon-theme"
     ]
 }

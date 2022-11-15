@@ -12,6 +12,11 @@
             return;
         }
 
+        public function RedirectCursoCreator(){
+            include_once '../Views/Usuario/crearCurso.php';
+            return;
+        }
+
         public function Redirecthtml5(){
             include_once '../Views/Cursos/html5.php';
         }
@@ -43,6 +48,11 @@
         $cursocontroller->RedirectCursoManager();
     }
 
+    if(isset($_GET['action']) && $_GET['action'] == 'crearCurso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectCursoCreator();
+    }
+
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
     if(isset($_GET['curso']) && $_GET['curso'] == 'html5'){
         $cursocontroller = new CursoController();
@@ -58,6 +68,5 @@
     if(isset($_POST['action']) && $_POST['action'] == 'insertar_curso'){
         $cursocontroller = new CursoController();
         $cursocontroller->InsertCurso($_POST['id_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
-
     }
 ?> 

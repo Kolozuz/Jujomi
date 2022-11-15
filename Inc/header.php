@@ -36,6 +36,7 @@
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
                 <a class="navbar-brand fs-2 fw-semibold px-3 pb-2" href="index.php">
+                    <!-- JUJOMI -->
                     <img src="Public/img/2.png" alt="logo" width="70px">
                     <img src="Public/img/1.5.png" alt="brand logo" width="100px">
                 </a>
