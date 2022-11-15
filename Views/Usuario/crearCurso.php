@@ -29,17 +29,38 @@
 
 
 
-        <form action="#" method="post" id="form-curso" style="display: none;">
-            <label for=""></label>
-            <input type="text" class="form-control">
-            <label for=""></label>
-            <input type="text" class="form-control">
-            <label for=""></label>
-            <input type="text" class="form-control">
-            <label for=""></label>
-            <input type="text" class="form-control">
-            <label for=""></label>
-            <input type="text" class="form-control">
+        <form action="#" method="post" id="form-curso" style="display: none;" class="mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <input type="file" class="form-control">
+                <label for=""></label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control">
+                <label for=""></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control">
+                <label for=""></label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control">
+                <label for=""></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control">
+                <label for=""></label>
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control">
+                <label for=""></label>
+            </div>
+        </div>
+
         </form>
     </div>
 </main>
