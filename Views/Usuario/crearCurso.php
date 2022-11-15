@@ -5,24 +5,29 @@
         <h2 class="fs-semibold">Creador de Cursos</h2>
     </div>
     <div class="row p-5">
-        <span>Primero selecciona la categoría de tu curso</span>
-        <select name="categoría_curso" id="categoria_curso" class="form-select" oninput="enableBtn()">
-            <option value="">-- Selecciona una opción --</option>
-            <option value="Cocina">Cocina</option>
-            <option value="Ciencia">Ciencia</option>
-            <option value="Dibujo">Dibujo</option>
-            <option value="Filosofía">Filosofía</option>
-            <option value="Fitness">Fitness</option>
-            <option value="Fotografía y Video">Fotografía y Video</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Matemática">Matemática</option>
-            <option value="Música">Música</option>
-            <option value="Ofimática">Ofimática</option>
-            <option value="Programación">Programación</option>
-            <option value="Videojuegos">Videojuegos</option>
-        </select>
+        <div class="col"><span>Primero selecciona la categoría de tu curso</span>
+            <select name="categoría_curso" id="categoria_curso" class="form-select" oninput="enableBtn()">
+                <option value="">-- Selecciona una opción --</option>
+                <option value="Cocina">Cocina</option>
+                <option value="Ciencia">Ciencia</option>
+                <option value="Dibujo">Dibujo</option>
+                <option value="Filosofía">Filosofía</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Fotografía y Video">Fotografía y Video</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Matemática">Matemática</option>
+                <option value="Música">Música</option>
+                <option value="Ofimática">Ofimática</option>
+                <option value="Programación">Programación</option>
+                <option value="Videojuegos">Videojuegos</option>
+            </select>
+        </div>
+        <div class="col">
+            <button id="confirm" name="confirm" onclick="nextStep()" class="btn btn-primario"
+                disabled>Confirmar</button>
+        </div>
 
-        <button id="confirm" name="confirm" onclick="nextStep()" class="btn btn-primario" disabled>Confirmar</button>
+
 
         <form action="#" method="post" id="form-curso" style="display: none;">
             <label for=""></label>
@@ -52,9 +57,9 @@
         if (categoria.value == "") {
             console.log('nothing selected, btn disabled');
             formCurso.style.display = "none";
-            btnConfirm.setAttribute("disabled","disabled");
+            btnConfirm.setAttribute("disabled", "disabled");
         }
-        else{
+        else {
             btnConfirm.removeAttribute("disabled");
             console.log('button enabled');
             // console.log(categoria.value);
@@ -63,7 +68,7 @@
         //     btnConfirm.setAttribute("disabled");
         // }
 
-        
+
     }
 </script>
 
