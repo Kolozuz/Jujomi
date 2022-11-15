@@ -38,7 +38,7 @@
 
             $usuario = $conexion->stm->prepare($sql); 
             $usuario->execute();
-      
+            
             $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
             // if ($usuarioobjeto){
                 return $usuarioobjeto;
