@@ -27,8 +27,6 @@
                 disabled>Confirmar</button>
         </div>
 
-
-
         <form action="#" method="post" id="form-curso" style="display: none;" class="mt-4">
         <div class="row">
             <div class="col-md-6">
