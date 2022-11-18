@@ -204,6 +204,41 @@ a.link-dark{
     transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 
 }
+/* IMG PREVIEW */
+#img-preview {
+    display: none;
+    width: 155px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dashed var(--oscuro);
+    margin-bottom: 20px;
+}
+
+#img-preview img {
+    
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+[type="file"] {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}
+
+[type="file"]+label {
+    font-family: sans-serif;
+    padding: 10px 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+[type="file"]+label:hover {
+    background-color: var(--secundario);
+    outline: 2px solid var(--primario);
+}
 
 @keyframes spin_animation {
     50%{color: white;}

@@ -69,6 +69,8 @@
     //TOMAR DATOS DE REGISTRO DESDE EL FORMULARIO Y GUARDARLOS EN LA DB, ENCRIPTANDO LA CONTRASEÑA
     if(isset($_POST['action']) && $_POST['action'] == 'insertar_curso'){
         $cursocontroller = new CursoController();
-        $cursocontroller->InsertCurso($_POST['imgurl_c'],$_POST['img_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
+        $img = $_FILES['img_c']['name'];
+        echo $img;
+        // $cursocontroller->InsertCurso($_POST['imgurl_c'],$_POST['img_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
     }
 ?> 
