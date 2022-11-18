@@ -25,7 +25,8 @@
             include_once '../Views/Cursos/css3.php';
         }
 
-        public function InsertCurso($img_c, $nombre_c, $desc_c, $id_usuario){
+        public function InsertCurso($imgurl_c, $img_c, $nombre_c, $desc_c, $id_usuario){
+            $this->imgurl_c = $imgurl_c;
             $this->img_c = $img_c;
             $this->nombre_c = $nombre_c;
             $this->desc_c = $desc_c;
@@ -36,10 +37,11 @@
 
         public function ChangeCurso(){
             $id_c = $_POST['id_update'];
+            $imgurl_c = $_POST['imgurl_update'];
             $img_c = $_FILES['img_update'];
             $nombre_c = $_POST['name_update'];
             $desc_c = $_POST['desc_update'];
-            $cursos = $this->UpdateCurso($id_c, $img_c, $nombre_c, $desc_c);
+            $cursos = $this->UpdateCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c);
         }
     }
 
@@ -67,6 +69,6 @@
     //TOMAR DATOS DE REGISTRO DESDE EL FORMULARIO Y GUARDARLOS EN LA DB, ENCRIPTANDO LA CONTRASEÑA
     if(isset($_POST['action']) && $_POST['action'] == 'insertar_curso'){
         $cursocontroller = new CursoController();
-        $cursocontroller->InsertCurso($_POST['id_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
+        $cursocontroller->InsertCurso($_POST['imgurl_c'],$_POST['img_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
     }
 ?> 

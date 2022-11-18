@@ -29,18 +29,18 @@
 
         <form action="#" method="post" id="form-curso" style="display: none;" class="mt-4">
         <div class="row">
-            <div class="col-md-4 form-floating mt-3">
-                <input type="text" class="form-control" id="titulo" placeholder="Ingresa el titulo">
+            <div class="col-md-2  col-sm-12 form-floating mt-3">
+                <input type="file" class="form-control" id="titulo" placeholder="Ingresa el titulo">
                 <label for="titulo" class="px-4">Ingresa el titulo</label>
             </div>
-            <div class="col-md-8 form-floating mt-3">
+            <div class="col-md-8  col-sm-12 form-floating mt-3">
                 <input type="text" class="form-control" id="titulo" placeholder="Ingresa el titulo">
                 <label for="titulo" class="px-4">Dale una descripcion</label>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 mt-3">
-                <input type="file" class="form-control" id="titulo" placeholder="Ingresa el titulo">
+            <div class="col-md-12 col-sm-12 mt-3">
+                <input type="text" class="form-control" id="titulo" placeholder="Ingresa el titulo">
                 <label for="titulo" class="px-4"></label>
             </div>
         </div>
