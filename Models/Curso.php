@@ -3,6 +3,8 @@
 
     class Curso{
         protected $id_c;
+        protected $imgurl_c;
+        protected $img_c;
         protected $nombre_C;
         protected $desc_c;
         protected $id_usuario;
@@ -64,11 +66,11 @@
             $delete -> execute();
         }
 
-        public function UpdateCurso($id_c,$img_c,$nombre_c,$desc_c){
+        public function UpdateCurso($id_c,$imgurl_c,$img_c,$nombre_c,$desc_c){
             // Esta funcion es para actualizar los cusros de la base de datos
 
             $conexion = new Conexion();
-            $sql = "UPDATE tbl_curso set img_c='$img_c', nombre_c='$nombre_c', desc_c='$desc_c' where id_c = $id_c";
+            $sql = "UPDATE tbl_curso set imgurl_c='$imgurl_c, 'img_c='$img_c', nombre_c='$nombre_c', desc_c='$desc_c' where id_c = $id_c";
 
             $update = $conexion ->stm->prepare($sql);
             $update->execute();
