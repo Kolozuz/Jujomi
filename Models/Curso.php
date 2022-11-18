@@ -43,13 +43,14 @@
         public function SaveCurso(){
             // Esta funcion es para guardar las cursos en la base de datos
             $conexion = new Conexion();
-            $sql = "INSERT INTO tbl_curso(img_c, nombre_c, desc_c, id_usuario) values(?,?,?,?)";
+            $sql = "INSERT INTO tbl_curso(imgurl_c, img_c, nombre_c, desc_c, id_usuario) values(?,?,?,?)";
 
             $insert = $conexion->stm->prepare($sql);
-            $insert->bindParam(1,$this->img_c);
-            $insert->bindParam(2,$this->nombre_c);
-            $insert->bindParam(3,$this->desc_c);
-            $insert->bindParam(4,$this->id_usuario);
+            $insert->bindParam(1,$this->imgurl_c);
+            $insert->bindParam(2,$this->img_c);
+            $insert->bindParam(3,$this->nombre_c);
+            $insert->bindParam(4,$this->desc_c);
+            $insert->bindParam(5,$this->id_usuario);
             $insert ->execute();
             echo 'successssssssssss';
             return;
@@ -57,7 +58,7 @@
         }
 
         public function DeleteCurso(){
-            // Esta funcion es para eliminar los cusros de la base de datos
+            // Esta función es para eliminar los cursos de la base de datos
             $id_c = $_GET['id_c'];
             $conexion = new Conexion();
             $sql = "DELETE FROM tbl_curso where id_c = '$id_c'";
@@ -67,7 +68,7 @@
         }
 
         public function UpdateCurso($id_c,$imgurl_c,$img_c,$nombre_c,$desc_c){
-            // Esta funcion es para actualizar los cusros de la base de datos
+            // Esta función es para actualizar los cursos de la base de datos
 
             $conexion = new Conexion();
             $sql = "UPDATE tbl_curso set imgurl_c='$imgurl_c, 'img_c='$img_c', nombre_c='$nombre_c', desc_c='$desc_c' where id_c = $id_c";
