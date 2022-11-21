@@ -240,6 +240,9 @@ a.link-dark{
     outline: 2px solid var(--primario);
 }
 
+/*--------------------- img --------------------*/
+
+
 @keyframes spin_animation {
     50%{color: white;}
     100% {
