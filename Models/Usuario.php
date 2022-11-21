@@ -9,7 +9,6 @@
 
     //         $usuario = $conexion->stm->prepare($sql); 
     //         $usuario->execute();
-      
     //         $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
     //         return $usuarioobjeto;
 
@@ -62,6 +61,9 @@
             $update->execute();
 
             $personas = $update->fetchAll(PDO::FETCH_OBJ);
+
+            $_SESSION['email_register'] = $email_u;
+            $_SESSION['username_login'] = $nombre_u;
             
             return $personas;
         }

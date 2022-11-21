@@ -1,9 +1,9 @@
 <?php
-    // session_start();
+    session_start();
     
     //Variables de Sesion
     require '../Models/Curso.php';
-
+    
     // include_once '../Views/Usuario/CursosUsuario.php';
     class CursoController extends Curso{
         
@@ -25,13 +25,22 @@
             include_once '../Views/Cursos/css3.php';
         }
 
-        public function InsertCurso($imgurl_c, $img_c, $nombre_c, $desc_c, $id_usuario){
+        public function RedirectIndex()
+        {
+            header('Location: ../index.php');
+        }
+
+        public function InsertCurso($imgurl_c, $ctg_c, $nombre_c, $desc_c, $id_usuario){
+            // $id_u = $_GET['id'];
+            // $_SESSION['id_register'] = $id_u;
+            // echo $_SESSION['id_register'];
             $this->imgurl_c = $imgurl_c;
-            $this->img_c = $img_c;
+            $this->ctg_c = $ctg_c;
             $this->nombre_c = $nombre_c;
             $this->desc_c = $desc_c;
             $this->id_usuario = $id_usuario;
             $this->SaveCurso();
+            header("Location: CursoController.php?action=start&msg=successinsert");
             echo 'successssssssssss';
         }
 
@@ -43,6 +52,11 @@
             $desc_c = $_POST['desc_update'];
             $cursos = $this->UpdateCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c);
         }
+    }
+    
+    if (!$_SESSION) {
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectIndex();
     }
 
     if(isset($_GET['action']) && $_GET['action'] == 'start'){
@@ -69,8 +83,12 @@
     //TOMAR DATOS DE REGISTRO DESDE EL FORMULARIO Y GUARDARLOS EN LA DB, ENCRIPTANDO LA CONTRASEÑA
     if(isset($_POST['action']) && $_POST['action'] == 'insertar_curso'){
         $cursocontroller = new CursoController();
-        $img = $_FILES['img_c']['name'];
-        echo $img;
-        // $cursocontroller->InsertCurso($_POST['imgurl_c'],$_POST['img_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
+        $img_c = $_FILES['img_c']['name'];
+        $img_tmp = $_FILES['img_c']['tmp_name'];
+        $imgurl_c = "../Views/Cursos/Imgs/" . $img_c;
+        // echo $img_c . $img_tmp . $imgurl_c;
+        echo $_POST['ctg_c'];
+        copy($img_tmp, $imgurl_c);
+        $cursocontroller->InsertCurso($imgurl_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
     }
 ?> 

@@ -2,8 +2,20 @@
 include '../Inc/userheader.php';
 // include '../Models/Curso.php';
 $cursoall =  new Curso();
-$id_u = $_GET['id'];
+$id_u = $_SESSION['id_register'];
+// echo $id_u;
 $cursoobj = $cursoall->CheckCursoFromDB($id_u);
+
+if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
+    // include_once '../Views/Usuario/PerfilUsuario.php';
+    echo '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <strong>Hurra!</strong> El curso fue creado con exito!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+}
 ?>
 <main class="container-fluid">
     <div class="row mt-4 text-center">
@@ -70,7 +82,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
         <article class="col-md-3 col-sm-12 my-2">
             <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover">
                 <a href="UsuarioController.php?curso=html5" class="row">
-                    <?php echo $c->img_c ?>
+                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
                     <a href="UsuarioController.php?curso=html5" class="row" style="text-decoration:none">
                         <span>
                             <?php echo $c->nombre_c ?>
@@ -79,5 +91,6 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
             </div>
         </article>
     <?php }; ?>
+    
 </div>
 <?php include '../Inc/userfooter.php' ?>

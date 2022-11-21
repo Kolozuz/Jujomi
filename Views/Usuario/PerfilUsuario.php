@@ -1,6 +1,15 @@
 <?php
 include '../Inc/userheader.php';
-
+if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
+    // include_once '../Views/Usuario/PerfilUsuario.php';
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <strong>Ups!</strong> La contraseña ingresada no coincide
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+}
 ?>
     <div class="container-fluid">
         <div class="row py-4 mt-4 text-center">

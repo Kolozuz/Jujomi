@@ -14,7 +14,7 @@
 			"vscode-edge-devtools.webhint": false,
 			"tabnine.experimentalAutoImports": true,
 			"[php]": {
-				"editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+				"editor.defaultFormatter": "kokororin.vscode-phpfmt"
 			
 			},
 			"git.autofetch": true,
