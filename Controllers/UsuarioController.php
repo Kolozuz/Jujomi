@@ -144,26 +144,30 @@ class UsuarioController extends Usuario
         }
     }
 
-    public function Update($nombre_u, $contrasena_u)
+    public function Update($email_u, $nombre_u, $contrasena_u)
     {
         // ini_set('display_errors', 0);
         // ini_set('display_startup_errors', 0);
         // error_reporting(-1);
+        $this->id_u = $_SESSION['id_register'];
+        $this->email_u = $email_u;
         $this->nombre_u = $nombre_u;
         $this->contrasena_u = $contrasena_u;
 
-        $usuarioinfo = $this->CheckUsuarioFromDB();
+        $usuarioinfo = $this->CheckUsuarioFromDBbyid();
 
+        // echo "POST: " . $_POST;
         foreach ($usuarioinfo as $usuario_u) {
-            // echo $usuario_u->contrasena_u;
-            // echo $usuario_u->nombre_u;
+            echo "DATOS BASE DE DATOS -> ". $usuario_u->contrasena_u . $usuario_u->email_u . $usuario_u->nombre_u;
         }
+        // die('se murioooooooooooooooooooooooooo') ;
         if (password_verify($contrasena_u, $usuario_u->contrasena_u)) {
 
             $id_u = $_POST['id_u'];
+            $imgurl_u = $_POST['imgurl_u'];
             $nombre_u = $_POST['username_update'];
             $email_u = $_POST['email_update'];
-            $personas = $this->UpdateUsuario($id_u, $nombre_u, $email_u);
+            $personas = $this->UpdateUsuario($id_u, $imgurl_u, $nombre_u, $email_u);
 
             header('Location: UsuarioController.php?action=perfil');
         } else {
@@ -245,6 +249,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'update') {
     $usuariocontroller = new UsuarioController();
     // $contrasena_u = $_POST['password_update'];
     // echo $contrasena_u;
-    $usuariocontroller->Update($_POST['username_update'], $_POST['password_update']);
+    // echo $_POST['email_update'] . $_POST['username_update'] . $_POST['password_update'];
+    $usuariocontroller->Update($_POST['email_update'], $_POST['username_update'], $_POST['password_update']);
     // session_destroy();
 }
