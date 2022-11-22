@@ -3,6 +3,7 @@
         "bmewburn.vscode-intelephense-client",
         "yandeu.five-server",
         "pkief.material-icon-theme",
-        "devsense.phptools-vscode"
+        "devsense.phptools-vscode",
+        "sdras.night-owl"
     ]
 }
