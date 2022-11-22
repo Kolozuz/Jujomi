@@ -50,7 +50,7 @@ delimiter ;
 delimiter $$
 CREATE PROCEDURE readUsuariobyname(in nombre varchar(100))
 BEGIN
-SELECT * FROM tbl_usuario WHERE nombre_u = nombre;3
+SELECT * FROM tbl_usuario WHERE nombre_u = nombre;
 END $$
 delimiter ;
 
