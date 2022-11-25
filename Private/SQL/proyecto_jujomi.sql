@@ -20,6 +20,7 @@ create table if not exists tbl_curso(
     nombre_c varchar(100),
     desc_c varchar(500),
     fecha_c date default current_timestamp(),
+    estado_c bit(1) default 0,
     id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
 
@@ -38,32 +39,31 @@ create table if not exists tbl_config(
 # -> EN DEUSO POR EL MOMENTO FOREIGN KEY(id_usuario) REFERENCES tbl_curso(id_usuario)
 
 # -> PARA INSERTAR CURSOS INICIALES DE PRUEBA
-INSERT INTO tbl_curso (id_c, imgurl_c, nombre_c, desc_c, id_usuario) VALUES (1,'../Views/Cursos/Imgs/Html_logo.svg','HTML 5','En este curso gratuito, aprenderas todos los aspectos fundamentales para empezar a crear p├íginas web con HTML 5',1),(2,'../Views/Cursos/Imgs/Css_logo.png','Css 3','En este curso gratuito, aprenderas a darle estilo a tus documentos html con CSS3, tu unico limite sera la imaginacion',1),(3,'../Views/Cursos/Imgs/Js_logo.png','JavaScript','En este curso gratuito de JavaScript aprenderas desde las operaciones basicas, hasta funciones complejas con arrays y manejo de numerosos datos',1),(4,'../Views/Cursos/Imgs/PHP_logo.svg','PhP','En este curso aprenderas los conceptos basicos de PHP mediante la realizacion de un crud (CREATE, READ, UPDATE & DELETE)',1);
+INSERT INTO tbl_curso (id_c, imgurl_c, nombre_c, desc_c, id_usuario) VALUES (1,'../Views/Cursos/Imgs/Html_logo.svg','HTML 5','En este curso gratuito, aprenderas todos los aspectos fundamentales para empezar a crear p├íginas web con HTML 5',1),(2,'../Views/Cursos/Imgs/Css_logo.svg','Css 3','En este curso gratuito, aprenderas a darle estilo a tus documentos html con CSS3, tu unico limite sera la imaginacion',1),(3,'../Views/Cursos/Imgs/Js_logo.svg','JavaScript','En este curso gratuito de JavaScript aprenderas desde las operaciones basicas, hasta funciones complejas con arrays y manejo de numerosos datos',1),(4,'../Views/Cursos/Imgs/PHP_logo.svg','PhP','En este curso aprenderas los conceptos basicos de PHP mediante la realizacion de un crud (CREATE, READ, UPDATE & DELETE)',1);
 
 delimiter $$
 CREATE PROCEDURE createUsuario(in imgurl varchar(50),in email varchar(150),in nombre varchar(100),in contrasena varchar(255))
 BEGIN
 INSERT INTO tbl_usuario(imgurl_u, email_u, nombre_u, contrasena_u) VALUES (imgurl, email, nombre, contrasena);
 END $$
-delimiter ;
 
-delimiter $$
 CREATE PROCEDURE readUsuariobyname(in nombre varchar(100))
 BEGIN
 SELECT * FROM tbl_usuario WHERE nombre_u = nombre;
 END $$
-delimiter ;
 
-delimiter $$
 CREATE PROCEDURE readUsuariobyid(in id int(11))
 BEGIN
 SELECT * FROM tbl_usuario WHERE id_u = id;
 END $$
-delimiter ;
 
-delimiter $$
 CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
 BEGIN
 UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
+END $$
+
+CREATE PROCEDURE publishCurso(in id int(11))
+BEGIN
+UPDATE tbl_curso SET estado_c = 1  WHERE id_u = id;
 END $$
 delimiter ;

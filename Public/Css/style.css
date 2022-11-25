@@ -76,6 +76,26 @@
     width: 25vw;
     mix-blend-mode: multiply;
 }
+/* -------------------------- Contenedores Cursos -------------------------- */
+.contenedor-curso {
+    max-height: 300px;
+    min-height: 100%;
+    /* outline: dashed orange 1.5px ; */
+}
+.contenedor-curso{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+}
+.contenedor-curso > .row{overflow: hidden; max-height: 100%;}
+.contenedor-curso > .row > img{
+    /* max-width: 100vw; */
+    max-height: 200px;
+    min-height: 100%;
+}
 /*------------------------------------------------ Loading Screen ------------------------------------------------*/
 
 #loadingscreen {

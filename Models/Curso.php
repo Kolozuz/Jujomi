@@ -9,6 +9,8 @@ class Curso
     protected $nombre_c;
     protected $desc_c;
     protected $id_usuario;
+    protected $estado_c;
+
 
     // include '../Config/Conexion.php';
     public function CheckCursoFromDB($id_u)
@@ -78,5 +80,18 @@ class Curso
         $update = $conexion->stm->prepare($sql);
         $update->execute();
         return;
+    }
+
+    public function PublicarCurso($id_c)
+    {
+        // Esta función es para actualizar los cursos de la base de datos
+
+        $conexion = new Conexion();
+        $sql = "call publisCurso($id_c);";
+
+        $update = $conexion->stm->prepare($sql);
+        $update->execute();
+        return;
+
     }
 }

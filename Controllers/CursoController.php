@@ -52,6 +52,15 @@
             $desc_c = $_POST['desc_update'];
             $cursos = $this->UpdateCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c);
         }
+
+        public function PublishCurso($id_usuario, $estado_c){
+            $this->$id_usuario = $_SESSION['id_register'];
+            $this->estado_c = $estado_c;
+
+            $this->PublicarCurso($id_usuario);
+            header("Location: CursoController.php?action=start&msg=successpublish");
+            echo '<script>console.log(Course Succesfuly Published);</script>';
+        }
     }
     
     if (!$_SESSION) {

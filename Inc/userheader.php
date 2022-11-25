@@ -46,7 +46,7 @@
     <header class="contaner bg-primario fw-normal">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-semibold " href="../index.php">JUJOMI</a>
+                <a class="navbar-brand fs-2 fw-semibold " href="CursoController.php?action=start">JUJOMI</a>
                 <span class="dropstart">
                     <div class="dropdown-toggle btn bg-claro shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
                         <i class="fa-solid fa-user"></i>

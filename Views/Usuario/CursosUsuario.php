@@ -78,20 +78,46 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
     </div> -->
 
 <div class="row container-fluid text-center p-5 mx-0">
-    <?php foreach ($cursoobj as $c) { ?>
-        <article class="col-md-3 col-sm-12 my-2">
-            <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover">
-
-                <a href="UsuarioController.php?curso=<?php echo $c->id_c;?>" class="row">
-                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso" width="200" height="200">  
-                    <a href="UsuarioController.php?curso=html5" class="row" style="text-decoration:none">
-                        <span>
-                            <?php echo $c->nombre_c ?>
-                        </span>
-                    </a>
+    <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
+        <article class="col-md-3 col-sm-12 my-2 ">
+            <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso" style="outline:
+            <?php 
+                if($estado_c != 1) {
+                    echo 'dashed orange 1.5px;';
+                }else{
+                    echo 'dashed green 1.5px';
+                }
+            ?>">
+                <a href="UsuarioController.php?curso=<?php echo $c->id_c;?>" class="row a-1">
+                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
+                </a>
+                <a href="UsuarioController.php?curso=html5" class="row" style="text-decoration:none">
+                    <span>
+                        <?php echo $c->nombre_c ?>
+                    </span>
+                </a>
             </div>
         </article>
     <?php }; ?>
-    
 </div>
+<script>
+
+    var estadoCurso = <?php echo $estado_c;?>;
+    var containerCurso =  document.getElementsByClassName('containerCurso');
+
+    //Wanted to do this with javascript but didn't worked, so i had to do it with php itself
+    // console.log(estadoCurso);
+
+    // for (let i = 0; i < containerCurso.length; i++) {
+    //     console.log (estadoCurso[i]);
+
+    //     if (!estadoCurso == 1 ) {
+    //         containerCurso[i].style.outline = "dashed orange 1.5px" ;
+    //     }
+    //         containerCurso[i].style.outline = "dashed green 1.5px" ;
+
+    //     // containerCurso[i].style.outline=  "dashed green 1.5px" ;
+    // }
+
+</script>
 <?php include '../Inc/userfooter.php' ?>
