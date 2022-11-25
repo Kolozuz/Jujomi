@@ -55,7 +55,7 @@
                             <label for="titulo">Dale un Titulo a tu curso</label>
                         </div>
                         <div class="row form-floating mt-3">
-                            <input type="text" class="form-control" id="desc_c" name="desc_c" placeholder="#" required>
+                            <input type="text" class="form-control " id="desc_c" name="desc_c" placeholder="#" required>
                             <label for="desc_c">Dale una descripción</label>
                         </div>
                     </div>

@@ -88,10 +88,10 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
                     echo 'dashed green 1.5px';
                 }
             ?>">
-                <a href="UsuarioController.php?curso=<?php echo $c->id_c;?>" class="row a-1">
+                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row a-1">
                     <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
                 </a>
-                <a href="UsuarioController.php?curso=html5" class="row" style="text-decoration:none">
+                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
                     <span>
                         <?php echo $c->nombre_c ?>
                     </span>

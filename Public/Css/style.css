@@ -70,7 +70,10 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 /*--------------------------------------------------- Cabecera ---------------------------------------------------*/
-
+/*--------------------------------------------------- Body ---------------------------------------------------*/
+main{
+    min-height: 31vh;
+}
 /*---------------------------------------------------- Index imgs ----------------------------------------------------*/
 .character_imgs {
     width: 25vw;
@@ -261,7 +264,19 @@ a.link-dark{
 }
 
 /*--------------------- img --------------------*/
-
+.img-fix{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    justify-items: center;
+    overflow: hidden;
+    
+}
+.img-fix > img{
+    max-height: 200px;
+    min-height: 100%;
+}
 
 @keyframes spin_animation {
     50%{color: white;}

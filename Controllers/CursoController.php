@@ -17,8 +17,8 @@
             return;
         }
 
-        public function Redirecthtml5(){
-            include_once '../Views/Cursos/html5.php';
+        public function RedirecCurso(){
+            include_once '../Views/Cursos/Curso.php';
         }
 
         public function Redirectcss3(){
@@ -34,6 +34,10 @@
             // $id_u = $_GET['id'];
             // $_SESSION['id_register'] = $id_u;
             // echo $_SESSION['id_register'];
+            // $cursoinfo = $this->CheckCursoFromDB();
+            // foreach ($cursoinfo as $curso_obj) {}
+            // $_SESSION['id_curso'] = $curso_obj->id_c;
+
             $this->imgurl_c = $imgurl_c;
             $this->ctg_c = $ctg_c;
             $this->nombre_c = $nombre_c;
@@ -59,7 +63,7 @@
 
             $this->PublicarCurso($id_usuario);
             header("Location: CursoController.php?action=start&msg=successpublish");
-            echo '<script>console.log(Course Succesfuly Published);</script>';
+            echo '<script>console.log(Course Succesfully Published);</script>';
         }
     }
     
@@ -79,9 +83,9 @@
     }
 
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
-    if(isset($_GET['curso']) && $_GET['curso'] == ''){
+    if(isset($_GET['curso'])){
         $cursocontroller = new CursoController();
-        $cursocontroller->Redirecthtml5();
+        $cursocontroller->RedirecCurso();
     }
 
     if(isset($_GET['curso']) && $_GET['curso'] == 'css3'){

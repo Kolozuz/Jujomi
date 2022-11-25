@@ -4,6 +4,7 @@
         "yandeu.five-server",
         "pkief.material-icon-theme",
         "devsense.phptools-vscode",
-        "sdras.night-owl"
+        "sdras.night-owl",
+        "ikappas.composer"
     ]
 }
