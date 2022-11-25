@@ -70,7 +70,7 @@
     }
 
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
-    if(isset($_GET['curso']) && $_GET['curso'] == 'html5'){
+    if(isset($_GET['curso']) && $_GET['curso'] == ''){
         $cursocontroller = new CursoController();
         $cursocontroller->Redirecthtml5();
     }
