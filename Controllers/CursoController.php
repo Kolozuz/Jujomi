@@ -48,13 +48,13 @@
             echo 'successssssssssss';
         }
 
-        public function ChangeCurso(){
+        public function UpdateCurso(){
             $id_c = $_POST['id_update'];
             $imgurl_c = $_POST['imgurl_update'];
             $img_c = $_FILES['img_update'];
             $nombre_c = $_POST['name_update'];
             $desc_c = $_POST['desc_update'];
-            $cursos = $this->UpdateCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c);
+            $cursos = $this->ChangeCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c);
         }
 
         public function PublishCurso($id_usuario, $estado_c){

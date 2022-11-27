@@ -70,7 +70,7 @@ class Curso
         $delete->execute();
     }
 
-    public function UpdateCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c)
+    public function ChangeCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c)
     {
         // Esta función es para actualizar los cursos de la base de datos
 

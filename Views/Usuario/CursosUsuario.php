@@ -81,7 +81,7 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
     <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
         <article class="col-md-3 col-sm-12 my-2 ">
             <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso" style="outline:
-            <?php 
+            <?php
                 if($estado_c != 1) {
                     echo 'dashed orange 1.5px;';
                 }else{
