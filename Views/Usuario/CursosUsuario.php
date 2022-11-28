@@ -18,7 +18,7 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
 }
 ?>
 <main class="container-fluid">
-    <div class="row mt-4 text-center">
+    <div class="row mt-5 text-center">
         <div class="col-12">
             <h2 class="fw-semibold">Administrador de Cursos</h2>
         </div>
@@ -43,6 +43,30 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
                 </li>
             </ul>
         </div>
+    </div>
+    <!-- Seccion que sirve para mostrar los Cursos creados por el usuario, al igual que ciertas opciones -->
+    <div class="row container-fluid text-center px-5 py-3">
+        <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
+            <article class="col-md-3 col-sm-12 my-2 ">
+                <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso" style="outline:
+                <?php
+                    if($estado_c != 1) {
+                        echo 'dashed orange 1.5px;';
+                    }else{
+                        echo 'dashed green 1.5px';
+                    }
+                ?>">
+                    <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row a-1">
+                        <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
+                    </a>
+                    <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
+                        <span>
+                            <?php echo $c->nombre_c ?>
+                        </span>
+                    </a>
+                </div>
+            </article>
+        <?php }; ?>
     </div>
 </main>
 <!-- <div class="col">
@@ -77,29 +101,6 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
         <label for="buscar_cursos">Busca algun curso</label>
     </div> -->
 
-<div class="row container-fluid text-center p-5 mx-0">
-    <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
-        <article class="col-md-3 col-sm-12 my-2 ">
-            <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso" style="outline:
-            <?php
-                if($estado_c != 1) {
-                    echo 'dashed orange 1.5px;';
-                }else{
-                    echo 'dashed green 1.5px';
-                }
-            ?>">
-                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row a-1">
-                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
-                </a>
-                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
-                    <span>
-                        <?php echo $c->nombre_c ?>
-                    </span>
-                </a>
-            </div>
-        </article>
-    <?php }; ?>
-</div>
 <script>
 
     var estadoCurso = <?php echo $estado_c;?>;

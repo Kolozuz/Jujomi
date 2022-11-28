@@ -6,7 +6,7 @@ use proyecto_jujomi;
 
 create table if not exists tbl_usuario(
     id_u int(11) PRIMARY KEY AUTO_INCREMENT,
-    imgurl_u varchar(50),
+    imgurl_u varchar(255),
     email_u varchar(150),
     nombre_u varchar(100),
     contrasena_u varchar(255),
@@ -23,6 +23,21 @@ create table if not exists tbl_curso(
     estado_c bit(1) default 0,
     id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
+
+create table if not exists tbl_seccion_curso(
+    id_secc int(11) PRIMARY KEY AUTO_INCREMENT,
+    titulo_secc varchar(50),
+    id_curso int(11),
+    FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
+
+create table if not exists tbl_contenido_seccion_curso(
+    id_cont int(11) PRIMARY KEY AUTO_INCREMENT,
+    titulo_cont varchar(50),
+    tipo_cont varchar(8),
+    mediaurl_cont varchar(255),
+    text_cont char,
+    id_seccion int(11),
+    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc))
 
 create table if not exists tbl_rating(
     id_rating int(11) PRIMARY KEY AUTO_INCREMENT,

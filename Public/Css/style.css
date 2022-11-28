@@ -17,6 +17,7 @@
 
 .bg-primario {
     background-color: var(--primario);
+    transition-duration: .8s;
 }
 
 .btn-primario {
@@ -60,6 +61,8 @@
 
 .bg-oscuro {
     background-color: var(--oscuro);
+    /* transition: ease-in; */
+    transition-duration: .8s;
 }
 
 .bg-space {
@@ -153,7 +156,7 @@ main{
 }
 
 input:checked+.slider {
-    background-color: var(--primario);
+    background-color: var(--oscuro);
 }
 
 

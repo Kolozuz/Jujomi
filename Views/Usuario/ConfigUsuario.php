@@ -1,7 +1,7 @@
 <?php
 include '../Inc/userheader.php';
 ?>
-    <div class="container-fluid p-5 text-center">
+    <main class="container-fluid p-5 text-center">
         <div class="row m-5">
             <div class="col">
                 <h2>Configuración</h2>
@@ -14,13 +14,13 @@ include '../Inc/userheader.php';
             </div>
             <div class="col-2 form-check form-switch d-flex justify-content-center">
                 <label class="switch shadow-sm">
-                    <input type="checkbox" name="theme" id="theme">
+                    <input type="checkbox" name="theme" id="theme" onclick="toggleDarkMode()">
                 <span class="slider round"></span>
                 </label>
                 
             </div>
             <div class="col-4"></div>
         </div>
-    </div>
+    </main>
 
 <?php include '../Inc/userfooter.php' ?>
