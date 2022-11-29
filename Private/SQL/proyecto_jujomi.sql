@@ -35,7 +35,7 @@ create table if not exists tbl_leccion_seccion_curso(
     titulo_lecc varchar(50),
     tipo_lecc varchar(8),
     mediaurl_lecc varchar(255),
-    text_lecc char,
+    text_lecc varchar(500),
     id_seccion int(11),
     FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc))
 
