@@ -5,6 +5,7 @@ include '../Inc/userheader.php';
 
 // $curso =  new Curso();
 $id_c = $_GET['curso'];
+$_SESSION['id_c'] = $id_c;
 $conexion = new Conexion();
     $sql = "SELECT * FROM tbl_curso WHERE id_c = '$id_c'";
     $read = $conexion->stm->prepare($sql);

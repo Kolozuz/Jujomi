@@ -77,6 +77,14 @@ BEGIN
 UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
 END $$
 
+CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
+BEGIN
+-- DROP TABLE tbl_seccion_curso;
+DELETE FROM tbl_seccion_curso WHERE id_c;
+DELETE FROM tbl_curso WHERE id_usuario = id;
+DELETE FROM tbl_usuario WHERE id_u = id;
+END $$
+
 CREATE PROCEDURE publishCurso(in id int(11))
 BEGIN
 UPDATE tbl_curso SET estado_c = 1  WHERE id_u = id;

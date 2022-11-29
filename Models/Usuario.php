@@ -98,8 +98,9 @@
             // foreach ($usuarioinfo as $usuario_u){}
             
             $id_u = $_GET['id'];
+            // $id_c = $_SESSI
             
-            $sql = "DELETE FROM tbl_usuario WHERE id_u = '$id_u'";
+            $sql = "call deleteUsuario('$id_u','$_SESSION[id_c]')";
 
             $delete = $conexion->stm->prepare($sql);
             $delete->execute();

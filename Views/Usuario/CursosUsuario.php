@@ -56,7 +56,8 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
                         echo 'dashed green 1.5px';
                     }
                 ?>">
-                    <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row a-1">
+
+                    <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row a-1">
                         <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
                     </a>
                     <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">

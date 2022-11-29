@@ -80,7 +80,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                 <div class="row pe-2">
                     <div class="col-md-4 col-sm-12">
                         <input type="hidden" name="action" value="insertar_curso">
-                        <input type="hidden" name="id_curso" value="<?php foreach($cursoobj as $c){} echo $c->id_c; ?>;">
+                        <input type="hidden" name="id_curso" value="<?php foreach($cursoobj as $c){echo $c->id_c; } ?>;">
                         
                         <!-- <label for="img_c">Image de Portada del curso</label> -->
                         <input type="file" name="img_c" id="img_c" accept="image/*"
