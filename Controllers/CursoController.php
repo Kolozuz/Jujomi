@@ -3,6 +3,7 @@
     
     //Variables de Sesion
     require '../Models/Curso.php';
+    require '../Models/Seccion.php';
     
     // include_once '../Views/Usuario/CursosUsuario.php';
     class CursoController extends Curso{
@@ -48,7 +49,8 @@
             echo 'successssssssssss';
         }
 
-        public function InsertSeccion($imgurl_c, $ctg_c, $nombre_c, $desc_c, $id_usuario){
+        public function InsertSeccion($titulo_secc, $id_curso, $titulo_lecc, $tipo_lecc, $mediaurl_lecc, $text_lecc){
+            $seccioncontroller = new Seccion();
             // $id_u = $_GET['id'];
             // $_SESSION['id_register'] = $id_u;
             // echo $_SESSION['id_register'];
@@ -56,13 +58,11 @@
             // foreach ($cursoinfo as $curso_obj) {}
             // $_SESSION['id_curso'] = $curso_obj->id_c;
 
-            $this->imgurl_c = $imgurl_c;
-            $this->ctg_c = $ctg_c;
-            $this->nombre_c = $nombre_c;
-            $this->desc_c = $desc_c;
-            $this->id_usuario = $id_usuario;
-            $this->SaveCurso();
-            header("Location: CursoController.php?action=start&msg=successinsert");
+            $this->$titulo_secc = $titulo_secc;
+            $this->$id_curso = $id_curso;
+
+            $seccioncontroller->SaveSeccion($titulo_secc, $id_curso, $titulo_lecc, $tipo_lecc, $mediaurl_lecc, $text_lecc);
+            // header("Location: CursoController.php?action=start&msg=successinsert");
             echo 'successssssssssss';
         }
 
@@ -117,8 +117,21 @@
         $img_c = $_FILES['img_c']['name'];
         $img_tmp = $_FILES['img_c']['tmp_name'];
         $imgurl_c = "../Views/Cursos/Imgs/" . $img_c;
-        // echo $img_c . $img_tmp . $imgurl_c;
-        echo $_POST['ctg_c'];
+
+        
+        // $accordionItemCount = 1;
+        // $accordionItemCount++;
+        for ($i=1; $i < 10 ; $i++) { 
+            # code...
+            $img_lecc = $_FILES['img_secc' . $i]['name'];
+            $img_lecc_temp = $_FILES['img_secc' . $i]['tmp_name'];
+            $imgurl_lecc = "../Views/Cursos/Lecciones/Imgs/" . $img_lecc;
+            // die ($_FILES['img_secc' . $i]['name'] . $_FILES['img_secc' . $i]['tmp_name']);
+            // copy($img_lecc_temp, $imgurl_lecc);
+            // echo $img_c . $img_tmp . $imgurl_c;
+            echo $_POST['ctg_c'];
+            $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['id_curso'], $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]);
+        }
         copy($img_tmp, $imgurl_c);
         $cursocontroller->InsertCurso($imgurl_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
     }

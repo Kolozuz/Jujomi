@@ -8,9 +8,9 @@
 
 
 :root {
-    --primario: #126E82;
-    --secundario: #51C4D3;
-    --claro: #D8E3E7;
+    --primario: #A9BCD0;
+    --secundario: #58A4B0;
+    --claro: #D8DBE2;
     --oscuro: #132C33;
     --space: url(../../Public/img/stars_pattern.svg);
 }
@@ -28,7 +28,7 @@
 
 .btn-primario:hover, .btn-primario:focus{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: #16829b;
+    background-color: var(--secundario);
 }
 
 .bg-secundario {

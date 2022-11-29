@@ -1,9 +1,11 @@
 <?php
-include '../Config/Conexion.php';
+// include '../Config/Conexion.php';
+require '../Models/Leccion.php';
+
 class Seccion extends Curso
 {
     protected $id_secc;
-    protected $titulo_sec;
+    protected $titulo_secc;
     protected $id_curso;
 
     // include '../Config/Conexion.php';
@@ -36,19 +38,26 @@ class Seccion extends Curso
     //     return $cursoobjeto;
     // }
 
-    public function SaveSeccion()
+    public function SaveSeccion($titulo_secc, $id_curso, $titulo_lecc, $tipo_lecc, $mediaurl_lecc, $text_lecc)
     {
         // Esta funcion es para guardar las cursos en la base de datos
         $conexion = new Conexion();
-        $sql = "INSERT INTO tbl_curso(imgurl_c, ctg_c, nombre_c, desc_c, id_usuario) values(?,?,?,?,?)";
+        $leccioncontroller = new Leccion();
+        $sqlfk = "SET foreign_key_checks = 0;";
+        $sql = "INSERT INTO tbl_seccion_curso(titulo_secc, id_curso) values('$titulo_secc','$id_curso')";
 
+        $insertfk = $conexion->stm->prepare($sqlfk);
         $insert = $conexion->stm->prepare($sql);
-        $insert->bindParam(1, $this->imgurl_c);
-        $insert->bindParam(2, $this->ctg_c);
-        $insert->bindParam(3, $this->nombre_c);
-        $insert->bindParam(4, $this->desc_c);
-        $insert->bindParam(5, $this->id_usuario);
+        // $insert->bindParam(1, $this->titulo_secc);
+        // $insert->bindParam(2, $this->id_curso);
+        $insertfk->execute();
         $insert->execute();
+        
+        $this->$titulo_lecc = $titulo_lecc;
+        $this->$tipo_lecc = $tipo_lecc;
+        $this->$mediaurl_lecc = $mediaurl_lecc;
+        $this->$text_lecc = $text_lecc;
+        $leccioncontroller->SaveLeccion($titulo_lecc, $tipo_lecc, $mediaurl_lecc, $text_lecc);
         return;
 
     }
