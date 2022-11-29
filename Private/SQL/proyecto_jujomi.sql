@@ -30,8 +30,8 @@ create table if not exists tbl_seccion_curso(
     id_curso int(11),
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
 
-create table if not exists tbl_contenido_seccion_curso(
-    id_cont int(11) PRIMARY KEY AUTO_INCREMENT,
+create table if not exists tbl_leccion_seccion_curso(
+    id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
     titulo_cont varchar(50),
     tipo_cont varchar(8),
     mediaurl_cont varchar(255),

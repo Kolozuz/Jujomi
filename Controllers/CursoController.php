@@ -48,6 +48,24 @@
             echo 'successssssssssss';
         }
 
+        public function InsertSeccion($imgurl_c, $ctg_c, $nombre_c, $desc_c, $id_usuario){
+            // $id_u = $_GET['id'];
+            // $_SESSION['id_register'] = $id_u;
+            // echo $_SESSION['id_register'];
+            // $cursoinfo = $this->CheckCursoFromDB();
+            // foreach ($cursoinfo as $curso_obj) {}
+            // $_SESSION['id_curso'] = $curso_obj->id_c;
+
+            $this->imgurl_c = $imgurl_c;
+            $this->ctg_c = $ctg_c;
+            $this->nombre_c = $nombre_c;
+            $this->desc_c = $desc_c;
+            $this->id_usuario = $id_usuario;
+            $this->SaveCurso();
+            header("Location: CursoController.php?action=start&msg=successinsert");
+            echo 'successssssssssss';
+        }
+
         public function UpdateCurso(){
             $id_c = $_POST['id_update'];
             $imgurl_c = $_POST['imgurl_update'];

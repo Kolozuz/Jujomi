@@ -5,6 +5,7 @@
         "pkief.material-icon-theme",
         "devsense.phptools-vscode",
         "sdras.night-owl",
-        "ikappas.composer"
+        "ikappas.composer",
+        "eamodio.gitlens"
     ]
 }
