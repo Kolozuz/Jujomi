@@ -55,7 +55,15 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
                     }else{
                         echo 'dashed green 1.5px';
                     }
-                ?>">
+                    ?>">
+                    <div class="row d-flex flex-direction-end justify-content-end">
+                        <a href="CursoController.php?action=borrarCurso&id=<?php echo $c->id_c; ?>" type="button" class="btn">
+                            <i class="fa-solid fa-trash" style="color: orangered;"></i>
+                        </a>
+                        <!-- <a type="button" class="btn col">
+                            Actualizar
+                        </a> -->
+                    </div>
 
                     <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row a-1">
                         <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  

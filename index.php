@@ -59,7 +59,7 @@
         </div>
     </article>
 
-    <article class="container-fluid">
+    <!-- <article class="container-fluid">
         <div class="row m-4 d-flex text-start align-items-center">
             <div class="col-md-6 col-sm-12">
                 <h2>¡No estas solo!</h2>
@@ -69,7 +69,7 @@
                 <img src="Public/img/character_1.jpg" alt="..." class="character_imgs rounded">
             </div>
         </div>
-    </article>
+    </article> -->
 
     <article class="container-fluid shadow-sm bg-space text-light px-1">
         <div class="my-4 p-5 text-center align-items-center">

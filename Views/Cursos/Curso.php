@@ -6,6 +6,8 @@ include '../Inc/userheader.php';
 // $curso =  new Curso();
 $id_c = $_GET['curso'];
 $_SESSION['id_c'] = $id_c;
+$seccioncontroller = new Seccion();
+$seccobj = $seccioncontroller->checkSeccionfromDB($id_c);
 $conexion = new Conexion();
     $sql = "SELECT * FROM tbl_curso WHERE id_c = '$id_c'";
     $read = $conexion->stm->prepare($sql);
@@ -23,6 +25,14 @@ $conexion = new Conexion();
     <article class="col-md-9 p-5">
             <h3><?php echo $c->nombre_c ?></h3>
             <p><?php echo $c->desc_c ?></p>
+    </article>
+</div>
+<?php };?>
+<div class="row container-fluid p-5 mx-0">
+    <?php foreach ($seccobj as $s) { ?>
+    <article class="col-md-9 p-5">
+            <h3><?php echo $s->titulo_secc ?></h3>
+            <p><?php echo $s->desc_c ?></p>
     </article>
 </div>
 <?php };?>

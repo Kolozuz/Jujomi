@@ -37,7 +37,7 @@ create table if not exists tbl_leccion_seccion_curso(
     mediaurl_lecc varchar(255),
     text_lecc varchar(500),
     id_seccion int(11),
-    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc))
+    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc));
 
 create table if not exists tbl_rating(
     id_rating int(11) PRIMARY KEY AUTO_INCREMENT,

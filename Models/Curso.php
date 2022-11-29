@@ -62,7 +62,7 @@ class Curso
     public function DeleteCurso()
     {
         // Esta función es para eliminar los cursos de la base de datos
-        $id_c = $_GET['id_c'];
+        $id_c = $_GET['id'];
         $conexion = new Conexion();
         $sql = "DELETE FROM tbl_curso where id_c = '$id_c'";
 

@@ -100,6 +100,12 @@
         $cursocontroller->RedirectCursoCreator();
     }
 
+    if(isset($_GET['action']) && $_GET['action'] == 'borrarCurso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->DeleteCurso();
+        $cursocontroller->RedirectCursoManager();
+    }
+
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
     if(isset($_GET['curso'])){
         $cursocontroller = new CursoController();
