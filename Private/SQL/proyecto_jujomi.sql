@@ -32,10 +32,10 @@ create table if not exists tbl_seccion_curso(
 
 create table if not exists tbl_leccion_seccion_curso(
     id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
-    titulo_cont varchar(50),
-    tipo_cont varchar(8),
-    mediaurl_cont varchar(255),
-    text_cont char,
+    titulo_lecc varchar(50),
+    tipo_lecc varchar(8),
+    mediaurl_lecc varchar(255),
+    text_lecc char,
     id_seccion int(11),
     FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc))
 
