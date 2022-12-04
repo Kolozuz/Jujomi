@@ -9,12 +9,12 @@ class Seccion extends Curso
     protected $id_curso;
 
     // include '../Config/Conexion.php';
-    public function CheckCursoFromDB($id_u)
+    public function CheckSeccionFromDB($id_c)
     {
         // $id_u = $_SESSION['id_register'];
         //Todos los cursos CREADOS POR EL USUARIO
         $conexion = new Conexion();
-        $sql = "SELECT * FROM tbl_curso WHERE id_usuario = '$id_u'";
+        $sql = "SELECT * FROM tbl_seccion_curso WHERE id_curso = '$id_c'";
         //La id NO puede ser fija, debe asignarse a una variable!!!!
 
         $read = $conexion->stm->prepare($sql);

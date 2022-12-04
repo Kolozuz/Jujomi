@@ -44,7 +44,7 @@
                     <span class="dropdown">
                         <a href="#" class="dropdown-toggle btn bg-secundario shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
                         <ul class="dropdown-menu my-3">
-                            <li><a class="dropdown-item" href="Cursos.php">Cursos</a></li>
+                            <!-- <li><a class="dropdown-item" href="Cursos.php">Cursos</a></li> -->
                             <li><a class="dropdown-item" href="#">¿Por que estudiar online?</a></li>
                             <li><a class="dropdown-item" href="#">FAQ</a></li>
                         </ul>

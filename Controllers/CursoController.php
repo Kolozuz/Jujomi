@@ -100,6 +100,12 @@
         $cursocontroller->RedirectCursoCreator();
     }
 
+    if(isset($_GET['action']) && $_GET['action'] == 'borrarCurso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->DeleteCurso();
+        $cursocontroller->RedirectCursoManager();
+    }
+
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
     if(isset($_GET['curso'])){
         $cursocontroller = new CursoController();
@@ -121,8 +127,8 @@
         
         // $accordionItemCount = 1;
         // $accordionItemCount++;
-        for ($i=1; $i < 10 ; $i++) { 
-            # code...
+        // for ($i=1; $i < 10 ; $i++) { 
+            
             $img_lecc = $_FILES['img_secc' . $i]['name'];
             $img_lecc_temp = $_FILES['img_secc' . $i]['tmp_name'];
             $imgurl_lecc = "../Views/Cursos/Lecciones/Imgs/" . $img_lecc;
@@ -131,7 +137,7 @@
             // echo $img_c . $img_tmp . $imgurl_c;
             echo $_POST['ctg_c'];
             $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['id_curso'], $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]);
-        }
+        // }
         copy($img_tmp, $imgurl_c);
         $cursocontroller->InsertCurso($imgurl_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
     }

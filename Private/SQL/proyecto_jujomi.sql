@@ -32,12 +32,12 @@ create table if not exists tbl_seccion_curso(
 
 create table if not exists tbl_leccion_seccion_curso(
     id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
-    titulo_cont varchar(50),
-    tipo_cont varchar(8),
-    mediaurl_cont varchar(255),
-    text_cont char,
+    titulo_lecc varchar(50),
+    tipo_lecc varchar(8),
+    mediaurl_lecc varchar(255),
+    text_lecc varchar(500),
     id_seccion int(11),
-    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc))
+    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc));
 
 create table if not exists tbl_rating(
     id_rating int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -75,6 +75,14 @@ END $$
 CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
 BEGIN
 UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
+END $$
+
+CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
+BEGIN
+-- DROP TABLE tbl_seccion_curso;
+DELETE FROM tbl_seccion_curso WHERE id_c;
+DELETE FROM tbl_curso WHERE id_usuario = id;
+DELETE FROM tbl_usuario WHERE id_u = id;
 END $$
 
 CREATE PROCEDURE publishCurso(in id int(11))
