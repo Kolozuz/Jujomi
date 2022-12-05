@@ -33,11 +33,11 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                 <li>2</li>
             </button>
         </div>
-        <div class="col-1">
+        <!-- <div class="col-1">
             <button href="#" class="btn btn-secundario" id="section-3" onclick="enableSection3()">
                 <li>3</li>
             </button>
-        </div>
+        </div> -->
         <div class="col-1">
             <button href="#" class="btn">
                 <li><i class="fa-solid fa-angle-right"></i>
