@@ -138,7 +138,7 @@ class UsuarioController extends Usuario
             echo "<div class='container-fluid bg-primario'>¿Eres nuevo en Jujomi? <br> Haz click";
             echo "<a class='btn bg-secundario shadow-sm' data-bs-toggle='modal' data-bs-target='#Registerpopup'>Aqui</a> para volver al index y registrarte </div>";
             echo '")</script>';
-            echo '<script>alert("SIU")</script>';
+            echo '<script>alert("Tu Usuario o contraseña no coinciden, intentalo de nuevo")</script>';
 
             // $this->RedirectIndex();
         }
