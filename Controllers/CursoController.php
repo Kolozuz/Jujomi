@@ -18,6 +18,11 @@
             return;
         }
 
+        public function RedirectLeccionCreator(){
+            include_once '../Views/Usuario/crearLeccion.php';
+            return;
+        }
+
         public function RedirecCurso(){
             include_once '../Views/Cursos/Curso.php';
         }
@@ -45,8 +50,8 @@
             $this->desc_c = $desc_c;
             $this->id_usuario = $id_usuario;
             $this->SaveCurso();
-            header("Location: CursoController.php?action=start&msg=successinsert");
-            echo 'successssssssssss';
+            // header("Location: CursoController.php?action=start&msg=successinsert");
+            // echo 'successssssssssss';
         }
 
         public function InsertSeccion($titulo_secc, $id_curso, $titulo_lecc, $tipo_lecc, $mediaurl_lecc, $text_lecc){
@@ -100,6 +105,11 @@
         $cursocontroller->RedirectCursoCreator();
     }
 
+    if(isset($_GET['action']) && $_GET['action'] == 'crearLeccion'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectLeccionCreator();
+    }
+
     if(isset($_GET['action']) && $_GET['action'] == 'borrarCurso'){
         $cursocontroller = new CursoController();
         $cursocontroller->DeleteCurso();
@@ -123,22 +133,22 @@
         $img_c = $_FILES['img_c']['name'];
         $img_tmp = $_FILES['img_c']['tmp_name'];
         $imgurl_c = "../Views/Cursos/Imgs/" . $img_c;
-
         
         // $accordionItemCount = 1;
         // $accordionItemCount++;
         // for ($i=1; $i < 10 ; $i++) { 
             
-            $img_lecc = $_FILES['img_secc' . $i]['name'];
-            $img_lecc_temp = $_FILES['img_secc' . $i]['tmp_name'];
-            $imgurl_lecc = "../Views/Cursos/Lecciones/Imgs/" . $img_lecc;
+            // $img_lecc = $_FILES['img_secc' . $i]['name'];
+            // $img_lecc_temp = $_FILES['img_secc' . $i]['tmp_name'];
+            // $imgurl_lecc = "../Views/Cursos/Lecciones/Imgs/" . $img_lecc;
             // die ($_FILES['img_secc' . $i]['name'] . $_FILES['img_secc' . $i]['tmp_name']);
             // copy($img_lecc_temp, $imgurl_lecc);
             // echo $img_c . $img_tmp . $imgurl_c;
             echo $_POST['ctg_c'];
-            $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['id_curso'], $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]);
+            // $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['id_curso'], $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]);
         // }
-        copy($img_tmp, $imgurl_c);
+        // copy($img_tmp, $imgurl_c);
         $cursocontroller->InsertCurso($imgurl_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
+        $cursocontroller->RedirectLeccionCreator();
     }
 ?> 

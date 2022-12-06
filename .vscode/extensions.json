@@ -4,8 +4,8 @@
         "yandeu.five-server",
         "pkief.material-icon-theme",
         "devsense.phptools-vscode",
-        "sdras.night-owl",
         "ikappas.composer",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "sdras.night-owl"
     ]
 }

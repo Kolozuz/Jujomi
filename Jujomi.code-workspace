@@ -9,7 +9,7 @@
 		
 		},
 			"workbench.iconTheme": "material-icon-theme",
-			"workbench.colorTheme": "Dracula",
+			"workbench.colorTheme": "Night Owl",
 			"liveServer.settings.donotShowInfoMsg": true,
 			"vscode-edge-devtools.webhint": false,
 			"tabnine.experimentalAutoImports": true,
@@ -32,7 +32,6 @@
 		"extensions": {
 			"recommendations": [
 				"pkief.material-icon-theme",
-				"dracula-theme.theme-dracula",
 				"oderwat.indent-rainbow"
 			]
 		}
