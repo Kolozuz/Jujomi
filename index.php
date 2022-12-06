@@ -28,7 +28,7 @@
             <div class="col-md-6 col-sm-12 text-center charachter_imgs">
                 <img src="Public/img/character_3.jpg" alt="..." class="character_imgs rounded">
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6 col-sm-12" id="div1">
                 <h2>¿No sabes por donde empezar?</h2>
                 <p>No te preocupes!, en Jujomi te brindamos distintas rutas de aprendizaje, para que elijas la que mas se acomode a tus objetivos</p>
             </div>

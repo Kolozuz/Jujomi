@@ -1,5 +1,5 @@
     <div class="container-fluid bg-primario py-5" style="overflow: hidden;">
-        <footer class="container fs-5 fs">
+        <footer class="container fs-5 fs" id="footer">
             <div class="row mb-4">
                 <div class="col-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" fill="currentColor" class="bi bi-robot" viewBox="0 0 16 16">

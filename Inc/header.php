@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9EzGzlBoxUyKDBlLZ2esa4an4CoWEnHoVR6O1zJlgFQ&s">
+    
     <!-- Bootsrap -->
     <link rel="stylesheet" href="Public/Css/boot.css?v=<?php echo time(); ?>">
     <!-- Custom stylesheet -->
@@ -44,9 +47,9 @@
                     <span class="dropdown">
                         <a href="#" class="dropdown-toggle btn bg-secundario shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false">Menú</a>
                         <ul class="dropdown-menu my-3">
-                            <!-- <li><a class="dropdown-item" href="Cursos.php">Cursos</a></li> -->
-                            <li><a class="dropdown-item" href="#">¿Por que estudiar online?</a></li>
-                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><a class="dropdown-item" href="Cursos.php">Cursos</a></li>
+                            <li><a class="dropdown-item" href="#div1">¿No sabes por donde empezar?</a></li>
+                            <li><a class="dropdown-item" href="#footer">Nosotros</a></li>
                         </ul>
                     </span>
 
