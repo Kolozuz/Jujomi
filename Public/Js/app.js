@@ -44,6 +44,7 @@ function enableBtn() {
     } else {
         btnConfirm.removeAttribute("disabled");
         console.log('button enabled');
+        
         // console.log(categoria.value);
     }
     // if (!btnConfirm.attribute == "disabled") {

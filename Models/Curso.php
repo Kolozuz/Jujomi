@@ -59,10 +59,10 @@ class Curso
 
     }
 
-    public function DeleteCurso()
+    public function RemoveCurso($id_c)
     {
         // Esta función es para eliminar los cursos de la base de datos
-        $id_c = $_GET['id'];
+        // $id_c = $_GET['id'];
         $conexion = new Conexion();
         $sql = "DELETE FROM tbl_curso where id_c = '$id_c'";
 
@@ -70,13 +70,13 @@ class Curso
         $delete->execute();
     }
 
-    public function ChangeCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c)
+    public function ChangeCurso($id_c, $imgurl_c, $ctg_c, $nombre_c, $desc_c)
     {
         // Esta función es para actualizar los cursos de la base de datos
 
         $conexion = new Conexion();
-        $sql = "UPDATE tbl_curso set imgurl_c='$imgurl_c, nombre_c='$nombre_c', desc_c='$desc_c' where id_c = $id_c";
-
+        $sql = "UPDATE tbl_curso set imgurl_c='$imgurl_c', ctg_c='$ctg_c', nombre_c='$nombre_c', desc_c='$desc_c' where id_c = '$id_c'";
+        echo $sql;
         $update = $conexion->stm->prepare($sql);
         $update->execute();
         return;

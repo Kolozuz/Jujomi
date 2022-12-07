@@ -17,50 +17,21 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
 
 <main class="container-fluid" id="main">
 
-    <ul class="row link-dark d-flex text-center list-unstyled flex-direction-center justify-content-center gx-1 my-5">
-        <div class="col-1">
-            <button href="#" class="btn">
-                <li><i class="fa-solid fa-angle-left"></i>
-                <li>
-            </button>
-        </div>
-        <div class="col-1 ">
-            <button href="#" class="btn btn-secundario" id="section-1" onclick="enableSection1()">
-                <li>1</li>
-            </button>
-        </div>
-        <div class="col-1">
-            <button href="#" class="btn btn-secundario" id="section-2" onclick="enableSection2()">
-                <li>2</li>
-            </button>
-        </div>
-        <div class="col-1">
-            <button href="#" class="btn btn-secundario" id="section-3" onclick="enableSection3()">
-                <li>3</li>
-            </button>
-        </div>
-        <div class="col-1">
-            <button href="#" class="btn">
-                <li><i class="fa-solid fa-angle-right"></i>
-                <li>
-            </button>
-        </div>
-    </ul>
-
     <div class="row text-center mt-4">
         <h2 class="fs-semibold">Creador de Cursos</h2>
         <h3 class="fs-semibold" id="sectionTitle">Datos Basicos</h3>
     </div>
     <form action="CursoController.php" method="post" enctype="multipart/form-data">
         <div class="row px-5 pb-5">
-            
+
             <!-------------------- Seccion #1 -------------------->
-            
+
             <!-------------------- Seccion #2 -------------------->
             <section id="form-curso-2" class="mt-4">
                 <div class="row pe-2">
                     <div>
                         <input type="hidden" name="action" value="insertar_curso">
+                        <input type="hidden" name="id" value="<?php echo $_SESSION['id_c']; ?>">
                         <!-- <label for="img_c">Image de Portada del curso</label> -->
                     </div>
                     <div class="col-md-12 col-sm-12 ">
@@ -70,8 +41,10 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapseOne">
-                                            1. <input type="text" name="titulo_secc1" class="bg-light rounded border border-0" value="Introducción" placheholder="Mi nueva sección">
-                                            <!-- 1. <input type="text" class="form-control form-control-sm col"> -->
+                                        1. <input type="text" name="titulo_secc1"
+                                            class="bg-light rounded border border-0" value="Introducción"
+                                            placheholder="Mi nueva sección">
+                                        <!-- 1. <input type="text" class="form-control form-control-sm col"> -->
                                     </button>
                                 </h2>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -79,42 +52,47 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                     <div class="accordion-body accordion-body-id1">
 
                                         <div
-                                            class="row tex-center flex-direction-center justify-content-center border p-4 mb-3">
+                                            class="row tex-center flex-direction-center justify-content-center border p-4 mb-3 overflow-scroll acc-body">
                                             <div class="row text-center d-flex justify-content-center p-4">
                                                 <div class="col-5">
                                                     <label for="titulo_lecc1">Titulo de la Leccion</label>
                                                     <br>
-                                                    <input type="text" name="titulo_lecc1" class="bg-light form-control form-control-sm" placheholder="Mi nueva sección">
+                                                    <input type="text" name="titulo_lecc1"
+                                                        class="bg-light form-control form-control-sm"
+                                                        placheholder="Mi nueva sección">
                                                 </div>
                                             </div>
-                                            <div class="row flex-direction-center justify-content-center chooseContent1" style="display:flex">
+                                            <!-- <div class="row flex-direction-center justify-content-center chooseContent1"
+                                                style="display:flex">
                                                 <div class="col-2 d-flex justify-content-center">
-                                                    <button type="button" class="btn" onclick="showImageUploader1()">
+                                                    <button type="button" class="btn-invisible" onclick="showImageUploader1()">
                                                         <i class="fa-solid fa-image"></i>
                                                         <br>
                                                         <small>Imagen</small>
                                                     </button>
                                                 </div>
                                                 <div class="col-2 tex-center d-flex justify-content-center">
-                                                    <button type="button" class="btn">
+                                                    <button type="button" class="btn-invisible">
                                                         <i class="fa-solid fa-video"></i>
                                                         <br>
                                                         <small>Video</small>
                                                     </button>
                                                 </div>
                                                 <div class="col-2 d-flex justify-content-center">
-                                                    <button type="button" class="btn">
+                                                    <button type="button" class="btn-invisible">
                                                         <i class="fa-solid fa-font"></i>
                                                         <br>
                                                         <small>Texto</small>
                                                     </button>
                                                 </div>
-                                            </div>
-                                            <div class="row tex-center d-flex flex-direction-center justify-content-center">
+                                            </div> -->
+                                            <!-- <div
+                                                class="row tex-center d-flex flex-direction-center justify-content-center">
                                                 <div class="col-md-3">
                                                     <input type="file" name="img_secc1" id="img_secc1" accept="image/*"
                                                         style="opacity:0;position:absolute;top: -1000px;">
-                                                    <label for="img_secc1" style="height:100%; margin:auto;display: none;"
+                                                    <label for="img_secc1"
+                                                        style="height:100%; margin:auto;display: none;"
                                                         class="form-control text-center pt-4 hover imageContent1">
                                                         <div id="img-secc-preview1"></div>
                                                         <div id="img-secc-label1">
@@ -130,12 +108,24 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                                 <div class="col-md-7 imageContent1" style="display:none">
                                                     <span contenteditable>Click here to add a description</span>
                                                 </div>
-                                            </div>
-                                            <div class="row tex-center d-flex flex-direction-center justify-content-center" style="display: none;">
-                                                <div class="col-md-3" style="display: none;">
-                                                    <label for="text_lecc1">This is suposed to be Rich Text</label>
-                                                    <input type="text" name="text_lecc' + accordionItemCount2 +'1" id="text_lecc1" class="form-control-lg">
+                                            </div> -->
+                                            <div class="row mb-5">
+                                                <div class="col-md-12 richtext1">
+                                                    <!-- Create the toolbar container -->
+                                                    <div id="toolbar">
+                                                        <span class="ql-formats">
+                                                            <button class="ql-image"></button>
+                                                            <button class="ql-video"></button>
+                                                        </span>
+                                                    </div>
+
+                                                    <!-- Create the editor container -->
+                                                    <div id="editor">
+                                                        <p>Hello World!</p>
+                                                    </div>
+                                                    <input id="uploadImg" type="file" style="display:none" accept="image/png, image/jpeg, image/gif" @change="uploadImage">
                                                 </div>
+
                                             </div>
                                         </div>
                                         <!-- Boton para añadir otra seccion -->
@@ -151,7 +141,8 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                             </div>
                         </div>
                         <ul class="list-group list-group-horizontal-xxl my-2">
-                            <button type="button" class="list-group-item text-center" id="btnNuevaSeccion" onclick="addSeccion()">
+                            <button type="button" class="list-group-item text-center" id="btnNuevaSeccion"
+                                onclick="addSeccion()">
                                 Nueva Sección<i class="fa-solid fa-plus"></i>
                             </button>
                         </ul>
@@ -168,4 +159,61 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
 </main>
 <script src="../Public/Js/app.js"></script>
 <script src="../Public/Js/jquery-3.6.1.min.js"></script>
+
+<!-- Quill Text Rich JS -->
+<script src="//cdn.quilljs.com/1.0.0/quill.js"></script>
+<script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+
+<script>
+// Con esto inicializamos y configuramos el editor de Quill
+var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        
+  ['blockquote', 'code-block'],
+
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'super' }],                          
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }],          
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+  [{ 'image': [] }],
+  [{ 'video': [] }],
+
+
+
+  ['clean']
+];
+var options = {
+  debug: 'info',
+  modules: {
+    formats: 'image',
+    toolbar: toolbarOptions,
+    history: {
+    // Esto determina cada cuantos milisegundos se stackean los cambios
+    delay: 1000,
+    // Esto determina la cantidad maxima de cambios que se guardan
+    maxStack: 5,
+    // Esto determina si deben tenerse en cuenta solo los cambios realizados por input del usuario;
+    userOnly: false,
+
+    }
+  },
+  placeholder: 'Primero lo primero...',
+  value: 'Hola Mundo',
+  readOnly: false,
+  theme: 'snow'
+};
+var editor = new Quill('#editor', options);
+
+// this.quill.getModule("toolbar").addHandler("image", this.uploadImageHandler)
+
+//Con esto configuramos nuestras preferencias
+// var editor = new Quill('#editor', options);
+</script>
+
 <?php include '../Inc/userfooter.php'; ?>

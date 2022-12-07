@@ -11,7 +11,29 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
     echo '
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
-        <strong>Hurra!</strong> El curso fue creado con exito!
+        <strong>¡Nice!</strong> El curso fue creado con exito.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+}
+
+if (isset($_GET['msg']) && $_GET['msg'] == 'successdel') {
+    // include_once '../Views/Usuario/PerfilUsuario.php';
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <strong>¡Nice!</strong> El curso fue eliminado con exito.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+}
+
+if (isset($_GET['msg']) && $_GET['msg'] == 'successupdate') {
+    // include_once '../Views/Usuario/PerfilUsuario.php';
+    echo '
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <strong>¡Nice!</strong> Los datos fueron actualizados con exito.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     ';
@@ -31,7 +53,9 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
         </div>
         <div class="col-md-6 col-sm-1"></div>
         <div class="col-md-3 col-sm-5 my-2 dropdown">
-            <button type="button" class="btn btn-primario dropdown-toggle p-3" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Ordernar por</button>
+            <button type="button" class="btn btn-primario dropdown-toggle p-3" data-bs-toggle="dropdown"
+                data-bs-auto-close="outside" aria-expanded="false">Ordernar por <i class="fa-solid fa-filters"></i>
+            </button>
             <ul class="dropdown-menu">
                 <li class="dropdown-item">
                     <input type="checkbox" id="fecha_check" name="fecha_check">
@@ -47,34 +71,100 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
     <!-- Seccion que sirve para mostrar los Cursos creados por el usuario, al igual que ciertas opciones -->
     <div class="row container-fluid text-center px-5 py-3">
         <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
-            <article class="col-md-3 col-sm-12 my-2 ">
-                <div class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso" style="outline:
-                <?php
-                    if($estado_c != 1) {
-                        echo 'dashed orange 1.5px;';
-                    }else{
-                        echo 'dashed green 1.5px';
-                    }
-                    ?>">
-                    <div class="row d-flex flex-direction-end justify-content-end">
-                        <a href="CursoController.php?action=borrarCurso&id=<?php echo $c->id_c; ?>" type="button" class="btn">
-                            <i class="fa-solid fa-trash" style="color: orangered;"></i>
-                        </a>
-                        <!-- <a type="button" class="btn col">
-                            Actualizar
-                        </a> -->
+        <article class="col-md-3 col-sm-12 my-2 ">
+            <div
+                class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso">
+                <div class="row container-fluid pt-1 pb-2 gx-0">
+                    <div class="col-md-3 col-sm-12 px-2">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-pencil "></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="CursoController.php?action=actualizarCurso&id=<?php echo $c->id_c; ?>">Actualizar
+                                        Datos Basicos</a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="CursoController.php?action=crearLecciones&id=<?php echo $c->id_c; ?>">Crear Lecciones</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="CursoController.php?action=actualizarLecciones&id=<?php echo $c->id_c; ?>">Actualizar
+                                        Lecciones</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-                    <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row a-1">
-                        <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">  
-                    </a>
-                    <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
-                        <span>
-                            <?php echo $c->nombre_c ?>
-                        </span>
-                    </a>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-circle-notch" style="color:
+                                    <?php
+                                        if($estado_c != 1) {
+                                            echo 'orange;';
+                                        }else{
+                                            echo 'green';
+                                        }
+                                    ?>"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="#"
+                                        type="button">
+                                        Privado
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="#"
+                                        type="button">
+                                        Publico
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <a class="btn px-4" href="#">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="dropdown">
+                            <button class="btn px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="CursoController.php?action=borrarCurso&id=<?php echo $c->id_c; ?>"
+                                        type="button">
+                                        Eliminar Curso <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </article>
+
+                <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row">
+                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">
+                </a>
+                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
+                    <span class="text-break">
+                        <?php echo $c->nombre_c ?>
+                    </span>
+                </a>
+            </div>
+        </article>
         <?php }; ?>
     </div>
 </main>
@@ -111,23 +201,21 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successinsert') {
     </div> -->
 
 <script>
+var estadoCurso = <?php echo $estado_c;?>;
+var containerCurso = document.getElementsByClassName('containerCurso');
 
-    var estadoCurso = <?php echo $estado_c;?>;
-    var containerCurso =  document.getElementsByClassName('containerCurso');
+//Wanted to do this with javascript but didn't worked, so i had to do it with php itself
+// console.log(estadoCurso);
 
-    //Wanted to do this with javascript but didn't worked, so i had to do it with php itself
-    // console.log(estadoCurso);
+// for (let i = 0; i < containerCurso.length; i++) {
+//     console.log (estadoCurso[i]);
 
-    // for (let i = 0; i < containerCurso.length; i++) {
-    //     console.log (estadoCurso[i]);
+//     if (!estadoCurso == 1 ) {
+//         containerCurso[i].style.outline = "dashed orange 1.5px" ;
+//     }
+//         containerCurso[i].style.outline = "dashed green 1.5px" ;
 
-    //     if (!estadoCurso == 1 ) {
-    //         containerCurso[i].style.outline = "dashed orange 1.5px" ;
-    //     }
-    //         containerCurso[i].style.outline = "dashed green 1.5px" ;
-
-    //     // containerCurso[i].style.outline=  "dashed green 1.5px" ;
-    // }
-
+//     // containerCurso[i].style.outline=  "dashed green 1.5px" ;
+// }
 </script>
 <?php include '../Inc/userfooter.php' ?>

@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="../Public/Css/style.css?v=<?php echo time(); ?>">
     <!-- Whirl Loading Animations -->
     <link rel="stylesheet" href="../Public/Css/css/cube.css?v=<?php echo time(); ?>">
+    <!-- Quill Text Rich Theme StyleSheets -->
+    <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet" />
+    <link href="//cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

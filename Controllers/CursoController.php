@@ -18,8 +18,18 @@
             return;
         }
 
+        public function RedirectCursoUpdater(){
+            include_once '../Views/Usuario/actualizarCurso.php';
+            return;
+        }
+
         public function RedirectLeccionCreator(){
             include_once '../Views/Usuario/crearLeccion.php';
+            return;
+        }
+
+        public function RedirectLeccionUpdater(){
+            include_once '../Views/Usuario/actualizarLeccion.php';
             return;
         }
 
@@ -50,7 +60,7 @@
             $this->desc_c = $desc_c;
             $this->id_usuario = $id_usuario;
             $this->SaveCurso();
-            // header("Location: CursoController.php?action=start&msg=successinsert");
+            header("Location: CursoController.php?action=start&msg=successinsert");
             // echo 'successssssssssss';
         }
 
@@ -71,13 +81,27 @@
             echo 'successssssssssss';
         }
 
+        public function DeleteCurso(){
+            $id_c = $_GET['id'];
+            $this->RemoveCurso($id_c);
+            header('location: CursoController.php?action=start&msg=successdel');
+        }
         public function UpdateCurso(){
-            $id_c = $_POST['id_update'];
-            $imgurl_c = $_POST['imgurl_update'];
-            $img_c = $_FILES['img_update'];
-            $nombre_c = $_POST['name_update'];
+            $id_c = $_POST['id_curso'];
+            // $imgurl_c = $_POST['imgurl_update'];
+            // $img_c = $_FILES['img_update'];
+            $ctg_c = $_POST['ctg_update'];
+            $nombre_c = $_POST['nombre_update'];
             $desc_c = $_POST['desc_update'];
-            $cursos = $this->ChangeCurso($id_c, $imgurl_c, $img_c, $nombre_c, $desc_c);
+
+            $img_c = $_FILES['img_update']['name'];
+            $img_tmp = $_FILES['img_update']['tmp_name'];
+            $imgurl_c = "../Views/Cursos/Imgs/" . $img_c;
+
+            copy($img_tmp, $imgurl_c);
+            $this->ChangeCurso($id_c, $imgurl_c, $ctg_c, $nombre_c, $desc_c);
+            header('location: CursoController.php?action=start&msg=successupdate');
+
         }
 
         public function PublishCurso($id_usuario, $estado_c){
@@ -107,13 +131,27 @@
 
     if(isset($_GET['action']) && $_GET['action'] == 'crearLeccion'){
         $cursocontroller = new CursoController();
-        $cursocontroller->RedirectLeccionCreator();
+        // $cursocontroller->RedirectLeccionCreator();
     }
 
     if(isset($_GET['action']) && $_GET['action'] == 'borrarCurso'){
         $cursocontroller = new CursoController();
         $cursocontroller->DeleteCurso();
-        $cursocontroller->RedirectCursoManager();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'actualizarCurso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectCursoUpdater();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'crearLecciones'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectLeccionCreator();
+    }
+
+    if(isset($_GET['action']) && $_GET['action'] == 'actualizarLecciones'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectLeccionUpdater();
     }
 
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER
@@ -144,11 +182,16 @@
             // die ($_FILES['img_secc' . $i]['name'] . $_FILES['img_secc' . $i]['tmp_name']);
             // copy($img_lecc_temp, $imgurl_lecc);
             // echo $img_c . $img_tmp . $imgurl_c;
-            echo $_POST['ctg_c'];
+            // echo $_POST['ctg_c'];
             // $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['id_curso'], $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]);
         // }
-        // copy($img_tmp, $imgurl_c);
+        copy($img_tmp, $imgurl_c);
         $cursocontroller->InsertCurso($imgurl_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
-        $cursocontroller->RedirectLeccionCreator();
+        // $cursocontroller->RedirectLeccionCreator();
+    }
+
+    if(isset($_POST['action']) && $_POST['action'] == 'actualizar_curso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->UpdateCurso();
     }
 ?> 
