@@ -113,10 +113,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                                 <div class="col-md-12 richtext1">
                                                     <!-- Create the toolbar container -->
                                                     <div id="toolbar">
-                                                        <span class="ql-formats">
-                                                            <button class="ql-image"></button>
-                                                            <button class="ql-video"></button>
-                                                        </span>
+                                                        
                                                     </div>
 
                                                     <!-- Create the editor container -->
@@ -158,15 +155,21 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
 
 </main>
 <script src="../Public/Js/app.js"></script>
+<!-- Jquery script -->
 <script src="../Public/Js/jquery-3.6.1.min.js"></script>
 
 <!-- Quill Text Rich JS -->
 <script src="//cdn.quilljs.com/1.0.0/quill.js"></script>
 <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
 
+<!-- Quill image resize module -->
+<script src="../node_modules/quill-image-resize/image-resize.min.js"></script>
+
 <script>
+// Quill.register('modules/imageResize', ImageResize);
 // Con esto inicializamos y configuramos el editor de Quill
 var toolbarOptions = [
+  [{ 'font': [] }],
   ['bold', 'italic', 'underline', 'strike'],        
   ['blockquote', 'code-block'],
 
@@ -178,20 +181,19 @@ var toolbarOptions = [
   [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
   [{ 'color': [] }],          
-  [{ 'font': [] }],
   [{ 'align': [] }],
 
-  [{ 'image': [] }],
-  [{ 'video': [] }],
-
-
+  ['image', 'video'],
 
   ['clean']
 ];
 var options = {
   debug: 'info',
   modules: {
-    formats: 'image',
+    
+    imageResize: {
+        modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+    },
     toolbar: toolbarOptions,
     history: {
     // Esto determina cada cuantos milisegundos se stackean los cambios
@@ -200,7 +202,6 @@ var options = {
     maxStack: 5,
     // Esto determina si deben tenerse en cuenta solo los cambios realizados por input del usuario;
     userOnly: false,
-
     }
   },
   placeholder: 'Primero lo primero...',

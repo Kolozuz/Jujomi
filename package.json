@@ -1,1 +1,6 @@
-{}
+{
+  "dependencies": {
+    "quill-image-resize": "^3.0.9",
+    "quill-video-resize-module": "^1.0.2"
+  }
+}
