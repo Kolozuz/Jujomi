@@ -1,3 +1,52 @@
+Quill.register("modules/resize", window.QuillResizeModule);
+// Con esto inicializamos y configuramos el editor de Quill
+var toolbarOptions = [
+  [{ 'font': [] }],
+  ['bold', 'italic', 'underline', 'strike'],        
+  ['blockquote', 'code-block'],
+
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'super' }],                          
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }],          
+  [{ 'align': [] }],
+
+  ['image', 'video'],
+
+  ['clean']
+];
+var options = {
+  debug: 'info',
+  modules: {
+    resize: {
+          showSize: true,
+          // showToolbar: false,
+          toolbar: {
+            // alingTools: false
+          },
+          locale: {}
+        },
+    toolbar: toolbarOptions,
+    history: {
+    // Esto determina cada cuantos milisegundos se stackean los cambios
+    delay: 1000,
+    // Esto determina la cantidad maxima de cambios que se guardan
+    maxStack: 5,
+    // Esto determina si deben tenerse en cuenta solo los cambios realizados por input del usuario;
+    userOnly: false,
+    }
+  },
+  placeholder: 'Primero lo primero...',
+  value: 'Hola Mundo',
+  readOnly: false,
+  theme: 'snow'
+};
+var editor = new Quill('#editor', options);
+
 var sectionTitle = document.getElementById('sectionTitle');
 var formCurso1 = document.getElementById('form-curso-1');
 var formCurso2 = document.getElementById('form-curso-2');

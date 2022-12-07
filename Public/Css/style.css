@@ -15,6 +15,10 @@
     --space: url(../../Public/img/stars_pattern.svg);
 }
 
+.quill-editor iframe {
+    pointer-events: none;
+}
+
 .btn-invisible{
     border: none;
     outline: none;

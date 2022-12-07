@@ -29,6 +29,11 @@
     <!-- Quill Text Rich Theme StyleSheets -->
     <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet" />
     <link href="//cdn.quilljs.com/1.0.0/quill.bubble.css" rel="stylesheet" />
+    <!-- Quill Multimedia Resize -->
+    <link crossorigin="anonymous" integrity="sha384-7kltdnODhBho8GSWnwD9l9rilXkpuia4Anp4TKHPOrp8/MS/+083g4it4MYED/hc" href="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.snow.min.css" rel="stylesheet"/>
+    <script crossorigin="anonymous" integrity="sha384-MDio1/ps0nK1tabxUqZ+1w2NM9faPltR1mDqXcNleeuiSi0KBXqIsWofIp4r5A0+" src="http://lib.baomitu.com/quill/2.0.0-dev.3/quill.min.js"></script>
+    <script src="../node_modules/@botom/quill-resize-module/dist/quill-resize-module.js"></script>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
