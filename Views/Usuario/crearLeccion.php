@@ -21,7 +21,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
         <h2 class="fs-semibold">Creador de Cursos</h2>
         <h3 class="fs-semibold" id="sectionTitle">Datos Basicos</h3>
     </div>
-    <form action="CursoController.php" method="post" enctype="multipart/form-data">
+    <form id="form">
         <div class="row px-5 pb-5">
 
             <!-------------------- Seccion #1 -------------------->
@@ -30,39 +30,40 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
             <section id="form-curso-2" class="mt-4">
                 <div class="row pe-2">
                     <div>
-                        <input type="hidden" name="action" value="insertar_curso">
-                        <input type="hidden" name="id" value="<?php echo $_SESSION['id_c']; ?>">
+                        <input type="hidden" name="action" value="insertar_seccion">
+                        <input type="hidden" name="seccion_count" id="seccion_count" value="">
+                        <!-- <input type="hidden" name="editorContent"> -->
+                        <!-- <input type="hidden" name="id" value="<?php //echo $_SESSION['id_c']; ?>"> -->
                         <!-- <label for="img_c">Image de Portada del curso</label> -->
                     </div>
                     <div class="col-md-12 col-sm-12 ">
                         <div class="accordion" id="accordionContainer">
-                            <div class="accordion-item">
+                            <!-- <div class="accordion-item">
                                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                        aria-controls="panelsStayOpen-collapseOne">
-                                        1. <input type="text" name="titulo_secc1"
+                                        data-bs-target="#panelsStayOpen-collapse" aria-expanded="true"
+                                        aria-controls="panelsStayOpen-collapse">
+                                            <input type="text" name="titulo_secc"
                                             class="bg-light rounded border border-0" value="Introducción"
                                             placheholder="Mi nueva sección">
-                                        <!-- 1. <input type="text" class="form-control form-control-sm col"> -->
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="panelsStayOpen-headingOne">
-                                    <div class="accordion-body accordion-body-id1">
+                                <div id="panelsStayOpen-collapse" class="accordion-collapse collapse show"
+                                    aria-labelledby="panelsStayOpen-heading">
+                                    <div class="accordion-body accordion-body-id1"> -->
 
-                                        <div
+                                        <!-- <div
                                             class="row tex-center flex-direction-center justify-content-center border p-4 mb-3 overflow-scroll acc-body">
                                             <div class="row text-center d-flex justify-content-center p-4">
                                                 <div class="col-5">
-                                                    <label for="titulo_lecc1">Titulo de la Leccion</label>
+                                                    <label for="titulo_lecc">Titulo de la Leccion</label>
                                                     <br>
-                                                    <input type="text" name="titulo_lecc1"
+                                                    <input type="text" name="titulo_lecc"
                                                         class="bg-light form-control form-control-sm"
                                                         placheholder="Mi nueva sección">
                                                 </div>
                                             </div>
-                                            <!-- <div class="row flex-direction-center justify-content-center chooseContent1"
+                                            <div class="row flex-direction-center justify-content-center chooseContent1"
                                                 style="display:flex">
                                                 <div class="col-2 d-flex justify-content-center">
                                                     <button type="button" class="btn-invisible" onclick="showImageUploader1()">
@@ -85,8 +86,8 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                                         <small>Texto</small>
                                                     </button>
                                                 </div>
-                                            </div> -->
-                                            <!-- <div
+                                            </div>
+                                            <div
                                                 class="row tex-center d-flex flex-direction-center justify-content-center">
                                                 <div class="col-md-3">
                                                     <input type="file" name="img_secc1" id="img_secc1" accept="image/*"
@@ -108,25 +109,15 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                                 <div class="col-md-7 imageContent1" style="display:none">
                                                     <span contenteditable>Click here to add a description</span>
                                                 </div>
-                                            </div> -->
-                                            <div class="row mb-5">
-                                                <div class="col-md-12 richtext1">
-                                                    <!-- Create the toolbar container -->
-                                                    <div id="toolbar">
-                                                        
-                                                    </div>
-
-                                                    <!-- Create the editor container -->
-                                                    <div id="editor">
-                                                        <p>Hello World!</p>
-                                                    </div>
-                                                    <input id="uploadImg" type="file" style="display:none" accept="image/png, image/jpeg, image/gif" @change="uploadImage">
-                                                </div>
-
                                             </div>
-                                        </div>
+                                            <div class="row mb-5">
+                                                <div id="editor1">
+                                                    <p>Hello World!</p>
+                                                </div>
+                                            </div> 
+                                        </div> -->
                                         <!-- Boton para añadir otra seccion -->
-                                    </div>
+                                    <!-- </div>
                                     <div class="row justify-content-end mb-2">
                                         <div class="col-md-1 d-flex justify-content-center">
                                             <button type="button" class="btn text-center" onclick="addLeccion1()">
@@ -135,7 +126,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <ul class="list-group list-group-horizontal-xxl my-2">
                             <button type="button" class="list-group-item text-center" id="btnNuevaSeccion"
@@ -152,15 +143,21 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
             </button>
         </div>
     </form>
+    <div id="err" class="d-none">
 
+    </div>
+    <div id="si">
+
+    </div>
+
+    <!-- Jquery script -->
+    <script src="../Public/Js/jquery-3.6.1.min.js"></script>
+    
+    <!-- Quill Text Rich JS -->
+    <script src="//cdn.quilljs.com/1.0.0/quill.js"></script>
+    <script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
+    
+    <script src="../Public/Js/app.js"></script>
 </main>
-<!-- Jquery script -->
-<script src="../Public/Js/jquery-3.6.1.min.js"></script>
-
-<!-- Quill Text Rich JS -->
-<script src="//cdn.quilljs.com/1.0.0/quill.js"></script>
-<script src="//cdn.quilljs.com/1.0.0/quill.min.js"></script>
-
-<script src="../Public/Js/app.js"></script>
 
 <?php include '../Inc/userfooter.php'; ?>

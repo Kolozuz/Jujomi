@@ -92,7 +92,7 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successupdate') {
                                 </li>
                                 <li>
                                     <a class="dropdown-item"
-                                        href="CursoController.php?action=crearLecciones&id=<?php echo $c->id_c; ?>">Crear Lecciones</a>
+                                        href="CursoController.php?action=crearLecciones&id_curso=<?php echo $c->id_c; ?>">Crear Lecciones</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item"
