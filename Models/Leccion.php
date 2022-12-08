@@ -4,10 +4,7 @@ class Leccion extends Seccion
 {
     protected $id_lecc;
     protected $titulo_lecc;
-    protected $tipo_lecc;
-    protected $mediaurl_lecc;
-    protected $text_lecc;
-    protected $desc_media_lecc;
+    protected $contenido_lecc;
     protected $id_seccion;
 
     // include '../Config/Conexion.php';
@@ -40,18 +37,20 @@ class Leccion extends Seccion
     //     return $cursoobjeto;
     // }
 
-    public function SaveLeccion($titulo_lecc, $tipo_lecc, $mediaurl_lecc, $text_lecc)
+    public function SaveLeccion($titulo_lecc, $contenido_lecc)
     {
         // Esta funcion es para guardar las cursos en la base de datos
         $conexion = new Conexion();
-        $sql = "INSERT INTO tbl_leccion_seccion_curso(titulo_lecc, tipo_lecc, mediaurl_lecc, text_lecc) values('$titulo_lecc', '$tipo_lecc', '$mediaurl_lecc', '$text_lecc')";
+        $leccioncontroller = new Leccion();
+        $sql = "INSERT INTO tbl_leccion_seccion(titulo_lecc, contenido_lecc) values(?,?,?)";
 
         $insert = $conexion->stm->prepare($sql);
-        // $insert->bindParam(1, $this->titulo_lecc);
-        // $insert->bindParam(2, $this->tipo_lecc);
-        // $insert->bindParam(3, $this->mediaurl_lecc);
+        $insert->bindParam(1, $this->titulo_lecc);
+        $insert->bindParam(2, $this->contenido_lecc);
+        $insert->bindParam(3, $this->id_seccion);
         // $insert->bindParam(4, $this->text_lecc);
         $insert->execute();
+
         return;
 
     }

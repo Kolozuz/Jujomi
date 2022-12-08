@@ -24,20 +24,19 @@ create table if not exists tbl_curso(
     id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
 
-create table if not exists tbl_seccion_curso(
+create table if not exists tbl_seccion(
     id_secc int(11) PRIMARY KEY AUTO_INCREMENT,
     titulo_secc varchar(50),
     id_curso int(11),
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
 
-create table if not exists tbl_leccion_seccion_curso(
+create table if not exists tbl_leccion(
     id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
     titulo_lecc varchar(50),
     tipo_lecc varchar(8),
-    mediaurl_lecc varchar(255),
-    text_lecc varchar(500),
+    contenido_lecc nvarchar(max),
     id_seccion int(11),
-    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion_curso(id_secc));
+    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion(id_secc));
 
 create table if not exists tbl_rating(
     id_rating int(11) PRIMARY KEY AUTO_INCREMENT,
