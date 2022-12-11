@@ -126,7 +126,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
             </div>
         </div>
     </div>
-    <script src="../Public/Js/sweetalert.min.js"></script>
+
     <script>
         function borrarUsuario(id){
             swal({

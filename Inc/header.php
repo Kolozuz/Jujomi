@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="Public/Css/style.css?v=<?php echo time(); ?>">
     <!-- Whirl Loading Animations -->
     <link rel="stylesheet" href="Public/Css/css/cube.css?v=<?php echo time(); ?>">
+    <!-- SweetAlert -->
+    <script src="Public/Js/sweetalert.min.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,12 +61,12 @@
             </div>
         </nav>
 
-        <!-- Inicio de sesion Usuario -->
+        <!-- Inicio de sesión Usuario -->
         <div class="modal fade" id="Loginpopup" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2>Iniciar Sesion</h2>
+                        <h2>Iniciar Sesión</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -85,13 +88,13 @@
                                     </div>
                                 </div>
                                 <div class="row row mx-5 px-2 mb-3 text-center">
-                                    <span>¿Has olvidado tu contraseña? <br> Haz click <a href="#">aqui</a> para restablecerla</span>
+                                    <span>¿Has olvidado tu contraseña? <a href="#">Recupérala aquí</a></span>
                                 </div>
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="Logininput" class="btn btn-primary">Ingresar</button>
+                        <button type="button" id="LoginClose" class="btn btn-secundario" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="Logininput" class="btn btn-secundario">Ingresar</button>
                     </div>
                     </form>
                 </div>
@@ -107,14 +110,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="Controllers/UsuarioController.php?action=register" method="post" id="register_credentials_usuario" class="form-floating needs-validation" novalidate>
+                        <form action="Controllers/UsuarioController.php?action=register" method="post" id="register_credentials_usuario" class="form-floating needs-validation" autocomplete="off" novalidate>
                             <div class="container-fluid">
                                 <div class="row ms-5 me-5 form-floating mb-3">
                                     <input type="hidden" name="action" value="insertar">
-                                    <input type="email" class="form-control col" name="email_register" placeholder="Ingresa un Correo Electronico" required>
-                                    <label for="email_register">Ingresa un Correo Electronico</label>
+                                    <input type="email" class="form-control col" name="email_register" placeholder="Ingresa un Correo Electrónico" required>
+                                    <label for="email_register">Ingresa un Correo Electrónico</label>
                                     <div class="invalid-feedback">
-                                        Debes escribir una direccion de correo valida.
+                                        Debes escribir una dirección de correo valida.
                                     </div>
                                 </div>
                                 <div class="row ms-5 me-5 form-floating mb-3">
@@ -132,7 +135,9 @@
                                     </div>
                                 </div>
                                 <div class="row mx-5 px-2 mb-3 text-center">
-                                    <span><input type="checkbox" name="terms_&_conditions_checkbox" id="" required> Acepto los <a href="#">Terminos y Condiciones</a> </span>
+                                    <span><input type="checkbox" name="terms_&_conditions_checkbox" id="" required> Acepto los <a href="#">Términos y Condiciones</a> </span>
+                                    <br>
+                                    <span>¿Ya estas registrado? <a href="#">Inicia Sesión</a></span>
                                 </div>
                             </div>
                     </div>

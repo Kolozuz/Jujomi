@@ -34,7 +34,7 @@ create table if not exists tbl_leccion(
     id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
     titulo_lecc varchar(50),
     tipo_lecc varchar(8),
-    contenido_lecc nvarchar(max),
+    contenido_lecc longtext,
     id_seccion int(11),
     FOREIGN KEY(id_seccion) REFERENCES tbl_seccion(id_secc));
 
@@ -79,7 +79,7 @@ END $$
 CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
 BEGIN
 -- DROP TABLE tbl_seccion_curso;
-DELETE FROM tbl_seccion_curso WHERE id_c;
+DELETE FROM tbl_seccion WHERE id_curso = id_c;
 DELETE FROM tbl_curso WHERE id_usuario = id;
 DELETE FROM tbl_usuario WHERE id_u = id;
 END $$

@@ -41,18 +41,18 @@
             $usuario->execute();
             
             $usuarioobjeto = $usuario->fetchAll(PDO::FETCH_OBJ);
-            // if ($usuarioobjeto){
+            if ($usuarioobjeto){
 
                 return $usuarioobjeto;
+            }
+            // else{
+            //     var_dump($usuarioobjeto);
+
+            //     // session_destroy();
+            //     die ('No te encuentras registrado en Jujomi');
+            //     return $usuarioobjeto;
+
             // }
-        //     else{
-        //         var_dump($usuarioobjeto);
-
-        //         session_destroy();
-        //         die ('No te encuentras registrado en Jujomi');
-        //         return $usuarioobjeto;
-
-        //     }
         }
         protected function CheckUsuarioFromDBbyid(){
             $conexion = new Conexion();
@@ -99,7 +99,7 @@
             
             $id_u = $_GET['id'];
             // $id_c = $_SESSI
-            
+            $_SESSION['id_c'] = "";
             $sql = "call deleteUsuario('$id_u','$_SESSION[id_c]')";
 
             $delete = $conexion->stm->prepare($sql);

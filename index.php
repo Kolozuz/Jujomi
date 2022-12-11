@@ -1,4 +1,4 @@
-<?php include 'Inc/header.php' ?>
+<?php include 'Inc/header.php';?>
     <article class="container-fluid shadow-sm bg-space text-light">
         <div class="row my-4 p-5 d-flex text-center align-items-center">
                 <div class="col-md-6 col-sm-12">
@@ -143,5 +143,28 @@
         ? location.replace("chat/chat.html") : alert("El correo y/o contraseña son incorrectos, intente nuevamente")
     }
 </script> -->
-<?php include 'Inc/footer.php' ?>
+<?php include 'Inc/footer.php';
+if (isset($_GET['err']) && $_GET['err'] == 'mismatch') {
+    echo '
+    <script>
+        swal("Oops","Usuario y/o Contraseña incorrectos !","warning");
+    </script>
+    ';
+}
+if (isset($_GET['msg']) && $_GET['msg'] == 'pfdelsuccess') {
+    echo '
+    <script>
+        swal(":(","Perfil Borrado con éxito!, nos entristece que te vayas","success");
+    </script>
+    ';
+}
+if (isset($_GET['msg']) && $_GET['msg'] == 'logoutsuccess') {
+    echo '
+    <script>
+        swal("Yay!","Sesión Cerrada con éxito!, esperamos verte de nuevo pronto :)","success");
+    </script>
+    ';
+}
+
+?>
 

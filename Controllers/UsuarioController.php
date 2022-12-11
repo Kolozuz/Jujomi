@@ -75,6 +75,7 @@ class UsuarioController extends Usuario
         echo '<style>body{text-align:center; font-family: Ubuntu, sans-serif;}</style><span style="text-align:center;font-size: 50px; font-weight:bold;">Click ';
         echo '<a href="UsuarioController.php?action=index"> aqui </a> ';
         echo ' para volver al inicio</span>';
+        header('Location: ../index.php?msg=pfdelsuccess');
 
         // $this->Redir();
     }
@@ -102,46 +103,38 @@ class UsuarioController extends Usuario
 
     public function VerifyLogin($nombre_u, $contrasena_u)
     {
-        ini_set('display_errors', 0);
-        ini_set('display_startup_errors', 0);
-        error_reporting(-1);
+        // ini_set('display_errors', 0);
+        // ini_set('display_startup_errors', 0);
+        // error_reporting(-1);
         $this->nombre_u = $nombre_u;
         $this->contrasena_u = $contrasena_u;
         $usuarioinfo = $this->CheckUsuarioFromDB();
 
         foreach ($usuarioinfo as $usuario_u) {
         }
-        if (password_verify($contrasena_u, $usuario_u->contrasena_u)) {
-            // echo 'Contraseña Correcta';
+        if (!password_verify($contrasena_u, $usuario_u->contrasena_u)) {
 
-            $_SESSION['username_login'] = $usuario_u->nombre_u;
-            $_SESSION['password_login'] = $usuario_u->contrasena_u;
-
-            $_SESSION['id_register'] = $usuario_u->id_u;
-            $_SESSION['fecha_register'] = $usuario_u->fecha_u;
-            $_SESSION['hora_register'] = $usuario_u->hora_u;
-            $_SESSION['email_register'] = $usuario_u->email_u;
-
-            // header('Location: UsuarioController.php?action=start');
-            echo '<script type="text/javascript">';
-            echo "alert('Sesion iniciada con exito')";
-            echo '</script>';
-            $this->RedirectStart();
-        } else {
-            // die ('yo mama');
-            echo '
-                    <link rel="stylesheet" href="../Public/Css/boot.css">
-                    <link rel="stylesheet" href="../Public/Css/style.css"><br>';
-
-            echo '<script type="text/javascript">';
-            echo 'document.write("';
-            echo "<div class='container-fluid bg-primario'>¿Eres nuevo en Jujomi? <br> Haz click";
-            echo "<a class='btn bg-secundario shadow-sm' data-bs-toggle='modal' data-bs-target='#Registerpopup'>Aqui</a> para volver al index y registrarte </div>";
-            echo '")</script>';
-            echo '<script>alert("Tu Usuario o contraseña no coinciden, intentalo de nuevo")</script>';
-
-            // $this->RedirectIndex();
+            // echo '<script>console.log(' . $usuario_u->nombre_u .')</script>';
+            header('Location: ../index.php?err=mismatch');
+            die('error');
         }
+
+
+        $_SESSION['username_login'] = $usuario_u->nombre_u;
+        $_SESSION['password_login'] = $usuario_u->contrasena_u;
+
+        $_SESSION['id_register'] = $usuario_u->id_u;
+        $_SESSION['fecha_register'] = $usuario_u->fecha_u;
+        $_SESSION['hora_register'] = $usuario_u->hora_u;
+        $_SESSION['email_register'] = $usuario_u->email_u;
+
+        // header('Location: UsuarioController.php?action=start');
+        echo '<script type="text/javascript">';
+        echo "alert('Sesion iniciada con exito')";
+        echo '</script>';
+        $this->RedirectStart();
+
+        // $this->RedirectIndex();
     }
 
     public function Update($email_u, $nombre_u, $contrasena_u)
@@ -211,8 +204,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'index') {
 //Cerrar Sesion
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     $usuariocontroller = new UsuarioController();
-    $usuariocontroller->RedirectIndex( /*$alert*/);
+    // $usuariocontroller->RedirectIndex( /*$alert*/);
     session_destroy();
+    header('Location: ../index.php?msg=logoutsuccess');
+
 }
 if (!$_SESSION) {
     $usuariocontroller = new UsuarioController();

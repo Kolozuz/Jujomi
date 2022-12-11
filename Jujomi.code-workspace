@@ -28,6 +28,20 @@
 			"omnisharp.useModernNet": false,
 			"vsicons.dontShowNewVersionMessage": true,
 			"editor.defaultFormatter": "esbenp.prettier-vscode",
+			"cSpell.ignoreWords": [
+				"Login",
+				"Logininput",
+				"Loginpopup",
+				"Registerinput",
+				"Registerpopup"
+			],
+			"cSpell.words": [
+				"Jujomi",
+				"JUJOMI",
+				"pfdelsuccess",
+				"Recuperala",
+				"signoutsuccess"
+			],
 		},
 		"extensions": {
 			"recommendations": [
