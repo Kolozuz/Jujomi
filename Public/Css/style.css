@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 
-
 :root {
     --primario: #126E82;
     --secundario: #58A4B0;
@@ -97,6 +96,25 @@
 .div-hover:hover{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+/* ---------------------------------------------------- ScrollBar ---------------------------------------------------- */
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: var(--secundario);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--claro);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
 /*--------------------------------------------------- Cabecera ---------------------------------------------------*/
 /*--------------------------------------------------- Body ---------------------------------------------------*/
 main{
