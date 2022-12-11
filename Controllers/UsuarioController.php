@@ -116,6 +116,8 @@ class UsuarioController extends Usuario
         $_SESSION['username_login'] = $usuario_u->nombre_u;
         $_SESSION['password_login'] = $usuario_u->contrasena_u;
 
+
+        $_SESSION['imgurl_register'] = $usuario_u->imgurl_u;
         $_SESSION['id_register'] = $usuario_u->id_u;
         $_SESSION['fecha_register'] = $usuario_u->fecha_u;
         $_SESSION['hora_register'] = $usuario_u->hora_u;
