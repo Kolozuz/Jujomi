@@ -69,15 +69,8 @@ class UsuarioController extends Usuario
     public function DeletePerfil()
     {
         $this->DeleteUsuario();
-        echo '<script type="text/javascript">';
-        echo "alert('Perfil Borrado')";
-        echo '</script>';
-        echo '<style>body{text-align:center; font-family: Ubuntu, sans-serif;}</style><span style="text-align:center;font-size: 50px; font-weight:bold;">Click ';
-        echo '<a href="UsuarioController.php?action=index"> aqui </a> ';
-        echo ' para volver al inicio</span>';
+        
         header('Location: ../index.php?msg=pfdelsuccess');
-
-        // $this->Redir();
     }
 
     public function RedirectIndex()
