@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-sm-12 text-dark">
                     <div class="row py-4">
                         <div class="col">
-                            <button class="btn bg-secundario">Comienza Ahora</button>
+                            <button class="btn bg-secundario" data-bs-toggle="modal" data-bs-target="#Registerpopup">Comienza Ahora</button>
                         </div>
                     </div>
                     <div class="row py-4 text-start">
@@ -26,7 +26,7 @@
     <article class="container-fluid">
         <div class="row m-4 d-flex text-end align-items-center">
             <div class="col-md-6 col-sm-12 text-center charachter_imgs">
-                <img src="Public/img/character_3.jpg" alt="..." class="character_imgs rounded">
+                <img src="Public/img/character_1.jpg" alt="..." class="character_imgs rounded">
             </div>
             <div class="col-md-6 col-sm-12" id="div1">
                 <h2>¿No sabes por donde empezar?</h2>
