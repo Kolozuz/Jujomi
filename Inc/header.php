@@ -41,7 +41,7 @@
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
                 <a class="navbar-brand fs-2 fw-semibold " href="index.php">
-                    <img src="Public/img/2.png" alt="logo" width="70px">
+                    <!-- <img src="Public/img/2.png" alt="logo" width="70px"> -->
                     JUJOMI
                     <!-- <img src="Public/img/1.5.png" alt="brand logo" width="100px"> -->
                 </a>
@@ -137,13 +137,13 @@
                                 <div class="row mx-5 px-2 mb-3 text-center">
                                     <span><input type="checkbox" name="terms_&_conditions_checkbox" id="" required> Acepto los <a href="#">Términos y Condiciones</a> </span>
                                     <br>
-                                    <span>¿Ya estas registrado? <a href="#">Inicia Sesión</a></span>
+                                    <span>¿Ya estas registrado? <a href="#" data-bs-toggle="modal" data-bs-target="#Loginpopup">Inicia Sesión</a></span>
                                 </div>
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="Registerinput" class="btn btn-primary">Crear Cuenta</button>
+                        <button type="button" class="btn btn-secundario" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" id="Registerinput" class="btn btn-primario">Crear Cuenta</button>
                     </div>
                     </form>
                 </div>
