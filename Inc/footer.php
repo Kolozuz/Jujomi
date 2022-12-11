@@ -26,18 +26,11 @@
 
             <div class="row border-top py-4 text-center">
                 <div class="col mb-4">
-                    <a class="link-dark ms-3 me-3" href="#">
-                        <i class="fa-brands fa-whatsapp"></i>
+                    <a class="link-dark ms-3 me-3" href="https://wa.me/+573022835022">
+                        <img src="Public/img/whatsapp-brands.svg" alt="developer WhatsApp">
                     </a>
-                </div>
-                <div class="col mb-4">
-                    <a class="link-dark ms-3 me-3" href="https://github.com/Kolozuz/ChatBot">
-                        <img src="Public/img/github-brands.svg" alt="...">
-                    </a>
-                </div>
-                <div class="col mb-4">
-                    <a class="link-dark ms-3 me-3" href="#">
-                        <img src="Public/img/facebook-brands.svg" alt="...">
+                    <a class="link-dark ms-3 me-3" href="https://github.com/Kolozuz/Jujomi">
+                        <img src="Public/img/github-brands.svg" alt="project github repository">
                     </a>
                 </div>    
                 <span>© 2022 Jujomi Org. All rights reserved.</span>
