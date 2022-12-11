@@ -17,7 +17,15 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
         </div>
 
         <div class="container-fluid py-4">
-
+            <div class="row text-center">
+                <div class="col-md-12">
+                <img src="<?php 
+                    if (!$_SESSION['imgurl_register'] == "") {
+                            echo $_SESSION['imgurl_register']; 
+                        }
+                echo '../Public/img/dftpfp.jpg'?>"alt="profile picture" class="rounded-circle" width="100vh" >
+                </div>
+            </div>
             <div class="row text-start">
                 <div class="col-4"></div>
                 

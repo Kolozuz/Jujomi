@@ -60,8 +60,11 @@
             <div class="container-fluid">
                 <a class="navbar-brand fs-2 fw-semibold " href="CursoController.php?action=start">JUJOMI</a>
                 <span class="dropstart">
-                    <div class="dropdown-toggle btn bg-claro shadow-sm" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
-                        <i class="fa-solid fa-user"></i>
+                    <div class="dropdown-toggle btn bg-claro shadow-sm rounded-pill" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
+                        <img src="<?php 
+                            if (!$_SESSION['imgurl_register'] == "") {
+                                echo $_SESSION['imgurl_register']; }
+                                echo '../Public/img/dftpfp.jpg'?>" alt="profile picture" class="rounded-circle" width="50vh" >
                     </div>
                     <ul class="dropdown-menu my-3">
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a></li>
