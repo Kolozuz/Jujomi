@@ -21,19 +21,18 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
         <h2 class="fs-semibold">Creador de Cursos</h2>
         <h3 class="fs-semibold" id="sectionTitle">Datos Basicos</h3>
     </div>
+    <!-- action="CursoController.php" method="post" -->
     <form id="form">
         <div class="row px-5 pb-5">
-
-            <!-------------------- Seccion #1 -------------------->
-
             <!-------------------- Seccion #2 -------------------->
             <section id="form-curso-2" class="mt-4">
                 <div class="row pe-2">
                     <div>
                         <input type="hidden" name="action" value="insertar_seccion">
+                        
                         <input type="hidden" name="seccion_count" id="seccion_count" value="">
                         <!-- <input type="hidden" name="editorContent"> -->
-                        <!-- <input type="hidden" name="id" value="<?php //echo $_SESSION['id_c']; ?>"> -->
+                        <input type="hidden" name="id_curso" value="<?php echo $_SESSION['id_c']; ?>">
                         <!-- <label for="img_c">Image de Portada del curso</label> -->
                     </div>
                     <div class="col-md-12 col-sm-12 ">
@@ -137,10 +136,17 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                     </div>
             </section>
         </div>
-        <div class="row mt-2 px-5 pb-5">
-            <button type="submit" class="btn btn-primario text-white">
-                Guardar Cambios <i class="fa-solid fa-check"></i>
-            </button>
+        <div class="row mt-2 px-5 pb-5 text-center">
+            <div class="col-md-6 col-sm-12">
+                <a href="CursoController.php?action=start" type="button" class="btn bg-danger text-white">
+                    Salir <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <button type="submit" class="btn btn-primario text-white">
+                    Guardar Cambios <i class="fa-solid fa-check"></i>
+                </button>
+            </div>
         </div>
     </form>
     <div id="err" class="d-none">
