@@ -69,8 +69,9 @@
                     <ul class="dropdown-menu my-3">
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a></li>
                         <li><a class="dropdown-item" href="UsuarioController.php?action=start">Mis Cursos</a></li>
-                        <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=config">Configuracion</a></li>
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=faq">FAQ</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=config">Configuracion</a></li>
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=logout">Cerrar Sesion</a></li>
                     </ul>
                 </span>
