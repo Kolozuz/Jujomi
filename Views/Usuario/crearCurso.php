@@ -123,6 +123,6 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
     </form>
 
 </main>
-<script src="../Public/Js/app.js"></script>
 <script src="../Public/Js/jquery-3.6.1.min.js"></script>
+<script src="../Public/Js/app.js"></script>
 <?php include '../Inc/userfooter.php'; ?>
