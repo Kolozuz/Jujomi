@@ -7,8 +7,8 @@ use proyecto_jujomi;
 create table if not exists tbl_usuario(
     id_u int(11) PRIMARY KEY AUTO_INCREMENT,
     imgurl_u varchar(255),
-    email_u varchar(150),
-    nombre_u varchar(100),
+    email_u varchar(150) UNIQUE,
+    nombre_u varchar(100) UNIQUE,
     contrasena_u varchar(255),
     fecha_u date default current_timestamp(),
     hora_u time default current_timestamp());
@@ -26,17 +26,19 @@ create table if not exists tbl_curso(
 
 create table if not exists tbl_seccion(
     id_secc int(11) PRIMARY KEY AUTO_INCREMENT,
-    titulo_secc varchar(50),
+    titulo_secc varchar(50) UNIQUE,
+    titulo_lecc varchar(50) UNIQUE,
+    contenido_secc JSON,
     id_curso int(11),
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
 
-create table if not exists tbl_leccion(
-    id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
-    titulo_lecc varchar(50),
-    tipo_lecc varchar(8),
-    contenido_lecc longtext,
-    id_seccion int(11),
-    FOREIGN KEY(id_seccion) REFERENCES tbl_seccion(id_secc));
+-- create table if not exists tbl_leccion(
+--     id_leccion int(11) PRIMARY KEY AUTO_INCREMENT,
+--     titulo_lecc varchar(50),
+--     tipo_lecc varchar(8),
+--     contenido_lecc longtext,
+--     id_seccion int(11),
+--     FOREIGN KEY(id_seccion) REFERENCES tbl_seccion(id_secc));
 
 create table if not exists tbl_rating(
     id_rating int(11) PRIMARY KEY AUTO_INCREMENT,
