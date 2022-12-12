@@ -13,6 +13,11 @@
             return;
         }
 
+        public function RedirectCursoViewer(){
+            include_once '../Cursos.php';
+            return;
+        }
+
         public function RedirectCursoCreator(){
             include_once '../Views/Usuario/crearCurso.php';
             return;
@@ -141,6 +146,11 @@
         $cursocontroller->RedirectCursoManager();
     }
 
+    if(isset($_GET['action']) && $_GET['action'] == 'startstudent'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->RedirectCursoViewer()();
+    }
+
     if(isset($_GET['action']) && $_GET['action'] == 'crearCurso'){
         $cursocontroller = new CursoController();
         $cursocontroller->RedirectCursoCreator();
@@ -202,7 +212,7 @@
         echo $scount;
         for ($i=1; $i <= $scount ; $i++) { 
 
-            $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['titulo_lecc'], $_POST['contenido_secc'], $_POST['id_curso']);
+            $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['titulo_lecc' . $i], json_encode($_POST['contenido_secc']) , $_POST['id_curso']);
         
         $response = $_POST['titulo_secc' . $i];
         echo $response . ' -> is arriving';

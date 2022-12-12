@@ -45,7 +45,7 @@ class Seccion extends Curso
         // Esta funcion es para guardar las cursos en la base de datos
         $conexion = new Conexion();
         // $sqlfk = "SET foreign_key_checks = 0;";
-        $sql = "INSERT INTO tbl_seccion(titulo_secc, titulo_lecc, contenido_secc, id_curso) values('$titulo_secc','$titulo_lecc, '$contenido_secc','$id_curso')";
+        $sql = "INSERT INTO tbl_seccion(titulo_secc, titulo_lecc, contenido_secc, id_curso) values('$titulo_secc','$titulo_lecc', '$contenido_secc','$id_curso')";
 
         // $insertfk = $conexion->stm->prepare($sqlfk);
         $insert = $conexion->stm->prepare($sql);

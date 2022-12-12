@@ -210,6 +210,8 @@ if (empty($cursoobj)) {
         <input type="search" name="buscar_cursos" id="buscar_cursos" class="form-control" placeholder="p.eg Curso de Html">
         <label for="buscar_cursos">Busca algun curso</label>
     </div> -->
+    <script src="../Public/Js/jquery-3.6.1.min.js"></script>
+    <script src="../Public/Js/app.js"></script>
 
 <script>
 var estadoCurso = <?php echo $estado_c;?>;

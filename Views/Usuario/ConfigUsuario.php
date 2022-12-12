@@ -9,7 +9,7 @@ include '../Inc/userheader.php';
         </div>
         <div class="row fs-5">
             <div class="col-4"></div>
-            <div class="col-2 form-check form-switch">
+            <div class="col-2">
                 <span>Cambiar el tema</span>
             </div>
             <div class="col-2 form-check form-switch d-flex justify-content-center">

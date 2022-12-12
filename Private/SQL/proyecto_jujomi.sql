@@ -26,8 +26,8 @@ create table if not exists tbl_curso(
 
 create table if not exists tbl_seccion(
     id_secc int(11) PRIMARY KEY AUTO_INCREMENT,
-    titulo_secc varchar(50) UNIQUE,
-    titulo_lecc varchar(50) UNIQUE,
+    titulo_secc varchar(50),
+    titulo_lecc varchar(50),
     contenido_secc JSON,
     id_curso int(11),
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
