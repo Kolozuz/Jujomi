@@ -64,7 +64,7 @@
             // echo 'successssssssssss';
         }
 
-        public function InsertSeccion($titulo_secc, $id_curso){
+        public function InsertSeccion($titulo_secc, $titulo_lecc, $contenido_secc , $id_curso){
             $seccioncontroller = new Seccion();
             // $id_u = $_GET['id'];
             // $_SESSION['id_register'] = $id_u;
@@ -76,27 +76,27 @@
             $this->$titulo_secc = $titulo_secc;
             $this->$id_curso = $id_curso;
 
-            $seccioncontroller->SaveSeccion($titulo_secc, $id_curso);
+            $seccioncontroller->SaveSeccion($titulo_secc, $titulo_lecc, $contenido_secc, $id_curso);
             // header("Location: CursoController.php?action=start&msg=successinsert");
             // echo 'successssssssssss';
         }
 
-        public function InsertLeccion($titulo_lecc, $contenido_lecc){
-            $leccioncontroller = new Leccion();
-            // $id_u = $_GET['id'];
-            // $_SESSION['id_register'] = $id_u;
-            // echo $_SESSION['id_register'];
-            // $cursoinfo = $this->CheckCursoFromDB();
-            // foreach ($cursoinfo as $curso_obj) {}
-            // $_SESSION['id_curso'] = $curso_obj->id_c;
+        // public function InsertLeccion($titulo_lecc, $contenido_lecc){
+        //     $leccioncontroller = new Leccion();
+        //     // $id_u = $_GET['id'];
+        //     // $_SESSION['id_register'] = $id_u;
+        //     // echo $_SESSION['id_register'];
+        //     // $cursoinfo = $this->CheckCursoFromDB();
+        //     // foreach ($cursoinfo as $curso_obj) {}
+        //     // $_SESSION['id_curso'] = $curso_obj->id_c;
 
-            $this->$titulo_lecc = $titulo_lecc;
-            $this->$contenido_lecc = $contenido_lecc;
+        //     $this->$titulo_lecc = $titulo_lecc;
+        //     $this->$contenido_lecc = $contenido_lecc;
 
-            $leccioncontroller->SaveSeccion($titulo_lecc, $contenido_lecc);
-            // header("Location: CursoController.php?action=start&msg=successinsert");
-            echo 'successssssssssss';
-        }
+        //     $leccioncontroller->SaveSeccion($titulo_lecc, $contenido_lecc);
+        //     // header("Location: CursoController.php?action=start&msg=successinsert");
+        //     echo 'successssssssssss';
+        // }
 
         public function DeleteCurso(){
             $id_c = $_GET['id'];
@@ -196,28 +196,38 @@
     if(isset($_POST['action']) && $_POST['action'] == 'insertar_seccion'){
         
         $cursocontroller = new CursoController();
+
+        $scount = $_POST['seccion_count'];
+
+        echo $scount;
+        for ($i=1; $i <= $scount ; $i++) { 
+
+            $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST['titulo_lecc'], $_POST['contenido_secc'], $_POST['id_curso']);
         
-        // $accordionItemCount = 1;
-        // $accordionItemCount++;
-        $scount = json_decode($_POST['scount']);
-        // implode([$scc]);
-        var_dump($scount) ;
-        for ($i=0; $i < count($scount) ; $i++) { 
-            // $img_lecc = $_FILES['img_secc' . $i]['name'];
-            // $img_lecc_temp = $_FILES['img_secc' . $i]['tmp_name'];
-            // $imgurl_lecc = "../Views/Cursos/Lecciones/Imgs/" . $img_lecc;
-            // die ($_POST['editorContent'] . $_FILES['img_secc' . $i]['name'] . $_FILES['img_secc' . $i]['tmp_name']);
-            // copy($img_lecc_temp, $imgurl_lecc);
-            // echo $img_c . $img_tmp . $imgurl_c;
-            // echo $_POST['ctg_c'];
-            // , $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]
-            $cursocontroller->InsertSeccion($_POST['titulo_secc' . $scount[$i]], $_GET['id_curso']);
-        
-        $response = $_POST['titulo_secc' . $scc];
+        $response = $_POST['titulo_secc' . $i];
         echo $response . ' -> is arriving';
-        // $cursocontroller->RedirectLeccionCreator();
+        $cursocontroller->RedirectLeccionCreator();
         }
     }
+
+    // if(isset($_POST['action']) && $_POST['action'] == 'insertar_leccion'){
+        
+    //     $cursocontroller = new CursoController();
+        
+    //     for ($i=1; $i <= $scount ; $i++) { 
+    //         // $img_lecc = $_FILES['img_secc' . $i]['name'];
+    //         // $img_lecc_temp = $_FILES['img_secc' . $i]['tmp_name'];
+    //         // $imgurl_lecc = "../Views/Cursos/Lecciones/Imgs/" . $img_lecc;
+    //         // die ($_POST['editorContent'] . $_FILES['img_secc' . $i]['name'] . $_FILES['img_secc' . $i]['tmp_name']);
+    //         // copy($img_lecc_temp, $imgurl_lecc);
+    //         // echo $img_c . $img_tmp . $imgurl_c;
+    //         // echo $_POST['ctg_c'];
+    //         // , $_POST['titulo_lecc' . $i], $_FILES['img_secc' . $i]['type'], $imgurl_lecc, $_POST['text_lecc' . $i]
+    //         $cursocontroller->InsertSeccion($_POST['titulo_secc' . $i], $_POST[], $_POST['id_curso']);
+
+    //     $cursocontroller->RedirectCursoManager();
+    //     }
+    // }
 
     if(isset($_POST['action']) && $_POST['action'] == 'actualizar_curso'){
         $cursocontroller = new CursoController();

@@ -6,6 +6,8 @@ class Seccion extends Curso
 {
     protected $id_secc;
     protected $titulo_secc;
+    protected $titulo_lecc;
+    protected $contenido_secc;
     protected $id_curso;
 
     // include '../Config/Conexion.php';
@@ -38,19 +40,20 @@ class Seccion extends Curso
     //     return $cursoobjeto;
     // }
 
-    public function SaveSeccion($titulo_secc, $id_curso)
+    public function SaveSeccion($titulo_secc, $titulo_lecc, $contenido_secc, $id_curso)
     {
         // Esta funcion es para guardar las cursos en la base de datos
         $conexion = new Conexion();
         // $sqlfk = "SET foreign_key_checks = 0;";
-        $sql = "INSERT INTO tbl_seccion(titulo_secc, id_curso) values(?,?)";
+        $sql = "INSERT INTO tbl_seccion(titulo_secc, titulo_lecc, contenido_secc, id_curso) values('$titulo_secc','$titulo_lecc, '$contenido_secc','$id_curso')";
 
         // $insertfk = $conexion->stm->prepare($sqlfk);
         $insert = $conexion->stm->prepare($sql);
-        $insert->bindParam(1, $this->titulo_secc);
-        $insert->bindParam(2, $this->id_curso);
+        // $insert->bindParam(1, $this->titulo_secc);
+        // $insert->bindParam(2, $this->id_curso);
         // $insertfk->execute();
         $insert->execute();
+        // die('SI LLEGA AQUI');
 
         return;
 
