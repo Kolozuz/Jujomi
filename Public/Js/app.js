@@ -1,241 +1,290 @@
 var accordionItemCount = 0;
 var accordionItemCount2 = 0;
-const main = $('#main');
+const main = $("#main");
 
 Quill.register("modules/resize", window.QuillResizeModule);
 // Con esto inicializamos y configuramos el editor de Quill
 var toolbarOptions = [
-  [{ 'font': [] }],
-  [{ 'size': ['small', false, 'large', 'huge'] }],  
-  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  [{ font: [] }],
+  [{ size: ["small", false, "large", "huge"] }],
+  [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
-  ['bold', 'italic', 'underline', 'strike'],        
-  ['blockquote', 'code-block'],
+  ["bold", "italic", "underline", "strike"],
+  ["blockquote", "code-block"],
 
-  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-  [{ 'script': 'super' }],                          
-  [{ 'indent': '-1'}, { 'indent': '+1' }],          
+  [{ list: "ordered" }, { list: "bullet" }],
+  [{ script: "super" }],
+  [{ indent: "-1" }, { indent: "+1" }],
 
-  [{ 'color': [] }],          
-  [{ 'align': [] }],
+  [{ color: [] }],
+  [{ align: [] }],
 
-  ['image', 'video'],
+  ["image", "video"],
 
-  ['clean']
+  ["clean"],
 ];
 var options = {
-  debug: 'info',
+  debug: "info",
   modules: {
     resize: {
-          showSize: true,
-          // showToolbar: false,
-          toolbar: {
-            // alingTools: false
-          },
-          locale: {}
-        },
+      showSize: true,
+      // showToolbar: false,
+      toolbar: {
+        // alingTools: false
+      },
+      locale: {},
+    },
     toolbar: toolbarOptions,
     history: {
-    // Esto determina cada cuantos milisegundos se stackean los cambios
-    delay: 1000,
-    // Esto determina la cantidad maxima de cambios que se guardan
-    maxStack: 5,
-    // Esto determina si deben tenerse en cuenta solo los cambios realizados por input del usuario;
-    userOnly: false,
-    }
+      // Esto determina cada cuantos milisegundos se stackean los cambios
+      delay: 1000,
+      // Esto determina la cantidad maxima de cambios que se guardan
+      maxStack: 5,
+      // Esto determina si deben tenerse en cuenta solo los cambios realizados por input del usuario;
+      userOnly: false,
+    },
   },
-  placeholder: 'Primero lo primero...',
-  value: 'Hola Mundo',
+  placeholder: "Primero lo primero...",
+  value: "Hola Mundo",
   readOnly: false,
-  theme: 'snow'
+  theme: "snow",
 };
-// var editor = new Quill('#editor1', options);
+// var s = Array['A','B','C'];
+// $("#scount").val(s)
 
-
-// var quillHtml = editor.root.innerHTML.trim();
 //pass the value to your ajax data like this:
-$(function(){
-    $('#form').on('submit',function(f){
+$(function () {
+    $("#form").on("submit", function (f) {
         f.preventDefault();
-        let $err = $('#err');
+        var quillHtml = editor.root.innerHTML.trim();
+        var quillcontent = {
+            contenido_secc : quillHtml
+        };
+    let $err = $("#err");
 
-        $.ajax({
-            type: "POST",
-            url: "CursoController.php",
-            data: $(this).serialize(),
-        }).then(function (resp) {
-            
-            let data = resp;
+    $.ajax({
+      type: "POST",
+      url: "CursoController.php",
+      data: $(this).serialize() + '&' + $.param(quillcontent),
+      success: function (result) {
+        $err.innerHTML += result;
+        // $err.removeClass("d-none");
 
-            if (data.error) {
-                $err.removeClass('d-none').html(data.error);
-                return;
-            }
-
-            alert('success');
-            $('#si').html(data);
-        }).then(function(){
-            $.ajax({
-                type: "POST",
-                dataType: 'json',
-                url: 'CursoController.php',
-                data: { 
-                    action: 'insertar_seccion',
-                    scount: $.getJSON($('.accordion-item')) }, //NOTE THIS LINE, it's QUITE important
-                success: function(result) {alert('se envio el array')
-                },
-                error: function(xhr){
-                    alert('NO se envio el array' + xhr.status + xhr.statusText + ' ' + xhr.responseText)
-                }
-            });
-        });
-        
+        swal("Yay!", "Changes where saved correctly", "success");
+      },
+      error: function (xhr) {
+        swal("Oops", "Algo salio mal :(","error");
+        $err.innerHTML += "Status del return -> "  + xhr.status +
+        "Status del return en txt -> "  + xhr.statusText +
+        " " +
+        "Texto del return -> "  + xhr.responseText;
+        $err.removeClass("d-none");
+      },
     })
-})
+    // .then(function(){
+    //     $.ajax({
+    //         type: "POST",
+    //         // processData: false,
+    //         url: "CursoController.php",
+    //         data: {
+    //             action : "insertar_seccion",
+    //             secc_contenido : quillHtml
+    //         },
+    //         success: function (result) {
+    //           alert("success-> " + result);
+    //         },
+    //         error: function (xhr) {
+    //           alert(
+    //             "NO se envio el array" +
+    //               xhr.status +
+    //               xhr.statusText +
+    //               " " +
+    //               xhr.responseText
+    //           );
+    //         },
+    //       })
+    // });
+  });
+});
 
-// function send(){
+var sectionTitle = document.getElementById("sectionTitle");
+var formCurso1 = document.getElementById("form-curso-1");
+var formCurso2 = document.getElementById("form-curso-2");
+var formCurso3 = document.getElementById("form-curso-3");
+var btnConfirm = document.getElementById("confirm");
+var categoria = document.getElementById("ctg_c");
+var sectionCategoria = document.getElementById("sectionCategoria");
 
-//     $.ajax({
-//         type: "POST",
-//         url : 'CursoController.php',
-//         data: {
-//             editorContent : quillHtml,
-//             titulo_lecc1 : $('#titulo_lecc1').value,
-//             action : 'insertar_leccion'
-//         },
-//         success: function($response){
-//             if ($response != "") {
-//                 alert('Buena Crack' , $response)
-//                 $('#si').innerHTML = ($response);
-//             }
-             
-//         },
-//         error: function() {
-//            alert("No se pudo bro");
-//         }       
-//     });
+// function enableSection1() {
+//     if (formCurso1.style.display == "none") {
+//         sectionTitle.innerHTML = 'Datos Basicos';
+//         sectionCategoria.style.display = "inherit";
+//         formCurso2.style.display = "none";
+//         if (categoria.value != "") {
+//             formCurso1.style.display = "block";
+//             // btnConfirm.setAttribute("disabled", "disabled");
+//         }
+//     }
 // }
 
-
-var sectionTitle = document.getElementById('sectionTitle');
-var formCurso1 = document.getElementById('form-curso-1');
-var formCurso2 = document.getElementById('form-curso-2');
-var formCurso3 = document.getElementById('form-curso-3');
-var btnConfirm = document.getElementById('confirm');
-var categoria = document.getElementById('ctg_c');
-var sectionCategoria = document.getElementById('sectionCategoria');
-
-function enableSection1() {
-    if (formCurso1.style.display == "none") {
-        sectionTitle.innerHTML = 'Datos Basicos';
-        sectionCategoria.style.display = "inherit";
-        formCurso2.style.display = "none";
-        if (categoria.value != "") {
-            formCurso1.style.display = "block";
-            // btnConfirm.setAttribute("disabled", "disabled");
-        }
-    }
-}
-
-function enableSection2() {
-    if (formCurso2.style.display == "none") {
-        sectionCategoria.style.display = "none";
-        formCurso1.style.display = "none";
-        formCurso2.style.display = "block";
-        sectionTitle.innerHTML = 'Contenido';
-    }
-}
+// function enableSection2() {
+//     if (formCurso2.style.display == "none") {
+//         sectionCategoria.style.display = "none";
+//         formCurso1.style.display = "none";
+//         formCurso2.style.display = "block";
+//         sectionTitle.innerHTML = 'Contenido';
+//     }
+// }
 
 function nextStep() {
-    if (formCurso1.style.display == "none") {
-        formCurso1.style.display = "block";
-    }
+  if (formCurso1.style.display == "none") {
+    formCurso1.style.display = "block";
+  }
 }
 
 // console.log(categoria.value)
 // console.log(sectionCategoria)
 
 function enableBtn() {
-    if (categoria.value == "") {
-        console.log('nothing selected, btn disabled');
-        formCurso1.style.display = "none";
-        btnConfirm.setAttribute("disabled", "disabled");
-    } else {
-        btnConfirm.removeAttribute("disabled");
-        console.log('button enabled');
-        
-        // console.log(categoria.value);
-    }
-    // if (!btnConfirm.attribute == "disabled") {
-    //     btnConfirm.setAttribute("disabled");
-    // }
-}
+  if (categoria.value == "") {
+    console.log("nothing selected, btn disabled");
+    formCurso1.style.display = "none";
+    btnConfirm.setAttribute("disabled", "disabled");
+  } else {
+    btnConfirm.removeAttribute("disabled");
+    console.log("button enabled");
 
+    // console.log(categoria.value);
+  }
+  // if (!btnConfirm.attribute == "disabled") {
+  //     btnConfirm.setAttribute("disabled");
+  // }
+}
 
 // Insertar Contenido
 
 var seccionCount = 2;
 function addSeccion() {
-    let accordionClassCount = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight','Nine','Ten'];
-    let btnNuevaSeccion = document.getElementById('btnNuevaSeccion');
-    console.log(accordionClassCount[accordionItemCount]);
-    if (accordionItemCount <= 9){
-        // let accordionContainer = document.getElementById('accordionContainer');
-        ClassCount = accordionClassCount[accordionItemCount];
-        accordionItemCount++;
-        $('#seccion_count').val(accordionItemCount);
-        $('#accordionContainer').append(
-            '<div class="accordion-item"> <h2 class="accordion-header" id="panelsStayOpen-heading' + ClassCount + '"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse' + ClassCount +'" aria-expanded="true" aria-controls="panelsStayOpen-collapse' + ClassCount +'">' + accordionItemCount + '. <input type="text" name="titulo_secc' + accordionItemCount + '" class="bg-light rounded border border-0" placheholder="Mi nueva sección"> </button> </h2> <div id="panelsStayOpen-collapse' + ClassCount +'" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading' + ClassCount +'"> <div class="accordion-body accordion-body-id' + accordionItemCount +'"> </div> <div class="row justify-content-end mbs-2"> <div class="col-md-1 d-flex justify-content-center"> <button type="button" class="btn text-center" onclick="addLeccion' + accordionItemCount +'()"> <i class="fa-solid fa-plus"></i> </button> </div> </div> </div> </div>')
+  let accordionClassCount = [
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+  ];
+  let btnNuevaSeccion = document.getElementById("btnNuevaSeccion");
+  console.log(accordionClassCount[accordionItemCount]);
+  if (accordionItemCount <= 9) {
+    // let accordionContainer = document.getElementById('accordionContainer');
+    ClassCount = accordionClassCount[accordionItemCount];
+    accordionItemCount++;
+    $("#seccion_count").val(accordionItemCount);
+    $("#accordionContainer").append(
+      '<div class="accordion-item"> <h2 class="accordion-header" id="panelsStayOpen-heading' +
+        ClassCount +
+        '"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse' +
+        ClassCount +
+        '" aria-expanded="true" aria-controls="panelsStayOpen-collapse' +
+        ClassCount +
+        '">' +
+        accordionItemCount +
+        '. <input type="text" name="titulo_secc' +
+        accordionItemCount +
+        '" class="bg-light rounded border border-0" placheholder="Mi nueva sección"> </button> </h2> <div id="panelsStayOpen-collapse' +
+        ClassCount +
+        '" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading' +
+        ClassCount +
+        '"> <div class="accordion-body accordion-body-id' +
+        accordionItemCount +
+        '"> <div class="row tex-center flex-direction-center justify-content-center border p-4 mb-3 overflow-scroll acc-body"><div class="row text-center d-flex justify-content-center p-4"><div class="col-5"><label for="titulo_lecc' +
+        accordionItemCount +
+        '">Titulo de la Leccion</label><br><input type="text" name="titulo_lecc' +
+        accordionItemCount +
+        '" class="bg-light form-control form-control-sm" placheholder="Mi nueva sección"></div></div><div class="row mb-5"><div id="editor' +
+        accordionItemCount +
+        '"><p>Hello World!</p></div></div></div>' +
+        "'" +
+        ' </div> <div class="row justify-content-end mbs-2"> <div class="col-md-1 d-flex justify-content-center"> <button type="button" class="btn text-center" id="addLeccionbtn' +
+        accordionItemCount +
+        '" onclick="addLeccion' +
+        accordionItemCount +
+        '()"> <i class="fa-solid fa-plus"></i> </button> </div> </div> </div> </div>'
+    );
 
-        $('#main').append('<script>function addLeccion' + accordionItemCount +'() {accordionItemCount2++; let accordion = $(".accordion-body-id' + accordionItemCount +'");console.log(accordion); accordion.append(' + "'" + '<div class="row tex-center flex-direction-center justify-content-center border p-4 mb-3 overflow-scroll acc-body"><div class="row text-center d-flex justify-content-center p-4"><div class="col-5"><label for="titulo_lecc' + accordionItemCount +'">Titulo de la Leccion</label><br><input type="text" name="titulo_lecc' + accordionItemCount +'" class="bg-light form-control form-control-sm" placheholder="Mi nueva sección"></div></div><div class="row mb-5"><div id="editor' + accordionItemCount +'"><p>Hello World!</p></div></div></div>' + "'" + '); var editor = new Quill("#editor' + accordionItemCount + '", options);}');
-        // main.append('<script>var editor = new Quill("#editor' + accordionItemCount + '", options); </script>');
-    }
-    else{
-        alert('Haz alcanzado el maximo de secciónes, en un futuro seran más')
-        btnNuevaSeccion.setAttribute('disabled','disabled');
-    }
-    // console.log(accordionItemCount++);
+    // $("#main").append(
+    //   "<script>function addLeccion" +
+    //     accordionItemCount +
+    //     '() {accordionItemCount2++; $("#addLeccionbtn' +
+    //     accordionItemCount +
+    //     '").addClass("d-none") ; let accordion = $(".accordion-body-id' +
+    //     accordionItemCount +
+    //     '");console.log(accordion); accordion.append(' +
+    //     "'" +
+    //     '<div class="row tex-center flex-direction-center justify-content-center border p-4 mb-3 overflow-scroll acc-body"><div class="row text-center d-flex justify-content-center p-4"><div class="col-5"><label for="titulo_lecc' +
+    //     accordionItemCount +
+    //     '">Titulo de la Leccion</label><br><input type="text" name="titulo_lecc' +
+    //     accordionItemCount +
+    //     '" class="bg-light form-control form-control-sm" placheholder="Mi nueva sección"></div></div><div class="row mb-5"><div id="editor' +
+    //     accordionItemCount +
+    //     '"><p>Hello World!</p></div></div></div>' +
+    //     "'" +
+    //     '); var editor = new Quill("#editor' +
+    //     accordionItemCount +
+    //     '", options);}'
+    // );
+
+main.append('<script>var editor = new Quill("#editor' + accordionItemCount + '", options); $("#addLeccionbtn' + accordionItemCount + '").addClass("d-none") ; </script>');
+  } else {
+    alert("Haz alcanzado el maximo de secciónes, en un futuro seran más");
+    btnNuevaSeccion.setAttribute("disabled", "disabled");
+  }
+  // console.log(accordionItemCount++);
 }
 // function addLeccion1() {
 //     accordionItemCount2++;
-    
+
 //     let accordion = $('.accordion-body-id1');
-//     // for (let i = 0; i < accordion.length; i++) { 
+//     // for (let i = 0; i < accordion.length; i++) {
 //         console.log(accordion);
 //         // console.log(i);
 //         accordion.append(/*'<div class="row tex-center flex-direction-center justify-content-center border p-4 mb-3"> <div class="row text-center d-flex justify-content-center p-4"><div class="col-5"><label for="titulo_lecc' + accordionItemCount2 +'">Titulo de la Lección</label><br><input type="text" name="titulo_lecc' + accordionItemCount2 +'" class="bg-light form-control form-control-sm" placheholder="Mi nueva sección"></div></div> <div class="row flex-direction-center justify-content-center chooseContent' + accordionItemCount2 +'" style="display:flex">  <div class="col-2 d-flex justify-content-center"> <button type="button" class="btn" onclick="showImageUploader' + accordionItemCount2 +'()"> <i class="fa-solid fa-image"></i> <br> <small>Imagen</small> </button> </div> <div class="col-2 tex-center d-flex justify-content-center"> <button type="button" class="btn"> <i class="fa-solid fa-video"></i> <br> <small>Video</small> </button> </div> <div class="col-2 d-flex justify-content-center"> <button type="button" class="btn"> <i class="fa-solid fa-font"></i> <br> <small>Texto</small> </button> </div> </div> <div class="row tex-center d-flex flex-direction-center justify-content-center"> <div class="col-md-3"> <input type="file" name="img_secc' + accordionItemCount2 +'" id="img_secc' + accordionItemCount2 +'" accept="image/*" style="opacity:0;position:absolute;top: -1000px;"> <label for="img_secc' + accordionItemCount2 +'" style="height:100%; margin:auto;display: none;" class="form-control text-center pt-4 hover imageContent' + accordionItemCount2 +'"> <div id="img-secc-preview' + accordionItemCount2 +'"></div> <div id="img-secc-label' + accordionItemCount2 +'"> <img src="../Public/img/file-arrow-up-solid.svg" alt="Botón Subir Archivo"> <br> <span> Elegir Archivo<br> </span> <!-- <span class="fst-italic"> Tamaño recomendado 1280 x 720 píxeles </span> --> </div> </label> </div> <div class="col-md-7 imageContent' + accordionItemCount2 +'" style="display:none"> <div" class="col-md-7 imageContent' + accordionItemCount2 + '" style="display:none"><input type="text" name="text_lecc' + accordionItemCount2 +'" class="form-control form-control-lg" value="Click here to add a description"></div> </div> </div> </div>'*/
 //         '<div class="row tex-center flex-direction-center justify-content-center border p-4 mb-3 overflow-scroll acc-body"><div class="row text-center d-flex justify-content-center p-4"><div class="col-5"><label for="titulo_lecc' + accordionItemCount2 +'">Titulo de la Leccion</label><br><input type="text" name="titulo_lecc' + accordionItemCount2 +'" class="bg-light form-control form-control-sm" placheholder="Mi nueva sección"></div></div><div class="row mb-5"><!-- editor container --><div id="editor' + accordionItemCount2 +'"><p>Hello World!</p></div></div></div>');
 
 //         main.append('<script>var editor = new Quill("#editor' + accordionItemCount2 + '", options);</script>')
-        
+
 //         // accordionItemCount2++;
-        
-        
+
 //         // accordion[i].append();
 //         // }
 //     }
 
-    function imgpreview(){
-        const imgInput = document.getElementById("img_c"); 
-        const imgLabel = document.getElementById("img-label"); 
-        const imgPreview = document.getElementById("img-preview");
-        imgInput.addEventListener("change", function() {
-            getImgData(); 
-        });
-        function getImgData() { 
-            const files = imgInput.files[0]; 
-            if (files) { 
-                const fileReader = new FileReader(); 
-                fileReader.readAsDataURL(files); 
-                fileReader.addEventListener("load", function() { 
-                    imgPreview.style.display = "block"; 
-                    imgLabel.style.display = "none"; 
-                    imgPreview.innerHTML = '<img src="' + this.result + '" width="200px" />';
-                })
-            }
+function imgpreview() {
+  const imgInput = document.getElementById("img_c");
+  const imgLabel = document.getElementById("img-label");
+  const imgPreview = document.getElementById("img-preview");
+  imgInput.addEventListener("change", function () {
+    getImgData();
+  });
+  function getImgData() {
+    const files = imgInput.files[0];
+    if (files) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(files);
+      fileReader.addEventListener("load", function () {
+        imgPreview.style.display = "block";
+        imgLabel.style.display = "none";
+        imgPreview.innerHTML =
+          '<img src="' + this.result + '" width="200px" />';
+      });
     }
-    }
-    /*
+  }
+}
+/*
     function showImageUploader1() { 
         let chooseContent1 = $(".chooseContent1");
         let imageContent1 = $(".imageContent1"); 
