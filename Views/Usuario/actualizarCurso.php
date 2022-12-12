@@ -2,7 +2,7 @@
 include '../Inc/userheader.php';
 $cursoall =  new Curso();
 $id_c = $_GET['id'];
-echo $id_c;
+// echo $id_c;
 $conexion = new Conexion();
 $sql = "SELECT * FROM tbl_curso WHERE id_c = '$id_c'";
     $read = $conexion->stm->prepare($sql);
