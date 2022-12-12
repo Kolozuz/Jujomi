@@ -23,7 +23,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
                     if (!$_SESSION['imgurl_register'] == "") {
                             echo $_SESSION['imgurl_register']; 
                         }
-                echo '../Public/img/dftpfp.jpg'?>"alt="profile picture" class="rounded-circle" width="100vh" >
+                echo '../Public/img/dftpfp2.jpg'?>"alt="profile picture" class="rounded-circle" width="100vh" >
                 </div>
             </div>
             <div class="row text-start">

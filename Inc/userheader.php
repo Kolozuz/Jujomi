@@ -64,7 +64,7 @@
                         <img src="<?php 
                             if (!$_SESSION['imgurl_register'] == "") {
                                 echo $_SESSION['imgurl_register']; }
-                                echo '../Public/img/dftpfp.jpg'?>" alt="profile picture" class="rounded-circle" width="50vh" >
+                                echo '../Public/img/dftpfp2.jpg'?>" alt="profile picture" class="rounded-circle" width="50vh" >
                     </div>
                     <ul class="dropdown-menu my-3">
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a></li>
