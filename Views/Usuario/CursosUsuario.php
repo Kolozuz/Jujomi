@@ -21,7 +21,7 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successdel') {
     // include_once '../Views/Usuario/PerfilUsuario.php';
     echo '
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
         <strong>¡Nice!</strong> El curso fue eliminado con exito.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -32,8 +32,19 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successupdate') {
     // include_once '../Views/Usuario/PerfilUsuario.php';
     echo '
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
         <strong>¡Nice!</strong> Los datos fueron actualizados con exito.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    ';
+}
+// var_dump($cursoobj);
+if (empty($cursoobj)) {
+    // include_once '../Views/Usuario/PerfilUsuario.php';
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+        <strong>¡Oops!</strong> No tienes ningún curso creado aun.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     ';
