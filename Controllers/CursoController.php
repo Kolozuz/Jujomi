@@ -14,7 +14,7 @@
         }
 
         public function RedirectCursoViewer(){
-            include_once '../Cursos.php';
+            include_once '../Views/Cursos/Cursos.php';
             return;
         }
 

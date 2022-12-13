@@ -29,18 +29,18 @@ class Curso
         return $cursoobjeto;
     }
 
-    // public function CheckCursoAllFromDB(){
-    //     //Todos los cursos
-    //     $conexion = new Conexion();
-    //     $sql = "SELECT * FROM tbl_curso";
+    public function CheckCursoAllFromDB(){
+        //Todos los cursos
+        $conexion = new Conexion();
+        $sql = "SELECT * FROM tbl_curso WHERE estado_c = 1";
 
-    //     $read = $conexion->stm->prepare($sql);
-    //     $read->execute();
+        $read = $conexion->stm->prepare($sql);
+        $read->execute();
 
-    //     $cursoobjeto = $read->fetchAll(PDO::FETCH_OBJ);
+        $cursoobjeto = $read->fetchAll(PDO::FETCH_OBJ);
 
-    //     return $cursoobjeto;
-    // }
+        return $cursoobjeto;
+    }
 
     public function SaveCurso()
     {

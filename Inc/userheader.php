@@ -71,7 +71,7 @@
             <span>
                 <span class="me-4">
                     <label class="switch shadow-sm">
-                        <input type="checkbox" name="role" id="role" onchange="roleChange()">
+                        <input type="checkbox" name="role" id="role">
                         <span class="sliderrole rounded"></span>
                     </label>
                 </span>
