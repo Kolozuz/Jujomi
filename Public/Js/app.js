@@ -1,13 +1,18 @@
 var accordionItemCount = 0;
 var accordionItemCount2 = 0;
 const main = $("#main");
-function roleChange() {
-    
-    var role = $("#role")
-        console.log(role.value)
-        // Location.href('CursoController.php?action=startstudent')
+$("#role").on("click", function () {
+    let cm = document.getElementById("cursosManager");
+    let cv = document.getElementById("cursosViewer");
+    console.log(cm.style.display);
+    console.log(cv.style.display);
 
-}
+    cm.classList.toggle('d-none');
+    cv.classList.toggle('d-none');
+
+    
+    // location.href = 'CursoController.php?action=startstudent';
+})
 Quill.register("modules/resize", window.QuillResizeModule);
 // Con esto inicializamos y configuramos el editor de Quill
 var toolbarOptions = [
