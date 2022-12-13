@@ -132,7 +132,7 @@ class UsuarioController extends Usuario
         // $this->RedirectIndex();
     }
 
-    public function Update($email_u, $nombre_u, $contrasena_u)
+    public function Update($id_u, $imgurl_u, $email_u, $nombre_u, $contrasena_u)
     {
         // ini_set('display_errors', 0);
         // ini_set('display_startup_errors', 0);
@@ -151,10 +151,10 @@ class UsuarioController extends Usuario
         // die('se murioooooooooooooooooooooooooo') ;
         if (password_verify($contrasena_u, $usuario_u->contrasena_u)) {
 
-            $id_u = $_POST['id_u'];
-            $imgurl_u = $_POST['imgurl_u'];
-            $nombre_u = $_POST['username_update'];
-            $email_u = $_POST['email_update'];
+            // $id_u = $_POST['id_u'];
+            // $imgurl_u = $_POST['imgurl_u'];
+            // $nombre_u = $_POST['username_update'];
+            // $email_u = $_POST['email_update'];
             $personas = $this->UpdateUsuario($id_u, $imgurl_u, $nombre_u, $email_u);
 
             header('Location: UsuarioController.php?action=perfil');
@@ -240,6 +240,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'update') {
     // $contrasena_u = $_POST['password_update'];
     // echo $contrasena_u;
     // echo $_POST['email_update'] . $_POST['username_update'] . $_POST['password_update'];
-    $usuariocontroller->Update($_POST['email_update'], $_POST['username_update'], $_POST['password_update']);
+    $img_u = $_FILES['imgurl_update']['name'];
+        $img_u_tmp = $_FILES['imgurl_update']['tmp_name'];
+        $imgurl_u = "../Views/Usuario/Imgs/" . $img_u;
+
+    copy($img_u_tmp, $imgurl_u);
+    $usuariocontroller->Update($_POST['id_u'], $imgurl_u, $_POST['email_update'], $_POST['username_update'], $_POST['password_update']);
     // session_destroy();
 }

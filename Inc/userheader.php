@@ -80,10 +80,13 @@
                     <button type="button" class="dropdown-toggle btn bg-claro shadow-sm rounded-pill" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
                         <img src="<?php 
-                                if (!$_SESSION['imgurl_register'] == "") {
-                                    echo $_SESSION['imgurl_register']; }
-                                    echo '../Public/img/dftpfp2.jpg'?>" alt="profile picture" class="rounded-circle"
-                            width="40vh">
+                            if (!$_SESSION['imgurl_register'] == "") {
+                                    echo $_SESSION['imgurl_register'];
+                                }
+                            else{
+                                    echo '../Public/img/dftpfp2.jpg';
+                                }
+                            ?>" alt="profile picture" class="rounded-circle" width="40vh">
                     </button>
                     <ul class="dropdown-menu my-3">
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a>

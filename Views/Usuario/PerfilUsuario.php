@@ -21,9 +21,12 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
                 <div class="col-md-12">
                 <img src="<?php 
                     if (!$_SESSION['imgurl_register'] == "") {
-                            echo $_SESSION['imgurl_register']; 
+                            echo $_SESSION['imgurl_register'];
                         }
-                echo '../Public/img/dftpfp2.jpg'?>"alt="profile picture" class="rounded-circle" width="100vh" >
+                    else{
+                            echo '../Public/img/dftpfp2.jpg';
+                        }
+                    ?>" alt="profile picture" class="rounded-circle" width="100vh" >
                 </div>
             </div>
             <div class="row text-start">
@@ -93,19 +96,23 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
                 </div>
 
                 <div class="modal-body">
-                <form action="UsuarioController.php?action=update" method="post" id="update_usuario" class="form-floating needs-validation" novalidate>
+                <form action="UsuarioController.php?action=update" method="post" id="update_usuario" class="form-floating needs-validation" enctype="multipart/form-data" novalidate>
                     <!-- < class="container-fluid"> -->
-                        <div class="row ms-5 me-5 form-floating mb-3">
-                            <input type="hidden" name="id_u" value="<?php echo $_SESSION['id_register'] ?>">
-                            <input type="hidden" name="imgurl_u" value="<?php null ?>">
-                            <input type="email" class="form-control col" name="email_update" placeholder="Ingresa un Correo Electronico" value="<?php echo $_SESSION['email_register'] ?>" required>
-                            <label for="email_register">Ingresa un Correo Electronico</label>
-                            
-                            <div class="invalid-feedback">
-                                Debes escribir una nueva direccion de correo.
-                            </div>
+                    <input type="hidden" name="id_u" value="<?php echo $_SESSION['id_register'] ?>">
+                        <div class="row ms-5 form-floating me-5 mb-3">
+                            <input type="file" accept="img/*" name="imgurl_update" class="form-control col">
+                            <label>Imagen de Perfil</label>
                         </div>
-
+                        <div class="row ms-5 me-5 form-floating mb-3">
+                            
+                                <input type="email" class="form-control col" name="email_update" placeholder="Ingresa un Correo Electronico" value="<?php echo $_SESSION['email_register'] ?>" required>
+                                <label for="email_register">Ingresa un Correo Electronico</label>
+                                
+                                <div class="invalid-feedback">
+                                    Debes escribir una nueva direccion de correo.
+                                </div>
+                            
+                        </div>
                         <div class="row ms-5 me-5 form-floating mb-3">
                             <input type="text" class="form-control col" name="username_update" placeholder="Ingresa un usuario" value="<?php echo $_SESSION['username_login']?>" required>
                             <label for="username_update">Ingresa un Nombre de Usuario</label>

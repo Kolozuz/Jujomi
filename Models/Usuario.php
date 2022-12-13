@@ -86,6 +86,7 @@
 
             $personas = $update->fetchAll(PDO::FETCH_OBJ);
 
+            $_SESSION['imgurl_register'] = $imgurl_u;
             $_SESSION['email_register'] = $email_u;
             $_SESSION['username_login'] = $nombre_u;
             
