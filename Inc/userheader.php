@@ -75,27 +75,30 @@
                         <span class="sliderrole rounded"></span>
                     </label>
                 </span>
-                <span class="dropdown-toggle btn bg-claro shadow-sm rounded-pill" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
-                    <img src="<?php 
-                            if (!$_SESSION['imgurl_register'] == "") {
-                                echo $_SESSION['imgurl_register']; }
-                                echo '../Public/img/dftpfp2.jpg'?>" alt="profile picture" class="rounded-circle"
-                        width="40vh">
+                <span class="dropstart">
+
+                    <button type="button" class="dropdown-toggle btn bg-claro shadow-sm rounded-pill" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
+                        <img src="<?php 
+                                if (!$_SESSION['imgurl_register'] == "") {
+                                    echo $_SESSION['imgurl_register']; }
+                                    echo '../Public/img/dftpfp2.jpg'?>" alt="profile picture" class="rounded-circle"
+                            width="40vh">
+                    </button>
+                    <ul class="dropdown-menu my-3">
+                        <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a>
+                        </li>
+                        <li><a class="dropdown-item" href="UsuarioController.php?action=start">Mis Cursos</a></li>
+                        <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=faq">FAQ</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item"
+                                href="../Controllers/UsuarioController.php?action=config">Configuracion</a></li>
+                        <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=logout">Cerrar
+                                Sesion</a></li>
+                    </ul>
                 </span>
-                <ul class="dropdown-menu my-3">
-                    <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a>
-                    </li>
-                    <li><a class="dropdown-item" href="UsuarioController.php?action=start">Mis Cursos</a></li>
-                    <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=faq">FAQ</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item"
-                            href="../Controllers/UsuarioController.php?action=config">Configuracion</a></li>
-                    <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=logout">Cerrar
-                            Sesion</a></li>
-                </ul>
             </span>
         </div>
         </nav>
