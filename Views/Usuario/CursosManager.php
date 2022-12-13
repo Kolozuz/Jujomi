@@ -81,6 +81,7 @@ if (empty($cursoobj)) {
     <!-- Seccion que sirve para mostrar los Cursos creados por el usuario, al igual que ciertas opciones -->
     <div class="row container-fluid text-center px-5 pt-3 pb-4">
         <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
+        <input type="hidden" class="cid" value="<?php echo $c->id_c; ?>">
         <article class="col-md-3 col-sm-12 my-2 ">
             <div
                 class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso">
@@ -143,7 +144,7 @@ if (empty($cursoobj)) {
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
-                        <a class="btn px-4" href="#">
+                        <a type="button" class="btn px-4 sharebtn">
                             <i class="fa-solid fa-share-nodes"></i>
                         </a>
                     </div>
@@ -165,7 +166,7 @@ if (empty($cursoobj)) {
                     </div>
                 </div>
 
-                <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row">
+                <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row clink">
                     <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">
                 </a>
                 <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
