@@ -100,7 +100,7 @@
 
 ::-webkit-scrollbar{
     width: 10px;
-    background-color: var(--secundario);
+    background-color: var(--claro);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
 }
 
@@ -109,9 +109,10 @@
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: var(--claro);
+    background-color: var(--secundario);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px inset;
 }
 
 
