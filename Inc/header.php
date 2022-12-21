@@ -1,4 +1,4 @@
-<?php echo '<script>console.log("with ♥ by Jujomi Org.")</script>'; ?>
+<?php echo '<script>console.log("with ❤ by Jujomi Org.")</script>'; ?>
 <!DOCTYPE html>
 <html lang="ES">
 
