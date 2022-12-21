@@ -120,19 +120,19 @@ $(function () {
 });
 
 
-$('.sharebtn').on("click", function showShareOpts(){
-    swal("Yay!","Link copiado al portapapeles","info");
-    let clink = $('.clink');
-    let cid = $('.cid');
+// $('.sharebtn').on("click", function showShareOpts(){
+//     swal("Yay!","Link copiado al portapapeles","info");
+//     let clink = $('.clink');
+//     let cid = $('.cid');
     
-    for (let i = 0; i < clink.length; i++) {
-        // let href = clink.prop('href');
-        // console.log("link copiado-> " + href);
-        let cidcount = cid[i].value;
-        console.log("link copiado-> " + "http://localhost/Jujomi/Controllers/CursoController.php?curso=" + cidcount);
-        navigator.clipboard.writeText("http://localhost/Jujomi/Controllers/CursoController.php?curso=" + cidcount);
-    }
-})
+//     for (let i = 0; i < clink.length; i++) {
+//         // let href = clink.prop('href');
+//         // console.log("link copiado-> " + href);
+//         let cidcount = cid[i].value;
+//         console.log("link copiado-> " + "http://localhost/Jujomi/Controllers/CursoController.php?curso=" + cidcount);
+//         navigator.clipboard.writeText("http://localhost/Jujomi/Controllers/CursoController.php?curso=" + cidcount);
+//     }
+// })
 
 var sectionTitle = document.getElementById("sectionTitle");
 var formCurso1 = document.getElementById("form-curso-1");
