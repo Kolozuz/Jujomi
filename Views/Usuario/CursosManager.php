@@ -144,10 +144,31 @@ if (empty($cursoobj)) {
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
-                        <a type="button" class="btn px-4 sharebtn">
-                            <i class="fa-solid fa-share-nodes"></i>
-                        </a>
-                    </div>
+                        <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" type="button" link="CursoController.php?action=actualizarCurso&id=<?php echo $c->id_c; ?>" id="sharebtn<?php echo $c->id_c; ?>" onclick="copyLink<?php echo $c->id_c; ?>()"> <i class="fa-solid fa-clipboard"></i> Copiar enlace </a>
+                                    </li>
+                                    <script>
+                                        
+                                        function copyLink<?php echo $c->id_c; ?>() {
+                                            let sharebtn = document.getElementById('sharebtn<?php echo $c->id_c; ?>');
+                                            let linkfield = document.createElement("input");
+                                            linkfield.type = "text";
+                                            linkfield.value = "http://localhost/deez/Jujomi/Controllers/CursoController.php?curso=<?php echo $c->id_c; ?>";
+                                            linkfield.style.width = "100%";
+                                            swal('Nice','Link copiado al portapapeles!', 'success', {content: linkfield});
+                                            navigator.clipboard.writeText(linkfield.value);
+                                        }
+                                    </script>
+                                </ul>
+                            </div>
+                            </a>
+                        </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="dropdown">
                             <button class="btn px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
