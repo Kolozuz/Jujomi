@@ -79,7 +79,7 @@
 
                 <div class="row text-dark py-4">
                         <div class="col">
-                            <button class="btn bg-secundario">Empieza Ahora</button>
+                            <button class="btn bg-secundario" data-bs-toggle="modal" data-bs-target="#Registerpopup">Empieza Ahora</button>
                         </div>
                 </div>
         </div>
@@ -161,7 +161,9 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'pfdelsuccess') {
 if (isset($_GET['msg']) && $_GET['msg'] == 'logoutsuccess') {
     echo '
     <script>
-        swal("Yay!","Sesión Cerrada con éxito!, esperamos verte de nuevo pronto :)","success");
+        let alertcontent = document.createElement("span");
+        alertcontent.innerHTML = "Esperamos verte de nuevo pronto 😊";
+        swal("Yay!","Sesión Cerrada con éxito!","success", {content: alertcontent});
     </script>
     ';
 }
