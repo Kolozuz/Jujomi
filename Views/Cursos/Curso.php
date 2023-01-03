@@ -24,7 +24,7 @@ $conexion = new Conexion();
         </span>
     </article>
     <article class="col-md-9 col-sm-12 bg-light rounded-end p-5">
-        <h2><?php echo $c->nombre_c ?></h2>
+        <h2 class="text-break"><?php echo $c->nombre_c ?></h2>
         <p><?php echo $c->desc_c ?></p>
     </article>
 </div>

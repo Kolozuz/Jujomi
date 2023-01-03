@@ -75,17 +75,17 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
             <!-------------------- Seccion #1 -------------------->
             <section id="form-curso-1" style="display: none;" class="mt-4">
                 <div class="row pe-2">
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-4 col-sm-12 ">
                         <input type="hidden" name="action" value="insertar_curso">
                         <input type="hidden" name="id_curso" value="<?php //$c->id_u ?>;">
                         
                         <!-- <label for="img_c">Image de Portada del curso</label> -->
                         <input type="file" name="img_c" id="img_c" accept="image/*"
-                            style="opacity:0;position:absolute;top: -1000px;" onclick="imgpreview()">
+                            style="opacity:0;position:absolute;top: -1000px;" onclick="imgpreview()" required>
                         <label for="img_c" style="height:100%; margin:auto;"
                             class="form-control text-center pt-4 hover">
                             <div id="img-preview"></div>
-                            <div id="img-label">
+                            <div id="img-label" class="pt-4 pb-4">
                                 <img src="../Public/img/file-arrow-up-solid.svg" alt="Botón Subir Archivo">
                                 <br>
                                 <span>
@@ -102,12 +102,11 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                         <div class="row">
                             <label for="titulo">Dale un Titulo a tu curso</label>
                             <input type="text" class="form-control" id="titulo" name="nombre_c"
-                                placeholder="P.ej Principios Basicos HTML" required>
+                                placeholder="P.ej Principios Basicos HTML" maxlength="50" title="Ingresa un titulo para tu curso de maximo 50 caracteres" required>
                         </div>
                         <div class="row mt-3">
                             <label for="desc_c">Dale una descripción</label>
-                            <input type="text" class="form-control " id="desc_c" name="desc_c"
-                                placeholder="P.ej En este curso aprenderas..." required>
+                            <textarea class="form-control" id="desc_c" name="desc_c" placeholder="P.ej En este curso aprenderas..." maxlength="100" title="Ingresa una descripción para tu curso de maximo 100 caracteres" cols="30" rows="3" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -117,7 +116,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
         </div>
         <div class="row mt-2 px-5 pb-5">
             <button type="submit" class="btn btn-primario text-white">
-                Guardar Cambios <i class="fa-solid fa-check"></i>
+                Guardar Datos Basicos <i class="fa-solid fa-check"></i>
             </button>
         </div>
     </form>

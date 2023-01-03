@@ -52,15 +52,15 @@ $sql = "SELECT * FROM tbl_curso WHERE id_c = '$id_c'";
                         
                         <!-- <label for="img_update">Image de Portada del curso</label> -->
                         <input type="file" name="img_update" id="img_c" accept="image/*"
-                            style="opacity:0;position:absolute;top: -1000px;" onclick="imgpreview()">
+                            style="opacity:0;position:absolute;top: -1000px;" onclick="imgpreview()" required>
                         <label for="img_c" style="height:100%; margin:auto;"
                             class="form-control text-center pt-4 hover">
-                            <div id="img-preview"></div>
-                            <div id="img-label">
+                            <div id="img-preview" style="display:block"><img src="<?php echo $c->imgurl_c; ?>" alt="imagen antigua curso" width="200px"></div>
+                            <div id="img-label" style="display:none">
                                 <img src="../Public/img/file-arrow-up-solid.svg" alt="Botón Subir Archivo">
                                 <br>
                                 <span>
-                                    Elegir Imagen Portada<br>
+                                    Elegir una Nueva Imagen de Portada<br>
                                 </span>
                                 <span class="fst-italic">
                                     Tamaño recomendado 1280 x 720 píxeles
@@ -71,14 +71,13 @@ $sql = "SELECT * FROM tbl_curso WHERE id_c = '$id_c'";
                     </div>
                     <div class="col-md-8 col-sm-12 ">
                         <div class="row">
-                            <label for="titulo">Dale un Titulo a tu curso</label>
+                            <label for="titulo">Dale un Nuevo Titulo a tu curso</label>
                             <input type="text" class="form-control" id="titulo" name="nombre_update"
-                                placeholder="P.ej Principios Basicos HTML" required>
+                                placeholder="P.ej Principios Basicos HTML" maxlength="50" title="Ingresa un titulo nuevo para tu curso de maximo 50 caracteres" value="<?php echo $c->nombre_c; ?>" required>
                         </div>
                         <div class="row mt-3">
-                            <label for="desc_c">Dale una descripción</label>
-                            <input type="text" class="form-control " id="desc_c" name="desc_update"
-                                placeholder="P.ej En este curso aprenderas..." required>
+                            <label for="desc_c">Dale una Nueva descripción</label>
+                            <textarea class="form-control" id="desc_c" name="desc_update" placeholder="P.ej En este curso aprenderas..." maxlength="50" title="Ingresa una descripción nueva para tu curso de maximo 100 caracteres" value="<?php echo $c->desc_c; ?>" cols="30" rows="3" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -93,8 +92,8 @@ $sql = "SELECT * FROM tbl_curso WHERE id_c = '$id_c'";
         </div>
     </form>
 </main>
-<script src="../Public/Js/app.js"></script>
 <script src="../Public/Js/jquery-3.6.1.min.js"></script>
+<script src="../Public/Js/app.js"></script>
 <script>
     categoria.value = "<?php echo $c->ctg_c; ?>";
 </script>
