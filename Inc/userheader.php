@@ -70,15 +70,12 @@
                 </a>
             <span>
                 <span class="me-4">
-                    <label class="switch shadow-sm">
+                    <label class="switch div-hover">
                         <input type="checkbox" name="role" id="role">
                         <span class="sliderrole rounded"></span>
                     </label>
                 </span>
                 <span class="dropstart">
-
-                    <button type="button" class="dropdown-toggle btn bg-claro shadow-sm rounded-pill" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a">
                         <img src="<?php 
                             if (!$_SESSION['imgurl_register'] == "") {
                                     echo $_SESSION['imgurl_register'];
@@ -86,8 +83,7 @@
                             else{
                                     echo '../Public/img/dftpfp2.jpg';
                                 }
-                            ?>" alt="profile picture" class="rounded-circle" width="40vh">
-                    </button>
+                            ?>" alt="profile picture" class="dropdown-toggle rounded-circle div-hover" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-toggle="modal" data-bs-target="#Profilepopup" id="a" width="50vh">
                     <ul class="dropdown-menu my-3">
                         <li><a class="dropdown-item" href="../Controllers/UsuarioController.php?action=perfil">Mi Perfil</a>
                         </li>
