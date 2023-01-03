@@ -4,7 +4,7 @@ class Curso
 {
     protected $id_c;
     protected $imgurl_c;
-    protected $img_c;
+    protected $imgname_c;
     protected $ctg_c;
     protected $nombre_c;
     protected $desc_c;
@@ -46,14 +46,15 @@ class Curso
     {
         // Esta funcion es para guardar las cursos en la base de datos
         $conexion = new Conexion();
-        $sql = "INSERT INTO tbl_curso(imgurl_c, ctg_c, nombre_c, desc_c, id_usuario) values(?,?,?,?,?)";
+        $sql = "INSERT INTO tbl_curso(imgurl_c, imgname_c, ctg_c, nombre_c, desc_c, id_usuario) values(?,?,?,?,?,?)";
 
         $insert = $conexion->stm->prepare($sql);
         $insert->bindParam(1, $this->imgurl_c);
-        $insert->bindParam(2, $this->ctg_c);
-        $insert->bindParam(3, $this->nombre_c);
-        $insert->bindParam(4, $this->desc_c);
-        $insert->bindParam(5, $this->id_usuario);
+        $insert->bindParam(2, $this->imgname_c);
+        $insert->bindParam(3, $this->ctg_c);
+        $insert->bindParam(4, $this->nombre_c);
+        $insert->bindParam(5, $this->desc_c);
+        $insert->bindParam(6, $this->id_usuario);
         $insert->execute();
         return;
 
@@ -70,12 +71,12 @@ class Curso
         $delete->execute();
     }
 
-    public function ChangeCurso($id_c, $imgurl_c, $ctg_c, $nombre_c, $desc_c)
+    public function ChangeCurso($id_c, $imgurl_c, $imgname_c, $ctg_c, $nombre_c, $desc_c)
     {
         // Esta función es para actualizar los cursos de la base de datos
 
         $conexion = new Conexion();
-        $sql = "UPDATE tbl_curso set imgurl_c='$imgurl_c', ctg_c='$ctg_c', nombre_c='$nombre_c', desc_c='$desc_c' where id_c = '$id_c'";
+        $sql = "UPDATE tbl_curso set imgurl_c='$imgurl_c', imgname_c='$imgname_c', ctg_c='$ctg_c', nombre_c='$nombre_c', desc_c='$desc_c' where id_c = '$id_c'";
         echo $sql;
         $update = $conexion->stm->prepare($sql);
         $update->execute();

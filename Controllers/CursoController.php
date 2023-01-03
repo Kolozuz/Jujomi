@@ -51,7 +51,7 @@
             header('Location: ../index.php');
         }
 
-        public function InsertCurso($imgurl_c, $ctg_c, $nombre_c, $desc_c, $id_usuario){
+        public function InsertCurso($imgurl_c, $img_c, $ctg_c, $nombre_c, $desc_c, $id_usuario){
             // $id_u = $_GET['id'];
             // $_SESSION['id_register'] = $id_u;
             // echo $_SESSION['id_register'];
@@ -60,6 +60,7 @@
             // $_SESSION['id_curso'] = $curso_obj->id_c;
 
             $this->imgurl_c = $imgurl_c;
+            $this->imgname_c = $img_c;
             $this->ctg_c = $ctg_c;
             $this->nombre_c = $nombre_c;
             $this->desc_c = $desc_c;
@@ -121,7 +122,7 @@
             $imgurl_c = "../Views/Cursos/Imgs/" . $img_c;
 
             copy($img_tmp, $imgurl_c);
-            $this->ChangeCurso($id_c, $imgurl_c, $ctg_c, $nombre_c, $desc_c);
+            $this->ChangeCurso($id_c, $imgurl_c, $img_c, $ctg_c, $nombre_c, $desc_c);
             header('location: CursoController.php?action=start&msg=successupdate');
 
         }
@@ -200,7 +201,7 @@
         $imgurl_c = "../Views/Cursos/Imgs/" . $img_c;
         
         copy($img_tmp, $imgurl_c);
-        $cursocontroller->InsertCurso($imgurl_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
+        $cursocontroller->InsertCurso($imgurl_c, $img_c, $_POST['ctg_c'], $_POST['nombre_c'], $_POST['desc_c'], $_SESSION['id_register']);
     }
 
     if(isset($_POST['action']) && $_POST['action'] == 'insertar_seccion'){
