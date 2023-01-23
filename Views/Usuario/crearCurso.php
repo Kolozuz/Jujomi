@@ -59,6 +59,7 @@ $cursoobj = $cursoall->CheckCursoFromDB($id_u);
                         <option value="Filosofía">Filosofía</option>
                         <option value="Fitness">Fitness</option>
                         <option value="Fotografía y Video">Fotografía y Video</option>
+                        <option value="Literatura">Literatura</option>
                         <option value="Marketing">Marketing</option>
                         <option value="Matemática">Matemática</option>
                         <option value="Música">Música</option>
