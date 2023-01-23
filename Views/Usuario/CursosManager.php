@@ -86,7 +86,7 @@ if (empty($cursoobj)) {
             <div
                 class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso">
                 <div class="row container-fluid pt-1 pb-2 gx-0">
-                    <div class="col-md-3 col-sm-12 px-2">
+                    <div class="col ">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -113,7 +113,7 @@ if (empty($cursoobj)) {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-circle-notch" style="color:
@@ -143,7 +143,7 @@ if (empty($cursoobj)) {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col">
                         <div class="dropdown">
                                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
@@ -169,7 +169,7 @@ if (empty($cursoobj)) {
                             </div>
                             </a>
                         </div>
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col">
                         <div class="dropdown">
                             <button class="btn px-4" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
