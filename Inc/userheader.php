@@ -70,8 +70,12 @@
                 </a>
             <span>
                 <span class="me-4">
-                    <label class="switch div-hover">
-                        <input type="checkbox" name="role" id="role">
+                    <label class="switch div-hover" id="cmswitch">
+                        <input type="checkbox" name="rolecm" id="rolecm">
+                        <span class="sliderrole rounded"></span>
+                    </label>
+                    <label class="switch div-hover" id="cvswitch">
+                        <input type="checkbox" name="rolecv" id="rolecv">
                         <span class="sliderrole rounded"></span>
                     </label>
                 </span>

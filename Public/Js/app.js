@@ -8,7 +8,6 @@ $("#cmswitch").on("click", function () {
 
     // cm.classList.toggle('d-none');
     // cv.classList.toggle('d-none');
-    
     location.href = 'CursoController.php?action=startstudent';
 })
 $("#cvswitch").on("click", function () {
@@ -18,7 +17,6 @@ $("#cvswitch").on("click", function () {
 
     // cm.classList.toggle('d-none');
     // cv.classList.toggle('d-none');
-    
     location.href = 'CursoController.php?action=start';
 })
 Quill.register("modules/resize", window.QuillResizeModule);
