@@ -89,6 +89,6 @@ END $$
 
 CREATE PROCEDURE publishCurso(in id int(11))
 BEGIN
-UPDATE tbl_curso SET estado_c = 1  WHERE id_u = id;
+UPDATE tbl_curso SET estado_c = 1  WHERE id_c = id;
 END $$
 delimiter ;

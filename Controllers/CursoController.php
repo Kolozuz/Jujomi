@@ -9,12 +9,12 @@
     class CursoController extends Curso{
         
         public function RedirectCursoManager(){
-            include_once '../Views/Usuario/CursosUsuario.php';
+            include_once '../Views/Usuario/CursosManager.php';
             return;
         }
 
         public function RedirectCursoViewer(){
-            include_once '../Views/Cursos/Cursos.php';
+            include_once '../Views/Usuario/CursosViewer.php';
             return;
         }
 
@@ -127,13 +127,10 @@
 
         }
 
-        public function PublishCurso($id_usuario, $estado_c){
-            $this->$id_usuario = $_SESSION['id_register'];
-            $this->estado_c = $estado_c;
+        public function PublishCurso(){
+            $id_c = $_POST['id'];
 
-            $this->PublicarCurso($id_usuario);
-            header("Location: CursoController.php?action=start&msg=successpublish");
-            echo '<script>console.log(Course Succesfully Published);</script>';
+            $this->PublicarCurso($id_c);
         }
     }
     
@@ -149,7 +146,7 @@
 
     if(isset($_GET['action']) && $_GET['action'] == 'startstudent'){
         $cursocontroller = new CursoController();
-        $cursocontroller->RedirectCursoViewer()();
+        $cursocontroller->RedirectCursoViewer();
     }
 
     if(isset($_GET['action']) && $_GET['action'] == 'crearCurso'){
@@ -180,6 +177,11 @@
     if(isset($_GET['action']) && $_GET['action'] == 'actualizarLecciones'){
         $cursocontroller = new CursoController();
         $cursocontroller->RedirectLeccionUpdater();
+    }
+
+    if(isset($_POST['action']) && $_POST['action'] == 'publishCurso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->PublishCurso();
     }
 
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER

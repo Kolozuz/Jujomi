@@ -134,18 +134,18 @@ main{
     /* outline: dashed orange 1.5px ; */
 }
 .contenedor-curso{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: center;
-    justify-items: center;
     overflow: hidden;
 }
-.contenedor-curso > .row{max-height: 100%;}
-.contenedor-curso > .row > img{
-    /* max-width: 100vw; */
-    max-height: 200px;
-    min-height: 100%;
+/* .contenedor-curso > .row{max-height: 100%;} */
+.imgcontainer{
+    height: 140px;
+    width: 100%;
+}
+.imgcurso{
+    background-color: var(--claro);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 .acc-body{
     max-height: 60vh ;
@@ -365,7 +365,7 @@ a.link-dark{
 }
 
 /*--------------------- img --------------------*/
-.img-fix{
+/* .img-fix{
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -377,7 +377,7 @@ a.link-dark{
 .img-fix > img{
     max-height: 200px;
     min-height: 100%;
-}
+} */
 
 @keyframes spin_animation {
     50%{color: white;}

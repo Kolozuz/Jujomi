@@ -88,7 +88,7 @@ class Curso
         // Esta función es para actualizar los cursos de la base de datos
 
         $conexion = new Conexion();
-        $sql = "call publisCurso($id_c);";
+        $sql = "call publishCurso($id_c);";
 
         $update = $conexion->stm->prepare($sql);
         $update->execute();

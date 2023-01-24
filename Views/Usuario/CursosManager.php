@@ -1,3 +1,4 @@
+<?php include '../Inc/userheader.php'; ?>
 <?php
 // include '../Models/Curso.php';
 $cursomine =  new Curso();
@@ -49,6 +50,9 @@ if (empty($cursoobj)) {
     ';
 }
 ?>
+<script>
+    document.getElementById("cvswitch").style.display = "none";
+</script>
 <main class="container-fluid" id="cursosManager">
     <div class="row mt-5 text-center">
         <div class="col-12">
@@ -79,14 +83,13 @@ if (empty($cursoobj)) {
         </div>
     </div>
     <!-- Seccion que sirve para mostrar los Cursos creados por el usuario, al igual que ciertas opciones -->
-    <div class="row container-fluid text-center px-5 pt-3 pb-4">
-        <?php foreach ($cursoobj as $c) { $estado_c =  $c->estado_c;?>
+    <div class="row container-fluid text-center px-5 pt-3 pb-4 mx-1">
+        <?php foreach ($cursoobj as $c) { ?>
         <input type="hidden" class="cid" value="<?php echo $c->id_c; ?>">
         <article class="col-md-3 col-sm-12 my-2 ">
-            <div
-                class="container-fluid bg-light p-2 mx-2 rounded text-center div-hover contenedor-curso containerCurso">
-                <div class="row container-fluid pt-1 pb-2 gx-0">
-                    <div class="col ">
+            <div class="container-fluid bg-light p-2 mx-0 rounded text-center div-hover contenedor-curso containerCurso">
+                <div class="row gx-2 pt-1 pb-2 gx-0">
+                    <div class="col">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -94,21 +97,16 @@ if (empty($cursoobj)) {
                             </button>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item"
-                                        href="CursoController.php?action=actualizarCurso&id=<?php echo $c->id_c; ?>">Actualizar
-                                        Datos Basicos</a>
+                                    <a class="dropdown-item" href="CursoController.php?action=actualizarCurso&id=<?php echo $c->id_c; ?>">Actualizar Datos Basicos</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                        href="CursoController.php?action=crearLecciones&id_curso=<?php echo $c->id_c; ?>">Crear Lecciones</a>
+                                    <a class="dropdown-item" href="CursoController.php?action=crearLecciones&id_curso=<?php echo $c->id_c; ?>">Crear Lecciones</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                        href="CursoController.php?action=actualizarLecciones&id=<?php echo $c->id_c; ?>">Actualizar
-                                        Lecciones</a>
+                                    <a class="dropdown-item" href="CursoController.php?action=actualizarLecciones&id=<?php echo $c->id_c; ?>">Actualizar Lecciones</a>
                                 </li>
                             </ul>
                         </div>
@@ -116,9 +114,9 @@ if (empty($cursoobj)) {
                     <div class="col">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-circle-notch" style="color:
+                                <i class="fa-solid fa-circle-notch" id="statusicon<?php echo $c->id_c; ?>" style="color:
                                     <?php
-                                        if($estado_c != 1) {
+                                        if($c->estado_c != 1) {
                                             echo 'orange;';
                                         }else{
                                             echo 'green';
@@ -127,20 +125,32 @@ if (empty($cursoobj)) {
                             </button>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item"
-                                        href="#"
-                                        type="button">
+                                    <a class="dropdown-item" type="button" id="privatebtn<?php echo $c->id_c; ?>">
                                         Privado
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item"
-                                        href="#"
-                                        type="button">
+                                    <a class="dropdown-item" type="button" id="publicbtn<?php echo $c->id_c; ?>" onclick="publishCurso(<?php echo $c->id_c; ?>)">
                                         Publico
                                     </a>
                                 </li>
                             </ul>
+                            <script>
+                                var pbtn = document.getElementById("publicbtn<?php echo $c->id_c; ?>")
+                        
+                                pbtn.addEventListener("click", 
+                                    function pressPublic() {
+                                        // var estado_c = <?php // echo $c->estado_c?>;
+                                        var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
+                                        // console.log(estado_c + " " + statusicon)
+                                        // if(estado_c != 1) {
+                                        //     statusicon.style.color = 'orange';
+                                        // }else{
+                                            statusicon.style.color = 'green';
+                                        // }
+                                        console.log(statusicon)
+                                        }) 
+                                    </script>
                         </div>
                     </div>
                     <div class="col">
@@ -187,12 +197,15 @@ if (empty($cursoobj)) {
                     </div>
                 </div>
 
-                <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row clink">
-                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso">
+                <a href="CursoController.php?curso=<?php echo $c->id_c; $_SESSION['id_c'] = $c->id_c;?>" class="row imgcontainer m-0 p-0 rounded">
+                    <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso" class="imgcurso p-0 rounded">
                 </a>
-                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row" style="text-decoration:none">
-                    <span class="text-break">
+                <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row text-start px-2 pt-2" style="text-decoration:none;">
+                    <span class="text-break fw-bold">
                         <?php echo $c->nombre_c ?>
+                    </span>
+                    <span class="text-break">
+                        Lorem, ipsum.
                     </span>
                 </a>
             </div>
@@ -235,7 +248,7 @@ if (empty($cursoobj)) {
     <script src="../Public/Js/app.js"></script>
 
 <script>
-var estadoCurso = <?php echo $estado_c;?>;
+var estadoCurso = null<?php // echo $estado_c;?>;
 var containerCurso = document.getElementsByClassName('containerCurso');
 
 //Wanted to do this with javascript but didn't worked, so i had to do it with php itself
@@ -252,3 +265,4 @@ var containerCurso = document.getElementsByClassName('containerCurso');
 //     // containerCurso[i].style.outline=  "dashed green 1.5px" ;
 // }
 </script>
+<?php include '../Inc/userfooter.php' ?>

@@ -1,17 +1,25 @@
 var accordionItemCount = 0;
 var accordionItemCount2 = 0;
 const main = $("#main");
-$("#role").on("click", function () {
-    let cm = document.getElementById("cursosManager");
-    let cv = document.getElementById("cursosViewer");
-    console.log(cm.style.display);
-    console.log(cv.style.display);
+$("#cmswitch").on("click", function () {
+    // let cv = document.getElementById("cursosViewer");
+    // console.log(cm.style.display);
+    // console.log(cv.style.display);
 
-    cm.classList.toggle('d-none');
-    cv.classList.toggle('d-none');
-
+    // cm.classList.toggle('d-none');
+    // cv.classList.toggle('d-none');
     
-    // location.href = 'CursoController.php?action=startstudent';
+    location.href = 'CursoController.php?action=startstudent';
+})
+$("#cvswitch").on("click", function () {
+    // let cv = document.getElementById("cursosViewer");
+    // console.log(cm.style.display);
+    // console.log(cv.style.display);
+
+    // cm.classList.toggle('d-none');
+    // cv.classList.toggle('d-none');
+    
+    location.href = 'CursoController.php?action=start';
 })
 Quill.register("modules/resize", window.QuillResizeModule);
 // Con esto inicializamos y configuramos el editor de Quill
@@ -119,6 +127,36 @@ $(function () {
   });
 });
 
+function publishCurso(id) {
+        $.ajax({
+          type: "POST",
+          url: "CursoController.php",
+          data: {
+            action: "publishCurso",
+            id: id,
+          },
+          success: function (result) {
+            // $err.innerHTML += result;
+            // $err.removeClass("d-none");
+            console.log(result);
+
+            swal("Yay!", "Status was changed correctly", "success");
+            
+          },
+          error: function (xhr) {
+            swal("Oops", "Algo salio mal :(", "error");
+            $err.innerHTML +=
+              "Status del return -> " +
+              xhr.status +
+              "Status del return en txt -> " +
+              xhr.statusText +
+              " " +
+              "Texto del return -> " +
+              xhr.responseText;
+            $err.removeClass("d-none");
+          },
+        });
+};
 
 // $('.sharebtn').on("click", function showShareOpts(){
 //     swal("Yay!","Link copiado al portapapeles","info");
