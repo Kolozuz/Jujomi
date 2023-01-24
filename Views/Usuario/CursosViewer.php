@@ -1,10 +1,15 @@
+<?php include '../Inc/userheader.php'; ?>
 <?php
     $cursoall =  new Curso();
     $id_u = $_SESSION['id_register'];
     // echo $id_u;
     $cursoallobj = $cursoall->CheckCursoAllFromDB();
 ?>
-<main class="container-fluid d-none" id="cursosViewer">
+<script>
+    document.getElementById("cmswitch").style.display = "none";
+    document.getElementById("rolecv").setAttribute("checked","checked");
+</script>
+<main class="container-fluid" id="cursosViewer">
     <div class="row mt-5 text-center">
         <div class="col-12">
             <h2 class="fw-semibold">Explorar Cursos</h2>
@@ -32,13 +37,17 @@
     <?php foreach ($cursoallobj as $ca) { ?>
         <article class="col-md-3 col-sm-12 my-2">
             <div class="container-fluid bg-light p-2 mx-2 rounded text-center">
-                <a href="CursoController.php?curso=<?php echo $ca->id_c;?>" class="row">
-                    <img src="<?php echo $ca->imgurl_c; ?>" alt="imagen de portada del curso">
+            <a href="CursoController.php?curso=<?php echo $ca->id_c; $_SESSION['id_c'] = $ca->id_c;?>" class="row imgcontainer m-0 p-0 rounded">
+                    <img src="<?php echo $ca->imgurl_c ?>" alt="imagen del curso" class="imgcurso p-0 rounded">
                 </a>
-                <a href="CursoController.php?curso=<?php echo $ca->id_c;?>" class="row" style="text-decoration:none">
-                <span>
-                    <?php echo $ca->nombre_c;?>
-                </span>
+                <a href="CursoController.php?curso=<?php echo $ca->id_c;?>" class="row text-start px-2 pt-2" style="text-decoration:none;">
+                    <span class="text-break fw-bold">
+                        <?php echo $ca->nombre_c ?>
+                    </span>
+                    <span class="text-break">
+                        Lorem, ipsum.
+                    </span>
+                </a>
                 </a>
             </div>
         </article>
@@ -47,3 +56,6 @@
     </div>
     
 </main>
+<script src="../Public/Js/jquery-3.6.1.min.js"></script>
+<script src="../Public/Js/app.js"></script>
+<?php include '../Inc/userfooter.php' ?>
