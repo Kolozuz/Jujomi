@@ -58,5 +58,7 @@
 <script>
     //Show Role Switch
     document.getElementById("cvswitch").classList.toggle("d-none");
+    document.getElementById("rolecv").setAttribute("checked","checked");
+
 </script>
 <?php include '../Inc/userfooter.php' ?>
