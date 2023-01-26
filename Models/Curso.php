@@ -85,13 +85,26 @@ class Curso
 
     public function PublicarCurso($id_c)
     {
-        // Esta función es para actualizar los cursos de la base de datos
+        // Esta función es para poner un curso en publico
 
         $conexion = new Conexion();
         $sql = "call publishCurso($id_c);";
 
-        $update = $conexion->stm->prepare($sql);
-        $update->execute();
+        $publish = $conexion->stm->prepare($sql);
+        $publish->execute();
+        return;
+
+    }
+
+    public function AnularPublicacionCurso($id_c)
+    {
+        // Esta función es para poner un curso en privado
+
+        $conexion = new Conexion();
+        $sql = "call unpublishCurso($id_c);";
+
+        $unpublish = $conexion->stm->prepare($sql);
+        $unpublish->execute();
         return;
 
     }

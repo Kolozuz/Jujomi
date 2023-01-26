@@ -122,33 +122,42 @@ if (empty($cursoobj)) {
                                     ?>"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" type="button" id="privatebtn<?php echo $c->id_c; ?>">
-                                        Privado
+                                <li>     
+                                    <a class="dropdown-item" type="button" id="publicbtn<?php echo $c->id_c;  ?>" onclick="publishCurso(<?php echo $c -> id_c; ?>)">
+                                        Publico
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" type="button" id="publicbtn<?php echo $c->id_c; ?>" onclick="publishCurso(<?php echo $c->id_c; ?>)">
-                                        Publico
+                                    <a class="dropdown-item" type="button" id="privatebtn<?php echo $c->id_c; ?>" onclick="unpublishCurso(<?php echo $c -> id_c; ?>)">
+                                        Privado
                                     </a>
                                 </li>
                             </ul>
                             <script>
-                                var pbtn = document.getElementById("publicbtn<?php echo $c->id_c; ?>")
-                        
-                                pbtn.addEventListener("click", 
+                                //CHANGE COURSE STATUS
+                                var publishbtn = document.getElementById("publicbtn<?php echo $c->id_c; ?>")
+                                var unpublishbtn = document.getElementById("privatebtn<?php echo $c->id_c; ?>")
+                                                        
+                                publishbtn.addEventListener("click",
                                     function pressPublic() {
-                                        // var estado_c = <?php // echo $c->estado_c?>;
                                         var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
-                                        // console.log(estado_c + " " + statusicon)
-                                        // if(estado_c != 1) {
-                                        //     statusicon.style.color = 'orange';
-                                        // }else{
-                                            statusicon.style.color = 'green';
-                                        // }
-                                        console.log(statusicon)
-                                        }) 
-                                    </script>
+                                        if (statusicon.style.color == "green") {
+                                            swal("Oops!", "Este curso ya se encuentra publicado", "warning");
+                                            return;
+                                        }
+                                        statusicon.style.color = 'green';
+                                });
+
+                                unpublishbtn.addEventListener("click",
+                                    function pressPrivate() {
+                                        var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
+                                        if (statusicon.style.color == "orange") {
+                                            swal("Oops!", "Este curso ya se encuentra privado", "warning");
+                                            return;
+                                        }
+                                        statusicon.style.color = 'orange';
+                                });
+                            </script>
                         </div>
                     </div>
                     <div class="col">
@@ -253,18 +262,6 @@ var containerCurso = document.getElementsByClassName('containerCurso');
 document.getElementById("cmswitch").classList.toggle("d-none");
 
 
-//Wanted to do this with javascript but didn't worked, so i had to do it with php itself
-// console.log(estadoCurso);
 
-// for (let i = 0; i < containerCurso.length; i++) {
-//     console.log (estadoCurso[i]);
-
-//     if (!estadoCurso == 1 ) {
-//         containerCurso[i].style.outline = "dashed orange 1.5px" ;
-//     }
-//         containerCurso[i].style.outline = "dashed green 1.5px" ;
-
-//     // containerCurso[i].style.outline=  "dashed green 1.5px" ;
-// }
 </script>
 <?php include '../Inc/userfooter.php' ?>

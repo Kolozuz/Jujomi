@@ -129,8 +129,12 @@
 
         public function PublishCurso(){
             $id_c = $_POST['id'];
-
             $this->PublicarCurso($id_c);
+        }
+
+        public function UnpublishCurso(){
+            $id_c = $_POST['id'];
+            $this->AnularPublicacionCurso($id_c);
         }
     }
     
@@ -182,6 +186,11 @@
     if(isset($_POST['action']) && $_POST['action'] == 'publishCurso'){
         $cursocontroller = new CursoController();
         $cursocontroller->PublishCurso();
+    }
+    
+    if(isset($_POST['action']) && $_POST['action'] == 'unpublishCurso'){
+        $cursocontroller = new CursoController();
+        $cursocontroller->UnpublishCurso();
     }
 
     //COSAS QUE DEBEN ESTAR EN EL CURSOCONTROLLER

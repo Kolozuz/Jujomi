@@ -125,6 +125,8 @@ $(function () {
   });
 });
 
+
+//FUNCIONES PARA EL CAMBIO DE STATUS DE LOS CURSOS
 function publishCurso(id) {
         $.ajax({
           type: "POST",
@@ -138,22 +140,51 @@ function publishCurso(id) {
             // $err.removeClass("d-none");
             console.log(result);
 
-            swal("Yay!", "Status was changed correctly", "success");
+            swal("Yay!", "Estado del curso cambiado con exito, ahora todos pueden verlo!", "success");
             
           },
           error: function (xhr) {
             swal("Oops", "Algo salio mal :(", "error");
-            $err.innerHTML +=
-              "Status del return -> " +
-              xhr.status +
-              "Status del return en txt -> " +
-              xhr.statusText +
-              " " +
-              "Texto del return -> " +
-              xhr.responseText;
-            $err.removeClass("d-none");
+            alert(
+                "Status del return -> " +
+                xhr.status +
+                "Status del return en txt -> " +
+                xhr.statusText +
+                " " +
+                "Texto del return -> " +
+                xhr.responseText)
           },
         });
+};
+
+function unpublishCurso(id) {
+    $.ajax({
+      type: "POST",
+      url: "CursoController.php",
+      data: {
+        action: "unpublishCurso",
+        id: id,
+      },
+      success: function (result) {
+        // $err.innerHTML += result;
+        // $err.removeClass("d-none");
+        console.log(result);
+
+        swal("Yay!", "Estado del curso cambiado con exito, ahora solo TU puedes verlo!", "success");
+        
+      },
+      error: function (xhr) {
+        swal("Oops", "Algo salio mal :(", "error");
+        alert(
+            "Status del return -> " +
+            xhr.status +
+            "Status del return en txt -> " +
+            xhr.statusText +
+            " " +
+            "Texto del return -> " +
+            xhr.responseText)
+      },
+    });
 };
 
 // $('.sharebtn').on("click", function showShareOpts(){

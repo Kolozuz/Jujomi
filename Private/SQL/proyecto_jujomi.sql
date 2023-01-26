@@ -91,4 +91,9 @@ CREATE PROCEDURE publishCurso(in id int(11))
 BEGIN
 UPDATE tbl_curso SET estado_c = 1  WHERE id_c = id;
 END $$
+
+CREATE PROCEDURE unpublishCurso(in id int(11))
+BEGIN
+UPDATE tbl_curso SET estado_c = 0  WHERE id_c = id;
+END $$
 delimiter ;
