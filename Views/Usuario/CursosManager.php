@@ -50,9 +50,7 @@ if (empty($cursoobj)) {
     ';
 }
 ?>
-<script>
-    document.getElementById("cvswitch").style.display = "none";
-</script>
+
 <main class="container-fluid" id="cursosManager">
     <div class="row mt-5 text-center">
         <div class="col-12">
@@ -250,6 +248,10 @@ if (empty($cursoobj)) {
 <script>
 var estadoCurso = null<?php // echo $estado_c;?>;
 var containerCurso = document.getElementsByClassName('containerCurso');
+
+//Show Role Switch
+document.getElementById("cmswitch").classList.toggle("d-none");
+
 
 //Wanted to do this with javascript but didn't worked, so i had to do it with php itself
 // console.log(estadoCurso);

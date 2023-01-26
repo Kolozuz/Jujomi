@@ -5,10 +5,7 @@
     // echo $id_u;
     $cursoallobj = $cursoall->CheckCursoAllFromDB();
 ?>
-<script>
-    document.getElementById("cmswitch").style.display = "none";
-    document.getElementById("rolecv").setAttribute("checked","checked");
-</script>
+
 <main class="container-fluid" id="cursosViewer">
     <div class="row mt-5 text-center">
         <div class="col-12">
@@ -58,4 +55,8 @@
 </main>
 <script src="../Public/Js/jquery-3.6.1.min.js"></script>
 <script src="../Public/Js/app.js"></script>
+<script>
+    //Show Role Switch
+    document.getElementById("cvswitch").classList.toggle("d-none");
+</script>
 <?php include '../Inc/userfooter.php' ?>
