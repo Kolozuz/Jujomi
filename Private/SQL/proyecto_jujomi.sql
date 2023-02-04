@@ -58,42 +58,78 @@ create table if not exists tbl_config(
 # -> PARA INSERTAR CURSOS INICIALES DE PRUEBA
 INSERT INTO tbl_curso (id_c, imgurl_c, nombre_c, desc_c, id_usuario) VALUES (1,'../Views/Cursos/Imgs/Html_logo.svg','HTML 5','En este curso gratuito, aprenderas todos los aspectos fundamentales para empezar a crear paginas web con HTML 5',1),(2,'../Views/Cursos/Imgs/Css_logo.svg','Css 3','En este curso gratuito, aprenderas a darle estilo a tus documentos html con CSS3, tu unico limite sera la imaginacion',1),(3,'../Views/Cursos/Imgs/Js_logo.svg','JavaScript','En este curso gratuito de JavaScript aprenderas desde las operaciones basicas, hasta funciones complejas con arrays y manejo de numerosos datos',1),(4,'../Views/Cursos/Imgs/PHP_logo.svg','PhP','En este curso aprenderas los conceptos basicos de PHP mediante la realizacion de un crud (CREATE, READ, UPDATE & DELETE)',1);
 
-delimiter $$
+DELIMITER $$
+-- *PROCEDURES DE USUARIO*
+-- Crear Usuario
 CREATE PROCEDURE createUsuario(in imgurl varchar(50),in email varchar(150),in nombre varchar(100),in contrasena varchar(255))
 BEGIN
 INSERT INTO tbl_usuario(imgurl_u, email_u, nombre_u, contrasena_u) VALUES (imgurl, email, nombre, contrasena);
 END $$
 
+-- Traer datos de Usuario por Nombre
 CREATE PROCEDURE readUsuariobyname(in nombre varchar(100))
 BEGIN
 SELECT * FROM tbl_usuario WHERE nombre_u = nombre;
 END $$
 
+-- Traer datos de Usuario por ID
 CREATE PROCEDURE readUsuariobyid(in id int(11))
 BEGIN
 SELECT * FROM tbl_usuario WHERE id_u = id;
 END $$
 
+-- Actualizar Datos de Usuario
 CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
 BEGIN
 UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
 END $$
 
+-- Eliminar Datos de Usuario
 CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
 BEGIN
--- DROP TABLE tbl_seccion_curso;
 DELETE FROM tbl_seccion WHERE id_curso = id_c;
 DELETE FROM tbl_curso WHERE id_usuario = id;
 DELETE FROM tbl_usuario WHERE id_u = id;
 END $$
 
+-- *PROCEDURES DE CURSO*
+-- Crear Curso
+CREATE PROCEDURE createUsuario(in imgurl_c varchar(50),in imgname_c varchar(150),in ctg_c varchar(100),in nombre_c varchar(255), desc_c, id_usuario)
+BEGIN
+INSERT INTO tbl_usuario(imgurl_c, imgname_c, ctg_c, nombre_c, desc_c, id_usuario) VALUES (imgurl, email, nombre, contrasena);
+END $$
+
+-- Traer datos de Curso por ID
+CREATE PROCEDURE readUsuariobyid(in id int(11))
+BEGIN
+SELECT * FROM tbl_usuario WHERE id_u = id;
+END $$
+
+-- Actualizar Datos de Curso
+CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
+BEGIN
+UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
+END $$
+
+-- Eliminar Curso
+CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
+BEGIN
+DELETE FROM tbl_seccion WHERE id_curso = id_c;
+DELETE FROM tbl_curso WHERE id_usuario = id;
+DELETE FROM tbl_usuario WHERE id_u = id;
+END $$
+
+-- Publicar Curso
 CREATE PROCEDURE publishCurso(in id int(11))
 BEGIN
 UPDATE tbl_curso SET estado_c = 1  WHERE id_c = id;
 END $$
 
-CREATE PROCEDURE unpublishCurso(in id int(11))
+-- Anular Publicacion Curso
+CREATE PROCEDURE countLecciones (IN id_c int(11))
 BEGIN
-UPDATE tbl_curso SET estado_c = 0  WHERE id_c = id;
+SELECT COUNT(id_curso) AS num_lecciones FROM tbl_seccion  WHERE id_curso = 6;
 END $$
-delimiter ;
+
+DELIMITER ;
+
