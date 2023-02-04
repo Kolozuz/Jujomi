@@ -133,31 +133,7 @@ if (empty($cursoobj)) {
                                     </a>
                                 </li>
                             </ul>
-                            <script>
-                                //CHANGE COURSE STATUS
-                                var publishbtn = document.getElementById("publicbtn<?php echo $c->id_c; ?>")
-                                var unpublishbtn = document.getElementById("privatebtn<?php echo $c->id_c; ?>")
-                                                        
-                                publishbtn.addEventListener("click",
-                                    function pressPublic() {
-                                        var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
-                                        if (statusicon.style.color == "green") {
-                                            swal("Oops!", "Este curso ya se encuentra publicado", "warning");
-                                            return;
-                                        }
-                                        statusicon.style.color = 'green';
-                                });
-
-                                unpublishbtn.addEventListener("click",
-                                    function pressPrivate() {
-                                        var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
-                                        if (statusicon.style.color == "orange") {
-                                            swal("Oops!", "Este curso ya se encuentra privado", "warning");
-                                            return;
-                                        }
-                                        statusicon.style.color = 'orange';
-                                });
-                            </script>
+                            
                         </div>
                     </div>
                     <div class="col">
@@ -255,13 +231,35 @@ if (empty($cursoobj)) {
     <script src="../Public/Js/app.js"></script>
 
 <script>
-var estadoCurso = null<?php // echo $estado_c;?>;
-var containerCurso = document.getElementsByClassName('containerCurso');
+    var estadoCurso = null<?php // echo $estado_c;?>;
+    var containerCurso = document.getElementsByClassName('containerCurso');
 
-//Show Role Switch
-document.getElementById("cmswitch").classList.toggle("d-none");
-
-
-
+    //Show Role Switch
+    document.getElementById("cmswitch").classList.toggle("d-none");
 </script>
+<!-- <script>
+    CHANGE COURSE STATUS
+    var publishbtn = document.getElementById("publicbtn<?php echo $c->id_c; ?>")
+    var unpublishbtn = document.getElementById("privatebtn<?php echo $c->id_c; ?>")
+                            
+    publishbtn.addEventListener("click",
+        function pressPublic() {
+            var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
+            if (statusicon.style.color != "green") {
+                statusicon.style.color = 'green';
+                return;
+            }
+            swal("Oops!", "Este curso ya se encuentra publicado", "warning");
+        });
+
+    unpublishbtn.addEventListener("click",
+        function pressPrivate() {
+            var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
+            if (statusicon.style.color != "orange") {
+                statusicon.style.color = 'orange';
+                return;
+            }
+            swal("Oops!", "Este curso ya se encuentra privado", "warning");
+        });
+</script> -->
 <?php include '../Inc/userfooter.php' ?>

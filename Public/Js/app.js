@@ -128,6 +128,7 @@ $(function () {
 
 //FUNCIONES PARA EL CAMBIO DE STATUS DE LOS CURSOS
 function publishCurso(id) {
+    var idicon = id;
         $.ajax({
           type: "POST",
           url: "CursoController.php",
@@ -136,11 +137,17 @@ function publishCurso(id) {
             id: id,
           },
           success: function (result) {
-            // $err.innerHTML += result;
-            // $err.removeClass("d-none");
-            console.log(result);
+            // console.log(result);
+            var statusicon = $("#statusicon" + idicon);
 
-            swal("Yay!", "Estado del curso cambiado con exito, ahora todos pueden verlo!", "success");
+                if (statusicon.css("color") != "rgb(0, 128, 0)") {
+                    statusicon.css("color","rgb(0, 128, 0)");
+                    swal("Yay!", "Estado del curso cambiado con exito, ahora todos pueden verlo!", "success");
+                    console.log("secomprobo que no era verde")
+                    return;
+                }
+
+            swal("Oops!", "Este curso ya se encuentra publicado", "warning");
             
           },
           error: function (xhr) {
@@ -158,6 +165,7 @@ function publishCurso(id) {
 };
 
 function unpublishCurso(id) {
+    var idicon = id;
     $.ajax({
       type: "POST",
       url: "CursoController.php",
@@ -166,11 +174,16 @@ function unpublishCurso(id) {
         id: id,
       },
       success: function (result) {
-        // $err.innerHTML += result;
-        // $err.removeClass("d-none");
-        console.log(result);
+        var statusicon = $("#statusicon" + idicon);
 
-        swal("Yay!", "Estado del curso cambiado con exito, ahora solo TU puedes verlo!", "success");
+            if (statusicon.css("color") != "rgb(255, 165, 0)") {
+                statusicon.css("color","rgb(255, 165, 0)");
+                swal("Yay!", "Estado del curso cambiado con exito, ahora SOLO TU puedes verlo!", "success");
+                console.log("se comprobo que no era naranja")
+                return;
+            }
+            
+        swal("Oops!", "Este curso ya se encuentra privado", "warning");
         
       },
       error: function (xhr) {
