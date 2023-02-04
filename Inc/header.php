@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<body class="container-fluid p-0 bg-claro fs-5" onload="setTimeout(load,700)">
+<body class="container-fluid p-0 bg-claro" onload="setTimeout(load,700)">
 
     <!-- Header Navbar-->
     <header class="bg-primario fw-normal fs-6">

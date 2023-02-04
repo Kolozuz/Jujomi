@@ -1,4 +1,5 @@
 <?php include 'Inc/header.php';?>
+<main class="fs-5">
     <article class="container-fluid shadow-sm bg-space text-light">
         <div class="row my-4 p-5 d-flex text-center align-items-center">
                 <div class="col-md-6 col-sm-12">
@@ -84,6 +85,7 @@
                 </div>
         </div>
     </article>
+</main>
 <!-- <script>
 
     let user_area = document.getElementById("user_area");
