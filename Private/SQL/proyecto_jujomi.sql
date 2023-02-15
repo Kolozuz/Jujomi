@@ -78,6 +78,12 @@ BEGIN
 SELECT * FROM tbl_usuario WHERE id_u = id;
 END $$
 
+-- Recuperar Contraseña de Usuario
+CREATE PROCEDURE restorePassword(in newpwd int(255), in email varchar(150))
+BEGIN
+UPDATE tbl_usuario SET contrasena_u = newpwd WHERE email_u = email;
+END $$
+
 -- Actualizar Datos de Usuario
 CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
 BEGIN
@@ -94,30 +100,30 @@ END $$
 
 -- *PROCEDURES DE CURSO*
 -- Crear Curso
-CREATE PROCEDURE createUsuario(in imgurl_c varchar(50),in imgname_c varchar(150),in ctg_c varchar(100),in nombre_c varchar(255), desc_c, id_usuario)
-BEGIN
-INSERT INTO tbl_usuario(imgurl_c, imgname_c, ctg_c, nombre_c, desc_c, id_usuario) VALUES (imgurl, email, nombre, contrasena);
-END $$
+-- CREATE PROCEDURE createUsuario(in imgurl_c varchar(50),in imgname_c varchar(150),in ctg_c varchar(100),in nombre_c varchar(255), desc_c, id_usuario)
+-- BEGIN
+-- INSERT INTO tbl_usuario(imgurl_c, imgname_c, ctg_c, nombre_c, desc_c, id_usuario) VALUES (imgurl, email, nombre, contrasena);
+-- END $$
 
--- Traer datos de Curso por ID
-CREATE PROCEDURE readUsuariobyid(in id int(11))
-BEGIN
-SELECT * FROM tbl_usuario WHERE id_u = id;
-END $$
+-- -- Traer datos de Curso por ID
+-- CREATE PROCEDURE readUsuariobyid(in id int(11))
+-- BEGIN
+-- SELECT * FROM tbl_usuario WHERE id_u = id;
+-- END $$
 
--- Actualizar Datos de Curso
-CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
-BEGIN
-UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
-END $$
+-- -- Actualizar Datos de Curso
+-- CREATE PROCEDURE updateUsuario(in id int(11),in imgurl varchar(50), in nombre varchar(100),in email varchar(150))
+-- BEGIN
+-- UPDATE tbl_usuario SET imgurl_u= imgurl, nombre_u= nombre, email_u = email  WHERE id_u = id;
+-- END $$
 
--- Eliminar Curso
-CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
-BEGIN
-DELETE FROM tbl_seccion WHERE id_curso = id_c;
-DELETE FROM tbl_curso WHERE id_usuario = id;
-DELETE FROM tbl_usuario WHERE id_u = id;
-END $$
+-- -- Eliminar Curso
+-- CREATE PROCEDURE deleteUsuario(in id int(11),in id_c int(11))
+-- BEGIN
+-- DELETE FROM tbl_seccion WHERE id_curso = id_c;
+-- DELETE FROM tbl_curso WHERE id_usuario = id;
+-- DELETE FROM tbl_usuario WHERE id_u = id;
+-- END $$
 
 -- Publicar Curso
 CREATE PROCEDURE publishCurso(in id int(11))

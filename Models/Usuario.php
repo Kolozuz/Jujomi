@@ -54,6 +54,7 @@
 
             // }
         }
+
         protected function CheckUsuarioFromDBbyid(){
             $conexion = new Conexion();
                 $sql = "call readUsuariobyid('$this->id_u')";
@@ -75,6 +76,13 @@
     
             //     }
             }
+
+        protected function RestorePassword($newpwd,$who){
+            $conexion = new Conexion();
+            $sql = "call restorePassword('$newpwd', '$who')";
+            $query = $conexion->stm->prepare($sql); 
+            $query->execute();
+        }
 
         protected function UpdateUsuario($id_u,$imgurl_u,$nombre_u,$email_u){
             $conexion = new Conexion();

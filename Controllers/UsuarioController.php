@@ -26,6 +26,54 @@ class UsuarioController extends Usuario
         }
     }
 
+    public function RedirectCursosEveryone()
+    {
+        include_once '../Cursos.php';
+    }
+
+    public function RedirectFaq()
+    {
+        include_once '../Views/Usuario/FaqUsuario.php';
+    }
+
+    public function PwdRestore()
+    {
+        ini_set('SMTP', 'localhost');
+        ini_set("smtp_port",'25');
+        ini_set('sendmail_from', 'krdinalsoftware@gmail.com');
+        // ini_set('username', 'krdinalsoftware@gmail.com');
+        // ini_set('password', 'jddontzxlbcxfuyb');
+
+        $pwdrestorecode = random_int(00000,99999);
+        $who = $_POST["emailpwdrestore"];
+
+        if (isset($_POST['subaction']) && $_POST['subaction'] == "sendemail") {
+            mail($who, "Aqui esta el codigo para restablecer tu contraseña",
+                "Hey [Insert Username Here]!, parece que estas \n
+                teniendo problemas para iniciar sesion :( \n
+                Pero no hay de que preocuparse!. Puedes usar \n
+                el siguiente codigo para restablecer tu contraseña: \n" .
+                $pwdrestorecode
+            );
+    
+            echo $pwdrestorecode;
+            return;
+        }
+
+        $enteredcode = $_POST['enteredcode'];
+
+        if (!empty($enteredcode)) {
+
+            $newpwd = $_POST['newpwd'];
+
+            if ($enteredcode == $pwdrestorecode) {
+                $this->RestorePassword($newpwd, $who);
+            }  
+            return;
+        }
+
+    }
+
     public function RedirectPerfil()
     {
         include_once '../Views/Usuario/PerfilUsuario.php';
@@ -35,11 +83,6 @@ class UsuarioController extends Usuario
     public function RedirectConfig()
     {
         include_once '../Views/Usuario/ConfigUsuario.php';
-    }
-
-    public function RedirectFaq()
-    {
-        include_once '../Views/Usuario/FaqUsuario.php';
     }
 
     public function DeletePerfil()
@@ -165,9 +208,21 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 }
 
 //ESTO IMPIDE QUE EL USUARIO ACCEDA A LAS VISTAS SI NO HA INICIADO SESION
-if (!$_SESSION) {
+// if (!$_SESSION) {
+//     $usuariocontroller = new UsuarioController();
+//     $usuariocontroller->RedirectStart();
+// }
+
+//FAQ
+if (isset($_GET['action']) && $_GET['action'] == 'faq') {
     $usuariocontroller = new UsuarioController();
-    $usuariocontroller->RedirectStart();
+    $usuariocontroller->RedirectFaq();
+}
+
+//Recuperar Password
+if (isset($_POST['action']) && $_POST['action'] == 'pwdrestore') {
+    $usuariocontroller = new UsuarioController();
+    $usuariocontroller->PwdRestore();
 }
 
 //Perfil
@@ -180,12 +235,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'perfil') {
 if (isset($_GET['action']) && $_GET['action'] == 'config') {
     $usuariocontroller = new UsuarioController();
     $usuariocontroller->RedirectConfig();
-}
-
-//FAQ
-if (isset($_GET['action']) && $_GET['action'] == 'faq') {
-    $usuariocontroller = new UsuarioController();
-    $usuariocontroller->RedirectFaq();
 }
 
 //Eliminar Cuenta
