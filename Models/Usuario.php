@@ -82,6 +82,8 @@
             $sql = "call restorePassword('$newpwd', '$who')";
             $query = $conexion->stm->prepare($sql); 
             $query->execute();
+
+            echo 'contraseña cambiada con exito';
         }
 
         protected function UpdateUsuario($id_u,$imgurl_u,$nombre_u,$email_u){

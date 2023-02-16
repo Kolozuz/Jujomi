@@ -43,34 +43,56 @@ class UsuarioController extends Usuario
         ini_set('sendmail_from', 'krdinalsoftware@gmail.com');
         // ini_set('username', 'krdinalsoftware@gmail.com');
         // ini_set('password', 'jddontzxlbcxfuyb');
-
-        $pwdrestorecode = random_int(00000,99999);
         $who = $_POST["emailpwdrestore"];
-
         if (isset($_POST['subaction']) && $_POST['subaction'] == "sendemail") {
+            $_SESSION['pwdrestorecode'] = random_int(00000,99999);
             mail($who, "Aqui esta el codigo para restablecer tu contraseña",
                 "Hey [Insert Username Here]!, parece que estas \n
                 teniendo problemas para iniciar sesion :( \n
                 Pero no hay de que preocuparse!. Puedes usar \n
                 el siguiente codigo para restablecer tu contraseña: \n" .
-                $pwdrestorecode
+                $_SESSION['pwdrestorecode']
             );
     
-            echo $pwdrestorecode;
+            // echo "1->" . $pwdrestorecode . "\n";
+            // echo "2->" . $pwdrestorecode . "\n";
+            echo $_SESSION['pwdrestorecode'];
             return;
         }
 
-        $enteredcode = $_POST['enteredcode'];
+        if (isset($_POST['subaction']) && $_POST['subaction'] == "confirmcode") {
+            $enteredcode = $_POST['enteredcode'];
 
-        if (!empty($enteredcode)) {
+            if (!empty($enteredcode)) {
+                // echo $enteredcode . " // " . $_SESSION['pwdrestorecode'];
 
-            $newpwd = $_POST['newpwd'];
+                if ($enteredcode != $_SESSION['pwdrestorecode']) {
+                    echo 'NO COINCIDEN LOS CODIGOS';
+                    return;
+                }
 
-            if ($enteredcode == $pwdrestorecode) {
-                $this->RestorePassword($newpwd, $who);
-            }  
-            return;
+                echo 'TODO CORRECTO';
+                return;
+
+            }
+
+            echo 'CODIGO VACIO';
         }
+
+        if (isset($_POST['subaction']) && $_POST['subaction'] == "confirmpwd") {
+            $newpwd = $_POST['newpwd1'];
+            $newpwd2 = password_hash($_POST['newpwd2'], PASSWORD_ARGON2ID);
+
+            if (!password_verify($newpwd, $newpwd2)) {
+                echo $newpwd . "\n" . $newpwd2;
+                echo 'NO COINCIDEN LAS CONTRASEÑAS';
+                return;
+            } 
+            echo $newpwd . "\n" . $newpwd2;
+            $this->RestorePassword($newpwd2, $who);
+        }
+
+
 
     }
 
