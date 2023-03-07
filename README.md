@@ -4,12 +4,11 @@
 Welcome to the Jujomi Project&trade; Repository.
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Kolozuz/Jujomi?style=social)
-
 ![GitHub forks](https://img.shields.io/github/forks/Kolozuz/Jujomi?style=social)
 
 > :bulb: This project is not meant to be in production, therefore it has many problems that probably won't be fixed.
 
-<img src="https://media.tenor.com/W8ImMlYbR2EAAAAC/byuntear-incrives-meme.gif" width="200">
+<img src="https://media.tenor.com/W8ImMlYbR2EAAAAC/byuntear-incrives-meme.gif" width="170">
 
 ## :pushpin: What's this all about?
 
