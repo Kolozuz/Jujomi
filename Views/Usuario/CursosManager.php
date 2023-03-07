@@ -184,11 +184,11 @@ if (empty($cursoobj)) {
                     <img src="<?php echo $c->imgurl_c ?>" alt="imagen del curso" class="imgcurso p-0 rounded">
                 </a>
                 <a href="CursoController.php?curso=<?php echo $c->id_c;?>" class="row text-start px-2 pt-2" style="text-decoration:none;">
-                    <span class="text-break fw-bold">
+                    <span class="text-break text-wrap fw-bold">
                         <?php echo $c->nombre_c ?>
                     </span>
                     <span class="text-break">
-                        Lorem, ipsum.
+                        n lecciones | n horas
                     </span>
                 </a>
             </div>
