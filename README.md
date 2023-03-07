@@ -6,11 +6,15 @@ Welcome to the Jujomi Project&trade; Repository.
 ![GitHub Repo stars](https://img.shields.io/github/stars/Kolozuz/Jujomi?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/Kolozuz/Jujomi?style=social)
 
-> :bulb: This project is not meant to be in production, therefore it has many problems that probably won't be fixed.
+> :bulb: This project is not meant for production (yet), therefore it has many problems that may or may not be fixed.
 
-<img src="https://media.tenor.com/W8ImMlYbR2EAAAAC/byuntear-incrives-meme.gif" width="170">
+<img src="https://media.tenor.com/W8ImMlYbR2EAAAAC/byuntear-incrives-meme.gif" width="100">
 
 ## :pushpin: What's this all about?
+
+Jujomi is a little web that allows you to create and share your courses with the world, featuring:
+- Course Management (create, edit, erase, publish, unpublish and share)
+- User Account ()
 
 This is a small project that we came up with for our final project at SENA, where [Juanjo](https://github.com/JuanJo2804) and [me](https://github.com/Kolozuz) studied Software Development last year.
 
