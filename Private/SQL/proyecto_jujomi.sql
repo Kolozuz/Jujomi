@@ -79,7 +79,7 @@ SELECT * FROM tbl_usuario WHERE id_u = id;
 END $$
 
 -- Recuperar Contraseña de Usuario
-CREATE PROCEDURE restorePassword(in newpwd varchar(255), in email varchar(150))
+CREATE PROCEDURE recoverPassword(in newpwd varchar(255), in email varchar(150))
 BEGIN
 UPDATE tbl_usuario SET contrasena_u = newpwd WHERE email_u = email;
 END $$

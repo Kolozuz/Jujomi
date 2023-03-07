@@ -77,13 +77,13 @@
             //     }
             }
 
-        protected function RestorePassword($newpwd,$who){
+        protected function RecoverPassword($newpwd,$who){
             $conexion = new Conexion();
-            $sql = "call restorePassword('$newpwd', '$who')";
+            $sql = "call recoverPassword('$newpwd', '$who')";
             $query = $conexion->stm->prepare($sql); 
             $query->execute();
 
-            echo 'contraseña cambiada con exito';
+            echo 'CONTRASENA CAMBIADA CON EXITO';
         }
 
         protected function UpdateUsuario($id_u,$imgurl_u,$nombre_u,$email_u){

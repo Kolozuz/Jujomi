@@ -36,27 +36,27 @@ class UsuarioController extends Usuario
         include_once '../Views/Usuario/FaqUsuario.php';
     }
 
-    public function PwdRestore()
+    public function PwdRecovery()
     {
         ini_set('SMTP', 'localhost');
         ini_set("smtp_port",'25');
         ini_set('sendmail_from', 'krdinalsoftware@gmail.com');
         // ini_set('username', 'krdinalsoftware@gmail.com');
         // ini_set('password', 'jddontzxlbcxfuyb');
-        $who = $_POST["emailpwdrestore"];
+        $who = $_POST["emailpwdrecovery"];
         if (isset($_POST['subaction']) && $_POST['subaction'] == "sendemail") {
-            $_SESSION['pwdrestorecode'] = random_int(00000,99999);
+            $_SESSION['pwdrecoverycode'] = random_int(00000,99999);
             mail($who, "Aqui esta el codigo para restablecer tu contraseña",
                 "Hey [Insert Username Here]!, parece que estas \n
                 teniendo problemas para iniciar sesion :( \n
                 Pero no hay de que preocuparse!. Puedes usar \n
                 el siguiente codigo para restablecer tu contraseña: \n" .
-                $_SESSION['pwdrestorecode']
+                $_SESSION['pwdrecoverycode']
             );
     
-            // echo "1->" . $pwdrestorecode . "\n";
-            // echo "2->" . $pwdrestorecode . "\n";
-            echo $_SESSION['pwdrestorecode'];
+            // echo "1->" . $pwdrecoverycode . "\n";
+            // echo "2->" . $pwdrecoverycode . "\n";
+            echo $_SESSION['pwdrecoverycode'];
             return;
         }
 
@@ -64,9 +64,9 @@ class UsuarioController extends Usuario
             $enteredcode = $_POST['enteredcode'];
 
             if (!empty($enteredcode)) {
-                // echo $enteredcode . " // " . $_SESSION['pwdrestorecode'];
+                // echo $enteredcode . " // " . $_SESSION['pwdrecoverycode'];
 
-                if ($enteredcode != $_SESSION['pwdrestorecode']) {
+                if ($enteredcode != $_SESSION['pwdrecoverycode']) {
                     echo 'NO COINCIDEN LOS CODIGOS';
                     return;
                 }
@@ -88,8 +88,8 @@ class UsuarioController extends Usuario
                 echo 'NO COINCIDEN LAS CONTRASEÑAS';
                 return;
             } 
-            echo $newpwd . "\n" . $newpwd2;
-            $this->RestorePassword($newpwd2, $who);
+            //echo $newpwd . "\n" . $newpwd2;
+            $this->RecoverPassword($newpwd2, $who);
         }
 
 
@@ -242,9 +242,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'faq') {
 }
 
 //Recuperar Password
-if (isset($_POST['action']) && $_POST['action'] == 'pwdrestore') {
+if (isset($_POST['action']) && $_POST['action'] == 'pwdrecovery') {
     $usuariocontroller = new UsuarioController();
-    $usuariocontroller->PwdRestore();
+    $usuariocontroller->PwdRecovery();
 }
 
 //Perfil

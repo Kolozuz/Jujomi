@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="row row mx-5 px-2 mb-3 text-center">
-                                    <span>¿Has olvidado tu contraseña? <a href="PasswordRestore.php">Recupérala aquí</a></span>
+                                    <span>¿Has olvidado tu contraseña? <a href="PasswordRecovery.php">Recupérala aquí</a></span>
                                 </div>
                             </div>
                     </div>
