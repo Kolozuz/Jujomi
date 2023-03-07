@@ -9,8 +9,8 @@
     <div class="container" id="emailinput-container">   
         <div class="container-fluid d-flex justify-content-center px-2 py-2">
             <div class="col-md-4 form-floating">
-                <input type="email" name="email-pwdrestore" id="email-pwdrestore" class="form-control m-0" placeholder=" ">
-                <label for="email-pwdrestore">Escribe el correo electronico asociado a tu cuenta</label>
+                <input type="email" name="email-pwdrecovery" id="email-pwdrecovery" class="form-control m-0" placeholder=" ">
+                <label for="email-pwdrecovery">Escribe el correo electronico asociado a tu cuenta</label>
                 <div class="invalid-feedback">
                     Debes escribir un correo electronico valido.
                 </div>
@@ -26,8 +26,8 @@
     <div class="container d-none" id="codeinput-container">   
         <div class="container-fluid d-flex justify-content-center px-2 py-2">
             <div class="col-md-4 form-floating">
-                <input type="number" name="codereceived-pwdrestore" id="codereceived-pwdrestore" class="form-control m-0" placeholder=" ">
-                <label for="codereceived-pwdrestore">Escribe el codigo que enviamos a tu correo</label>
+                <input type="number" name="codereceived-pwdrecovery" id="codereceived-pwdrecovery" class="form-control m-0" placeholder=" ">
+                <label for="codereceived-pwdrecovery">Escribe el codigo que enviamos a tu correo</label>
                 <div class="invalid-feedback">
                     No coinciden los codigos.
                 </div>
@@ -43,14 +43,14 @@
     <div class="container d-none" id="newpwdinput-container">   
         <div class="container-fluid d-flex justify-content-center px-2 py-2">
             <div class="col-md-4 form-floating">
-                <input type="password" name="newpwd-pwdrestore1" id="newpwd-pwdrestore1" class="form-control m-0" placeholder=" ">
-                <label for="newpwd-pwdrestore">Escribe una nueva contraseña</label>
+                <input type="password" name="newpwd-pwdrecovery1" id="newpwd-pwdrecovery1" class="form-control m-0" placeholder=" ">
+                <label for="newpwd-pwdrecovery">Escribe una nueva contraseña</label>
             </div>
         </div>
         <div class="container-fluid d-flex justify-content-center px-2 py-2">
             <div class="col-md-4 form-floating">
-                <input type="password" name="newpwd-pwdrestore2" id="newpwd-pwdrestore2" class="form-control m-0" placeholder=" ">
-                <label for="newpwd-pwdrestore2">Confirma la nueva contraseña</label>
+                <input type="password" name="newpwd-pwdrecovery2" id="newpwd-pwdrecovery2" class="form-control m-0" placeholder=" ">
+                <label for="newpwd-pwdrecovery2">Confirma la nueva contraseña</label>
                 <div class="invalid-feedback">
                     Las contraseñas no coinciden.
                 </div>
@@ -66,30 +66,30 @@
 </main>
 <script src="Public/Js/jquery-3.6.1.min.js"></script>
 <script>
-    var email_pwdrestore = $("#email-pwdrestore").val();
-    let emailinput = $("#email-pwdrestore");
-    let codeinput = $("#codereceived-pwdrestore");
+    var email_pwdrecovery = $("#email-pwdrecovery").val();
+    let emailinput = $("#email-pwdrecovery");
+    let codeinput = $("#codereceived-pwdrecovery");
 
     let emailinputcontainer = $("#emailinput-container");
     let codeinputcontainer = $("#codeinput-container");
     let newpwdinputcontainer = $("#newpwdinput-container");
 
 
-    console.log(" // " + $("#email-pwdrestore").val());
+    console.log(" // " + $("#email-pwdrecovery").val());
 
     $("#btn-send-code").click( function(){
-        email_pwdrestore = $("#email-pwdrestore").val();
+        email_pwdrecovery = $("#email-pwdrecovery").val();
         $.ajax({
             type: "post",
             url: "Controllers/UsuarioController.php",
             data: {
-                action: "pwdrestore", 
-                emailpwdrestore: email_pwdrestore, 
+                action: "pwdrecovery", 
+                emailpwdrecovery: email_pwdrecovery, 
                 subaction : "sendemail"
             },
           success: function (result) {
             
-            console.log(result + " // " + email_pwdrestore);
+            //console.log(result + " // " + email_pwdrecovery);
             if(isNaN(result)) {
                 emailinput.addClass("is-invalid")
                 return
@@ -116,14 +116,14 @@
 
     
     $("#btn-confirm-code").click( function(){
-        // email_pwdrestore = $("#email-pwdrestore").val();
-        let codigoingresado = $("#codereceived-pwdrestore").val();
+        // email_pwdrecovery = $("#email-pwdrecovery").val();
+        let codigoingresado = $("#codereceived-pwdrecovery").val();
         $.ajax({
             type: "post",
             url: "Controllers/UsuarioController.php",
             data: {
-                action: "pwdrestore", 
-                emailpwdrestore: email_pwdrestore, 
+                action: "pwdrecovery", 
+                emailpwdrecovery: email_pwdrecovery, 
                 enteredcode: codigoingresado, 
                 subaction : "confirmcode"
             },
@@ -142,21 +142,27 @@
     });
 
     $("#btn-confirm-pwd").click( function(){
-        // var email_pwdrestore = $("#email-pwdrestore").val();
-        let contrasenaingresada1 = $("#newpwd-pwdrestore1").val();
-        let contrasenaingresada2 = $("#newpwd-pwdrestore2").val();
+        // var email_pwdrecovery = $("#email-pwdrecovery").val();
+        let contrasenaingresada1 = $("#newpwd-pwdrecovery1").val();
+        let contrasenaingresada2 = $("#newpwd-pwdrecovery2").val();
         $.ajax({
             type: "post",
             url: "Controllers/UsuarioController.php",
             data: {
-                action: "pwdrestore", 
-                emailpwdrestore: email_pwdrestore, 
+                action: "pwdrecovery", 
+                emailpwdrecovery: email_pwdrecovery, 
                 newpwd1: contrasenaingresada1, 
                 newpwd2: contrasenaingresada2, 
                 subaction : "confirmpwd"
             },
             success: function (result) {
-            console.log(result);
+            //console.log("ESTE ES EL RESULT -> |" + result + "| <-");
+                if(result == "CONTRASENA CAMBIADA CON EXITO"){
+                    swal("Yay!", "Contraseña Cambiada con exito!", "success")
+                    setTimeout(() => {
+                        location.href = 'index.php';
+                    }, 2000);
+                }               
 
             },
             error: function (xhr) {
