@@ -132,3 +132,6 @@ span::before{
         padding: 6vh 2vh;
     }
   }
+  b:hover{
+    background-color: red;
+  }

@@ -1,0 +1,53 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.codeActionsOnSave": {
+		
+		},
+			"workbench.iconTheme": "material-icon-theme",
+			"workbench.colorTheme": "Night Owl",
+			"liveServer.settings.donotShowInfoMsg": true,
+			"vscode-edge-devtools.webhint": false,
+			"tabnine.experimentalAutoImports": true,
+			"[php]": {
+				"editor.defaultFormatter": "kokororin.vscode-phpfmt"
+			
+			},
+			"git.autofetch": true,
+			"security.workspace.trust.untrustedFiles": "open",
+			"php.validate.executablePath": "",
+			"csharp.inlayHints.parameters.enabled": true,
+			"csharp.inlayHints.parameters.forIndexerParameters": true,
+			"csharp.inlayHints.parameters.forLiteralParameters": true,
+			"csharp.inlayHints.parameters.forObjectCreationParameters": true,
+			"csharp.inlayHints.parameters.forOtherParameters": true,
+			"omnisharp.useModernNet": false,
+			"vsicons.dontShowNewVersionMessage": true,
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+			"cSpell.ignoreWords": [
+				"Login",
+				"Logininput",
+				"Loginpopup",
+				"Registerinput",
+				"Registerpopup"
+			],
+			"cSpell.words": [
+				"Jujomi",
+				"JUJOMI",
+				"pfdelsuccess",
+				"Recuperala",
+				"signoutsuccess",
+				"whatsapp"
+			],
+		},
+		"extensions": {
+			"recommendations": [
+				"pkief.material-icon-theme",
+				"oderwat.indent-rainbow"
+			]
+		}
+	}
