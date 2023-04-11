@@ -4,10 +4,10 @@
     //Variables de Sesion
     require '../Models/Curso.php';
     require '../Models/Seccion.php';
-    
+
     // include_once '../Views/Usuario/CursosUsuario.php';
     class CursoController extends Curso{
-        
+
         public function RedirectCursoManager(){
             include_once '../Views/Usuario/CursosManager.php';
             return;
@@ -144,6 +144,7 @@
     }
 
     if(isset($_GET['action']) && $_GET['action'] == 'start'){
+        $_SESSION['themestatus'];    
         $cursocontroller = new CursoController();
         $cursocontroller->RedirectCursoManager();
     }

@@ -1,5 +1,11 @@
 <?php
-include '../Inc/userheader.php';
+
+include '../Inc/userheader.php'; 
+
+$user = new Usuario;
+$configarray = $user->checkConfig($_SESSION['id_register']);
+foreach ($configarray as $configiteration) {
+
 if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
     // include_once '../Views/Usuario/PerfilUsuario.php';
     echo '
@@ -165,4 +171,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
         }
     </script>
         
-<?php include '../Inc/userfooter.php' ?>
+<?php 
+} 
+include '../Inc/userfooter.php' 
+?>

@@ -49,7 +49,8 @@ create table if not exists tbl_rating(
     FOREIGN KEY(id_curso) REFERENCES tbl_curso(id_c));
 
 create table if not exists tbl_config(
-    dark_mode bit(1) default 1,
+    id_config int(11) PRIMARY KEY AUTO_INCREMENT,
+    dark_mode bit(1) default 0,
     id_usuario int(11) NOT NULL,
     FOREIGN KEY(id_usuario) REFERENCES tbl_usuario(id_u));
 
@@ -64,6 +65,12 @@ DELIMITER $$
 CREATE PROCEDURE createUsuario(in imgurl varchar(50),in email varchar(150),in nombre varchar(100),in contrasena varchar(255))
 BEGIN
 INSERT INTO tbl_usuario(imgurl_u, email_u, nombre_u, contrasena_u) VALUES (imgurl, email, nombre, contrasena);
+END $$
+
+-- Relaciónar Configuración a Usuario
+CREATE PROCEDURE linkConfig(in id int(11))
+BEGIN
+INSERT IGNORE INTO tbl_config(id_usuario) VALUES (id);
 END $$
 
 -- Traer datos de Usuario por Nombre
@@ -96,6 +103,18 @@ BEGIN
 DELETE FROM tbl_seccion WHERE id_curso = id_c;
 DELETE FROM tbl_curso WHERE id_usuario = id;
 DELETE FROM tbl_usuario WHERE id_u = id;
+END $$
+
+-- Consultar Configuración
+CREATE PROCEDURE checkConfig(in id int(11))
+BEGIN
+SELECT dark_mode FROM tbl_config WHERE id_usuario = id;
+END $$
+
+-- Actualizar Configuración
+CREATE PROCEDURE updateConfig(in id int(11), in newthemestatus bit(1))
+BEGIN
+UPDATE tbl_config SET dark_mode = newthemestatus WHERE id_usuario = id;
 END $$
 
 -- *PROCEDURES DE CURSO*

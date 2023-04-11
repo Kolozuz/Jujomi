@@ -1,4 +1,11 @@
-<?php include '../Inc/userheader.php'; ?>
+<?php 
+include '../Inc/userheader.php'; 
+
+$user = new Usuario;
+$configarray = $user->checkConfig($_SESSION['id_register']);
+foreach ($configarray as $configiteration) {
+
+?>
 
     <div class="container-fluid p-5 text-center">
         <div class="row m-5">
@@ -11,4 +18,7 @@
         </div>
     </div>
 
-<?php include '../Inc/userfooter.php' ?>
+<?php 
+} 
+include '../Inc/userfooter.php' 
+?>

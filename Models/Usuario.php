@@ -32,6 +32,38 @@
             $insert->execute();
             return;
         }
+
+        public function linkConfig($id_usr){
+            $conexion = new Conexion();
+            $sql = "call linkConfig('$id_usr')";
+            
+            $read = $conexion->stm->prepare($sql);
+            $read->execute();
+
+            return;
+        }
+
+        public function checkConfig($id_usr){
+            $conexion = new Conexion();
+            $sql = "call checkConfig('$id_usr')";
+            
+            $read = $conexion->stm->prepare($sql);
+            $read->execute();
+
+            $configobj = $read->fetchAll(PDO::FETCH_OBJ);
+
+            return $configobj;
+        }
+
+        public function UpdateConfig($id_usr, $newthemevalue){
+            $conexion = new Conexion();
+            $sql = "call updateConfig('$id_usr','$newthemevalue')";
+            
+            $read = $conexion->stm->prepare($sql);
+            $read->execute();
+
+            return;
+        }
         
         protected function CheckUsuarioFromDB(){
         $conexion = new Conexion();

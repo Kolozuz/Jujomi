@@ -13,6 +13,29 @@ class Curso
 
 
     // include '../Config/Conexion.php';
+
+    public function linkConfig($id_usr){
+        $conexion = new Conexion();
+        $sql = "call linkConfig('$id_usr')";
+        
+        $read = $conexion->stm->prepare($sql);
+        $read->execute();
+
+        return;
+    }
+
+    public function checkConfig($id_usr){
+        $conexion = new Conexion();
+        $sql = "call checkConfig('$id_usr')";
+        
+        $read = $conexion->stm->prepare($sql);
+        $read->execute();
+
+        $configobj = $read->fetchAll(PDO::FETCH_OBJ);
+
+        return $configobj;
+    }
+
     public function CheckCursoFromDB($id_u)
     {
         // $id_u = $_SESSION['id_register'];

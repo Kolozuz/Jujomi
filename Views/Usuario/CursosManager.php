@@ -1,4 +1,11 @@
-<?php include '../Inc/userheader.php'; ?>
+<?php 
+include '../Inc/userheader.php'; 
+
+$user = new Curso;
+$configarray = $user->checkConfig($_SESSION['id_register']);
+foreach ($configarray as $configiteration) {
+
+?>
 <?php
 // include '../Models/Curso.php';
 $cursomine =  new Curso();
@@ -262,4 +269,7 @@ if (empty($cursoobj)) {
             swal("Oops!", "Este curso ya se encuentra privado", "warning");
         });
 </script> -->
-<?php include '../Inc/userfooter.php' ?>
+<?php 
+} 
+include '../Inc/userfooter.php' 
+?>
