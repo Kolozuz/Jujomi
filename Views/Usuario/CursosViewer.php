@@ -15,7 +15,7 @@ foreach ($configarray as $configiteration) {
 ?>
 
 <main class="container-fluid" id="cursosViewer">
-    <div class="row mt-5 text-center">
+    <div class="row pt-5 text-center">
         <div class="col-12">
             <h2 class="fw-semibold">Explorar Cursos</h2>
         </div>

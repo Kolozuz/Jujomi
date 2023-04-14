@@ -37,17 +37,15 @@ $user = new Usuario;
             var currentThemeClaro = document.getElementsByTagName('main');
 
             for (let i = 0; i < currentThemePrimario.length; i++) {
-                currentThemePrimario[i].classList.toggle("bg-oscuro");
+                $(".bg-primario").toggleClass("bg-oscuro");
                 $(".bg-primario").toggleClass("text-white");
-                console.log("cambio VISUAL no DB");
-            }
-
-            for (let i = 0; i < currentThemeClaro.length; i++) {
-                currentThemeClaro[i].classList.toggle("bg-claro");
-                currentThemeClaro[i].classList.toggle("bg-gris");
+                $("#navbar_brand").toggleClass("text-white");
+                $("main").toggleClass("bg-claro");
+                $("main").toggleClass("bg-gris");
                 $("main").toggleClass("text-white");
                 console.log("cambio VISUAL no DB");
             }
+
             let newthemevalue = themestatus == 1 ? 0 : 1 ;
             $.ajax({
                 type: "POST",

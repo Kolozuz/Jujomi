@@ -55,8 +55,13 @@
 
         if (themestatus == 1){
             for (let i = 0; i < currentThemePrimario.length; i++) {
-                currentThemePrimario[i].classList.add("bg-oscuro");
+                $(".bg-primario").addClass("bg-oscuro");
                 $(".bg-primario").addClass("text-white");
+                $("#navbar_brand").addClass("text-white");
+                $("main").addClass("bg-claro");
+                $("main").addClass("bg-gris");
+                $("main").addClass("text-white");
+                console.log("cambio VISUAL no DB");
                 console.log("es 1");
             }
 

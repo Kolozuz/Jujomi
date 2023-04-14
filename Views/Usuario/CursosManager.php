@@ -1,12 +1,6 @@
 <?php 
 include '../Inc/userheader.php'; 
 
-$user = new Curso;
-$configarray = $user->checkConfig($_SESSION['id_register']);
-foreach ($configarray as $configiteration) {
-
-?>
-<?php
 // include '../Models/Curso.php';
 $cursomine =  new Curso();
 $id_u = $_SESSION['id_register'];
@@ -42,7 +36,7 @@ if (isset($_GET['msg']) && $_GET['msg'] == 'successupdate') {
         <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
         <strong>¡Nice!</strong> Los datos fueron actualizados con exito.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+        </div>
     ';
 }
 // var_dump($cursoobj);
@@ -56,15 +50,20 @@ if (empty($cursoobj)) {
     </div>
     ';
 }
+
+$user = new Curso;
+$configarray = $user->checkConfig($_SESSION['id_register']);
+foreach ($configarray as $configiteration) {
+
 ?>
 
 <main class="container-fluid" id="cursosManager">
-    <div class="row mt-5 text-center">
+    <div class="row pt-5 text-center">
         <div class="col-12">
             <h2 class="fw-semibold">Administrador de Cursos</h2>
         </div>
     </div>
-    <div class="row mt-4 text-center">
+    <div class="row mt-4 text-center d-flex justify-content-center">
         <div class="col-md-3 col-sm-5 my-2">
             <a href="CursoController.php?action=crearCurso" class="btn btn-primario spin_animation fs-5 fw-bold p-3">
                 <i class="fa-solid fa-plus"></i> Nuevo
