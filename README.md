@@ -1,16 +1,15 @@
-
-# :robot: Jujomi
-
-Welcome to the Jujomi Project&trade; Repository.
-
-![GitHub Repo stars](https://img.shields.io/github/stars/Kolozuz/Jujomi?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Kolozuz/Jujomi?style=social)
+<p align="center">
+  <span>Welcome to the Jujomi Project&trade; Repository.</span>
+  <br>
+  <img src="https://i.giphy.com/media/p64wJ2m6PL5WeA0Avq/giphy.webp" width="200" height="150">
+  <br>
+  <a><img src="https://img.shields.io/github/stars/Kolozuz/Jujomi?style=social"></a>
+  <a><img src="https://img.shields.io/github/forks/Kolozuz/Jujomi?style=social"></a>
+</p>
 
 > :bulb: This project is not meant for production (yet), therefore it has many problems that may or may not be fixed.
 
-<img src="https://media.tenor.com/W8ImMlYbR2EAAAAC/byuntear-incrives-meme.gif" width="100">
-
-## :pushpin: What's this all about?
+## About Lana?
 
 Jujomi is a little web that allows you to create and share your courses with the world, featuring:
 - Course Management (create, edit, erase, publish, unpublish and share)
@@ -18,13 +17,15 @@ Jujomi is a little web that allows you to create and share your courses with the
 
 This is a small project that we came up with for our final project at SENA, where [Juanjo](https://github.com/JuanJo2804) and [me](https://github.com/Kolozuz) studied Software Development last year.
 
-The idea of ​​the current project was inspired by e-learning platforms such as FreeCodeCamp, Platzi or Udemy.
+The idea of the current project was inspired by e-learning platforms such as FreeCodeCamp, Platzi or Udemy.
 
 The objective with this is to apply all (or most) of the knowledge that we have been accumulating during the last year, creating a software solution, in this case a web page.
 
-The idea of ​​this project has varied a lot since its inception, at first we wanted to make a chatbot, but we quickly realized that we were not prepared for such a thing and that it did not have a long-term life expectancy, because a chatbot is generally good for a purpose if it complements something else, but by itself, unless you have some advanced AI system, it's basically useless.
+The idea of this project has varied a lot since its inception, at first we wanted to make a chatbot, but we quickly realized that we were not prepared for such a thing and that it did not have a long-term life expectancy, because a chatbot is generally good for a purpose if it complements something else, but by itself, unless you have some advanced AI system, it's basically useless.
 
-## :pushpin: Technologies Used
+<img src="https://media.tenor.com/W8ImMlYbR2EAAAAC/byuntear-incrives-meme.gif" width="100">
+
+## Technologies Used
 
 ![GitHub language count](https://img.shields.io/github/languages/count/Kolozuz/Jujomi)
 
