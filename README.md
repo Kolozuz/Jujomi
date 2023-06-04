@@ -36,7 +36,6 @@ The idea of the current project was inspired by e-learning platforms such as Fre
     <td><img src="https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white"></td>
     <td><img src="https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white"></td>
     <td><img src="https://img.shields.io/badge/XAMPP-%23E34F26.svg?&logo=xampp&logoColor=white"></td>
-    <td><img src="https://img.shields.io/badge/XAMPP-%23E34F26.svg?&logo=xampp&logoColor=white"></td>
   </tr>
 </table>
 
