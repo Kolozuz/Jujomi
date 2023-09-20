@@ -1,13 +1,21 @@
-<?php include '../Inc/userheader.php'; ?>
+<?php 
+include '../Inc/userheader.php'; 
+
+$user = new Curso;
+$configarray = $user->checkConfig($_SESSION['id_register']);
+foreach ($configarray as $configiteration) {
+
+?>
 <?php
     $cursoall =  new Curso();
     $id_u = $_SESSION['id_register'];
     // echo $id_u;
     $cursoallobj = $cursoall->CheckCursoAllFromDB();
+    $cursoall->linkConfig($id_u);
 ?>
 
 <main class="container-fluid" id="cursosViewer">
-    <div class="row mt-5 text-center">
+    <div class="row pt-5 text-center">
         <div class="col-12">
             <h2 class="fw-semibold">Explorar Cursos</h2>
         </div>
@@ -61,4 +69,7 @@
     document.getElementById("rolecv").setAttribute("checked","checked");
 
 </script>
-<?php include '../Inc/userfooter.php' ?>
+<?php 
+} 
+include '../Inc/userfooter.php' 
+?>

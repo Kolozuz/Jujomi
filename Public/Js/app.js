@@ -2,23 +2,23 @@ var accordionItemCount = 0;
 var accordionItemCount2 = 0;
 const main = $("#main");
 $("#cmswitch").on("click", function () {
-    // let cv = document.getElementById("cursosViewer");
-    // console.log(cm.style.display);
-    // console.log(cv.style.display);
+  // let cv = document.getElementById("cursosViewer");
+  // console.log(cm.style.display);
+  // console.log(cv.style.display);
 
-    // cm.classList.toggle('d-none');
-    // cv.classList.toggle('d-none');
-    location.href = 'CursoController.php?action=startstudent';
-})
+  // cm.classList.toggle('d-none');
+  // cv.classList.toggle('d-none');
+  location.href = "CursoController.php?action=startstudent";
+});
 $("#cvswitch").on("click", function () {
-    // let cv = document.getElementById("cursosViewer");
-    // console.log(cm.style.display);
-    // console.log(cv.style.display);
+  // let cv = document.getElementById("cursosViewer");
+  // console.log(cm.style.display);
+  // console.log(cv.style.display);
 
-    // cm.classList.toggle('d-none');
-    // cv.classList.toggle('d-none');
-    location.href = 'CursoController.php?action=start';
-})
+  // cm.classList.toggle('d-none');
+  // cv.classList.toggle('d-none');
+  location.href = "CursoController.php?action=start";
+});
 Quill.register("modules/resize", window.QuillResizeModule);
 // Con esto inicializamos y configuramos el editor de Quill
 var toolbarOptions = [
@@ -71,18 +71,18 @@ var options = {
 
 //pass the value to your ajax data like this:
 $(function () {
-    $("#form").on("submit", function (f) {
-        f.preventDefault();
-        var quillHtml = editor.root.innerHTML.trim();
-        var quillcontent = {
-            contenido_secc : quillHtml
-        };
+  $("#form").on("submit", function (f) {
+    f.preventDefault();
+    var quillHtml = editor.root.innerHTML.trim();
+    var quillcontent = {
+      contenido_secc: quillHtml,
+    };
     let $err = $("#err");
 
     $.ajax({
       type: "POST",
       url: "CursoController.php",
-      data: $(this).serialize() + '&' + $.param(quillcontent),
+      data: $(this).serialize() + "&" + $.param(quillcontent),
       success: function (result) {
         $err.innerHTML += result;
         $err.removeClass("d-none");
@@ -91,14 +91,18 @@ $(function () {
         swal("Yay!", "Changes where saved correctly", "success");
       },
       error: function (xhr) {
-        swal("Oops", "Algo salio mal :(","error");
-        $err.innerHTML += "Status del return -> "  + xhr.status +
-        "Status del return en txt -> "  + xhr.statusText +
-        " " +
-        "Texto del return -> "  + xhr.responseText;
+        swal("Oops", "Algo salio mal :(", "error");
+        $err.innerHTML +=
+          "Status del return -> " +
+          xhr.status +
+          "Status del return en txt -> " +
+          xhr.statusText +
+          " " +
+          "Texto del return -> " +
+          xhr.responseText;
         $err.removeClass("d-none");
       },
-    })
+    });
     // .then(function(){
     //     $.ajax({
     //         type: "POST",
@@ -125,86 +129,93 @@ $(function () {
   });
 });
 
-
 //FUNCIONES PARA EL CAMBIO DE STATUS DE LOS CURSOS
 function publishCurso(id) {
-    var idicon = id;
-        $.ajax({
-          type: "POST",
-          url: "CursoController.php",
-          data: {
-            action: "publishCurso",
-            id: id,
-          },
-          success: function (result) {
-            // console.log(result);
-            var statusicon = $("#statusicon" + idicon);
+  var idicon = id;
+  $.ajax({
+    type: "POST",
+    url: "CursoController.php",
+    data: {
+      action: "publishCurso",
+      id: id,
+    },
+    success: function (result) {
+      // console.log(result);
+      var statusicon = $("#statusicon" + idicon);
 
-                if (statusicon.css("color") != "rgb(0, 128, 0)") {
-                    statusicon.css("color","rgb(0, 128, 0)");
-                    swal("Yay!", "Estado del curso cambiado con exito, ahora todos pueden verlo!", "success");
-                    console.log("secomprobo que no era verde")
-                    return;
-                }
+      if (statusicon.css("color") != "rgb(0, 128, 0)") {
+        statusicon.css("color", "rgb(0, 128, 0)");
+        swal(
+          "Yay!",
+          "Estado del curso cambiado con exito, ahora todos pueden verlo!",
+          "success"
+        );
+        console.log("secomprobo que no era verde");
+        return;
+      }
 
-            swal("Oops!", "Este curso ya se encuentra publicado", "warning");
-            
-          },
-          error: function (xhr) {
-            swal("Oops", "Algo salio mal :(", "error");
-            alert(
-                "Status del return -> " +
-                xhr.status +
-                "Status del return en txt -> " +
-                xhr.statusText +
-                " " +
-                "Texto del return -> " +
-                xhr.responseText)
-          },
-        });
-};
+      swal("Oops!", "Este curso ya se encuentra publicado", "warning");
+    },
+    error: function (xhr) {
+      swal("Oops", "Algo salio mal :(", "error");
+      alert(
+        "Status del return -> " +
+          xhr.status +
+          "Status del return en txt -> " +
+          xhr.statusText +
+          " " +
+          "Texto del return -> " +
+          xhr.responseText
+      );
+    },
+  });
+}
 
 function unpublishCurso(id) {
-    var idicon = id;
-    $.ajax({
-      type: "POST",
-      url: "CursoController.php",
-      data: {
-        action: "unpublishCurso",
-        id: id,
-      },
-      success: function (result) {
-        var statusicon = $("#statusicon" + idicon);
+  var idicon = id;
+  $.ajax({
+    type: "POST",
+    url: "CursoController.php",
+    data: {
+      action: "unpublishCurso",
+      id: id,
+    },
+    success: function (result) {
+      var statusicon = $("#statusicon" + idicon);
 
-            if (statusicon.css("color") != "rgb(255, 165, 0)") {
-                statusicon.css("color","rgb(255, 165, 0)");
-                swal("Yay!", "Estado del curso cambiado con exito, ahora SOLO TU puedes verlo!", "success");
-                console.log("se comprobo que no era naranja")
-                return;
-            }
-            
-        swal("Oops!", "Este curso ya se encuentra privado", "warning");
-        
-      },
-      error: function (xhr) {
-        swal("Oops", "Algo salio mal :(", "error");
-        alert(
-            "Status del return -> " +
-            xhr.status +
-            "Status del return en txt -> " +
-            xhr.statusText +
-            " " +
-            "Texto del return -> " +
-            xhr.responseText)
-      },
-    });
-};
+      if (statusicon.css("color") != "rgb(255, 165, 0)") {
+        statusicon.css("color", "rgb(255, 165, 0)");
+        swal(
+          "Yay!",
+          "Estado del curso cambiado con exito, ahora SOLO TU puedes verlo!",
+          "success"
+        );
+        console.log("se comprobo que no era naranja");
+        return;
+      }
+
+      swal("Oops!", "Este curso ya se encuentra privado", "warning");
+    },
+    error: function (xhr) {
+      swal("Oops", "Algo salio mal :(", "error");
+      alert(
+        "Status del return -> " +
+          xhr.status +
+          "Status del return en txt -> " +
+          xhr.statusText +
+          " " +
+          "Texto del return -> " +
+          xhr.responseText
+      );
+    },
+  });
+}
 
 // $('.sharebtn').on("click", function showShareOpts(){
 //     swal("Yay!","Link copiado al portapapeles","info");
 //     let clink = $('.clink');
 //     let cid = $('.cid');
-    
+
 //     for (let i = 0; i < clink.length; i++) {
 //         // let href = clink.prop('href');
 //         // console.log("link copiado-> " + href);
@@ -345,7 +356,13 @@ function addSeccion() {
     //     '", options);}'
     // );
 
-main.append('<script>var editor = new Quill("#editor' + accordionItemCount + '", options); $("#addLeccionbtn' + accordionItemCount + '").addClass("d-none") ; </script>');
+    main.append(
+      '<script>var editor = new Quill("#editor' +
+        accordionItemCount +
+        '", options); $("#addLeccionbtn' +
+        accordionItemCount +
+        '").addClass("d-none") ; </script>'
+    );
   } else {
     alert("Haz alcanzado el maximo de secciónes, en un futuro seran más");
     btnNuevaSeccion.setAttribute("disabled", "disabled");
@@ -391,6 +408,9 @@ function imgpreview() {
     }
   }
 }
+
+
+
 /*
     function showImageUploader1() { 
         let chooseContent1 = $(".chooseContent1");

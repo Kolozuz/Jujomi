@@ -10,6 +10,7 @@
     --primario: #126E82;
     --secundario: #58A4B0;
     --claro: #D8DBE2;
+    --gris: #21262d;
     --oscuro: #132C33;
     --space: url(../../Public/img/stars_pattern.svg);
 }
@@ -81,6 +82,11 @@
 .bg-claro {
     background: var(--claro);
     background: linear-gradient(280deg, var(--secundario) 0%, var(--claro) 0%);
+}
+
+.bg-gris {
+    background: var(--gris);
+    background: linear-gradient(280deg, var(--secundario) 0%, var(--gris) 0%);
 }
 
 .bg-oscuro {

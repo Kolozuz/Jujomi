@@ -1,5 +1,11 @@
 <?php
-include '../Inc/userheader.php';
+
+include '../Inc/userheader.php'; 
+
+$user = new Usuario;
+$configarray = $user->checkConfig($_SESSION['id_register']);
+foreach ($configarray as $configiteration) {
+
 if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
     // include_once '../Views/Usuario/PerfilUsuario.php';
     echo '
@@ -11,13 +17,14 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
     ';
 }
 ?>
+<main class="container-fluid">
     <div class="container-fluid">
-        <div class="row py-4 mt-4 text-center">
+        <div class="row pt-5 pb-4 text-center">
             <h2 class="fw-semibold">Mi perfil</h2>
         </div>
 
-        <div class="container-fluid py-4">
-            <div class="row text-center">
+        <div class="container-fluid pb-4">
+            <div class="row text-center pb-4">
                 <div class="col-md-12">
                 <img src="<?php 
                     if (!$_SESSION['imgurl_register'] == "") {
@@ -29,42 +36,30 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
                     ?>" alt="profile picture" class="rounded-circle" width="100vh" >
                 </div>
             </div>
-            <div class="row text-start">
-                <div class="col-4"></div>
-                
+                <div class="row text-start d-flex justify-content-center">
                     <div class="col-2 ">
                         <span class="fw-semibold">Tu nombre de Usuario:</span>
                     </div>
-
                     <div class="col-2 text-end">
                         <span><?php echo $_SESSION['username_login']; ?></span>
                     </div>
+                </div>
 
-                <div class="col-4"></div>
-            </div>
-
-            <div class="row text-start">
-                <div class="col-4"></div>
-    
+                <div class="row text-start d-flex justify-content-center">
                     <div class="col-2">
                         <span class="fw-semibold">Tu correo:</span>
                     </div>
-    
-                    <div class="col-2 text-end">
+                    <div class="col-2 text-end ">
                         <span><?php echo $_SESSION['email_register']; ?></span>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="col-2 text-end" hidden>
                         <span>
                             <input method="get" type="hidden" name="id_register" value="<?php echo $_SESSION['id_register']; ?>">
                         </span>
                     </div>
-    
-                    <div class="col-4"></div>
-            </div>
+                </div>
 
-            <div class="row text-start">
-                <div class="col-4"></div>
-                
+                <div class="row text-start d-flex justify-content-center">
                     <div class="col-2 ">
                         <span class="fw-semibold">Fecha de registro:</span>
                     </div>
@@ -72,11 +67,8 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
                     <div class="col-2 text-end">
                         <span><?php echo $_SESSION['fecha_register'] . ' a las ' . $_SESSION['hora_register']; ?></span>
                     </div>
-
-                <div class="col-4"></div>
+                </div>
             </div>
-
-        </div>
     </div>
     
     <div class="container-fluid d-flex justify-content-center py-4">
@@ -141,28 +133,31 @@ if (isset($_GET['error']) && $_GET['error'] == 'pwddoesnotmatch') {
             </div>
         </div>
     </div>
-
-    <script>
-        function borrarUsuario(id){
-            swal({
-            title: "¿Está seguro de que desea eliminar su cuenta y todo su progreso?¡ Esta acción no se puede revertir!",
-            text: "Una vez eliminado, no sera posible recuperarlo!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                swal("Su cuenta fue borrada con exito", {
-                icon: "success",
-            });
-            setTimeout(function () {
-                location.href = 'UsuarioController.php?action=delete&id=' + <?php echo $_SESSION['id_register'];?> ;}, 1500); 
-            } else {
-                swal("No se elimino la cuenta!");
-            }
+</main>
+<script>
+    function borrarUsuario(id){
+        swal({
+        title: "¿Está seguro de que desea eliminar su cuenta y todo su progreso?¡ Esta acción no se puede revertir!",
+        text: "Una vez eliminado, no sera posible recuperarlo!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+        })
+        .then((willDelete) => {
+        if (willDelete) {
+            swal("Su cuenta fue borrada con exito", {
+            icon: "success",
+        });
+        setTimeout(function () {
+            location.href = 'UsuarioController.php?action=delete&id=' + <?php echo $_SESSION['id_register'];?> ;}, 1500); 
+        } else {
+            swal("No se elimino la cuenta!");
+        }
 });
         }
     </script>
         
-<?php include '../Inc/userfooter.php' ?>
+<?php 
+} 
+include '../Inc/userfooter.php' 
+?>

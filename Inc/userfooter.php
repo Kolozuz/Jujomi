@@ -43,20 +43,45 @@
                 </div>
             </footer>
         </div>
+    </body>
+    <script src="../Public/Js/jquery-3.6.1.min.js"></script>
+    <script>
 
-        </body>
-        <script>
-var currentModeClass = document.getElementsByClassName('bg-primario');
-var body = document.getElementsByTagName('body');
+        var themestatus = <?php echo $configiteration->dark_mode?>;
 
-function toggleDarkMode() {
-    for (let i = 0; i < currentModeClass.length; i++) {
-        currentModeClass[i].classList.toggle("bg-oscuro");
-        currentModeClass[i].classList.toggle("text-white");
+        var currentThemePrimario = document.getElementsByClassName('bg-primario');
+        var currentThemeClaro = document.getElementsByTagName("main");
 
-        console.log(currentModeClass.length);
-    }
-}
-        </script>
 
-        </html>
+        if (themestatus == 1){
+            for (let i = 0; i < currentThemePrimario.length; i++) {
+                $(".bg-primario").addClass("bg-oscuro");
+                $(".bg-primario").addClass("text-white");
+                $("#navbar_brand").addClass("text-white");
+                $("main").addClass("bg-claro");
+                $("main").addClass("bg-gris");
+                $("main").addClass("text-white");
+                console.log("cambio VISUAL no DB");
+                console.log("es 1");
+            }
+
+            for (let i = 0; i < currentThemeClaro.length; i++) {
+                currentThemeClaro[i].classList.add("bg-gris");
+                $("main").addClass("text-white");
+            }
+        }
+        else{
+            for (let i = 0; i < currentThemePrimario.length; i++) {
+                currentThemePrimario[i].classList.remove("bg-oscuro");
+                currentThemePrimario[i].classList.remove("text-white");
+                console.log("es 0");
+            }
+
+            for (let i = 0; i < currentThemeClaro.length; i++) {
+                currentThemeClaro[i].classList.remove("bg-gris");
+                $("main").removeClass("text-white");
+            }
+        }
+
+    </script>
+</html>

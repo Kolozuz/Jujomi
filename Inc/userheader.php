@@ -60,7 +60,7 @@
     <header class="contaner bg-primario fw-normal">
         <nav class="navbar shadow-sm bg-primario">
             <div class="container-fluid">
-                <a class="navbar-brand fs-2 fw-semibold " href="CursoController.php?action=start">
+                <a class="navbar-brand fs-2 fw-semibold " href="CursoController.php?action=start" id="navbar_brand">
                     JUJOMI
                 </a>
                 <span>

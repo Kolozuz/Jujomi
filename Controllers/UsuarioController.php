@@ -22,7 +22,9 @@ class UsuarioController extends Usuario
             $this->RedirectIndex();
             return;
         } else {
+            
             header("Location: CursoController.php?action=start");
+        
         }
     }
 
@@ -107,6 +109,11 @@ class UsuarioController extends Usuario
         include_once '../Views/Usuario/ConfigUsuario.php';
     }
 
+    public function toggleTheme($id_u, $newthemevalue)
+    {
+        $this->UpdateConfig($id_u, $newthemevalue);
+    }
+
     public function DeletePerfil()
     {
         $this->DeleteUsuario();
@@ -159,6 +166,12 @@ class UsuarioController extends Usuario
         $_SESSION['fecha_register'] = $usuario_u->fecha_u;
         $_SESSION['hora_register'] = $usuario_u->hora_u;
         $_SESSION['email_register'] = $usuario_u->email_u;
+
+        $user = new Usuario;
+            $configarray = $user->checkConfig($_SESSION['id_register']);
+            foreach ($configarray as $configiteration) {
+            $_SESSION['themestatus'] = $configiteration->dark_mode;
+        }
 
         echo '<script type="text/javascript">';
         echo "alert('Sesion iniciada con exito')";
@@ -255,8 +268,23 @@ if (isset($_GET['action']) && $_GET['action'] == 'perfil') {
 
 //Configuracion
 if (isset($_GET['action']) && $_GET['action'] == 'config') {
+    $_POST['id_usr'] = $_SESSION['id_register'];
     $usuariocontroller = new UsuarioController();
     $usuariocontroller->RedirectConfig();
+}
+
+if(isset($_POST['action']) && $_POST['action'] == 'toggleTheme'){
+    $id_usr = $_POST['id_usr'];
+    $newthemevalue = $_POST['newthemevalue'];
+
+    $user = new Usuario;
+    $configarray = $user->checkConfig($_POST['id_usr']);
+    foreach ($configarray as $configiteration) {
+        $_SESSION['themestatus'] = $configiteration->dark_mode; 
+    }
+    
+    $cursocontroller = new UsuarioController();
+    $cursocontroller->toggleTheme($id_usr, $newthemevalue);
 }
 
 //Eliminar Cuenta
