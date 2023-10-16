@@ -139,8 +139,7 @@ function publishCurso(id) {
       action: "publishCurso",
       id: id,
     },
-    success: function (result) {
-      // console.log(result);
+    success: function (response) {
       var statusicon = $("#statusicon" + idicon);
 
       if (statusicon.css("color") != "rgb(0, 128, 0)") {
@@ -150,7 +149,8 @@ function publishCurso(id) {
           "Estado del curso cambiado con exito, ahora todos pueden verlo!",
           "success"
         );
-        console.log("secomprobo que no era verde");
+        // console.log("response ->>" + response);
+        // console.log("secomprobo que no era verde");
         return;
       }
 

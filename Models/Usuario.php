@@ -33,12 +33,13 @@
             return;
         }
 
-        public function linkConfig($id_usr){
+        public function linkConfig(){
             $conexion = new Conexion();
-            $sql = "call linkConfig('$id_usr')";
+            $sql = "call linkConfig('?')";
             
-            $read = $conexion->stm->prepare($sql);
-            $read->execute();
+            $insert = $conexion->stm->prepare($sql);
+            $insert->bindParam(1,$_SESSION['id_register']);
+            $insert->execute();
 
             return;
         }
@@ -57,12 +58,12 @@
 
         public function UpdateConfig($id_usr, $newthemevalue){
             $conexion = new Conexion();
-            $sql = "call updateConfig('$id_usr','$newthemevalue')";
+            $sql = "call updateConfig($id_usr,$newthemevalue)";
             
             $read = $conexion->stm->prepare($sql);
             $read->execute();
 
-            return;
+            echo var_dump($read) . "\n Entre AQUI A LA FUNCION UPDATECONFIG";
         }
         
         protected function CheckUsuarioFromDB(){

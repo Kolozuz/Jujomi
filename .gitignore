@@ -157,3 +157,10 @@ dist
 # Ignore all local history of files
 .history
 .ionide
+
+#Images
+Views/Cursos/Imgs/*.png
+Views/Cursos/Imgs/*.jpg
+Views/Cursos/Imgs/*.jpeg
+Views/Cursos/Imgs/*.jfif
+!Views/Cursos/Imgs/*.svg
