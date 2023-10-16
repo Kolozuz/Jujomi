@@ -54,7 +54,7 @@ if (empty($cursoobj)) {
 $user = new Curso;
 $configarray = $user->checkConfig($_SESSION['id_register']);
 foreach ($configarray as $configiteration) {
-
+    $_SESSION['themestatus'] = $configiteration->dark_mode;
 ?>
 
 <main class="container-fluid" id="cursosManager">
@@ -77,11 +77,11 @@ foreach ($configarray as $configiteration) {
             <ul class="dropdown-menu">
                 <li class="dropdown-item">
                     <input type="checkbox" id="fecha_check" name="fecha_check">
-                    <label for="fecha_check">Fecha</label>
+                    <label for="fecha_check" class="w-100">Fecha</label>
                 </li>
                 <li class="dropdown-item">
                     <input type="checkbox" id="nombre_check" name="nombre_check">
-                    <label for="nombre_check">Nombre</label>
+                    <label for="nombre_check" class="w-100">Nombre</label>
                 </li>
             </ul>
         </div>
@@ -243,31 +243,7 @@ foreach ($configarray as $configiteration) {
     //Show Role Switch
     document.getElementById("cmswitch").classList.toggle("d-none");
 </script>
-<!-- <script>
-    CHANGE COURSE STATUS
-    var publishbtn = document.getElementById("publicbtn<?php echo $c->id_c; ?>")
-    var unpublishbtn = document.getElementById("privatebtn<?php echo $c->id_c; ?>")
-                            
-    publishbtn.addEventListener("click",
-        function pressPublic() {
-            var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
-            if (statusicon.style.color != "green") {
-                statusicon.style.color = 'green';
-                return;
-            }
-            swal("Oops!", "Este curso ya se encuentra publicado", "warning");
-        });
 
-    unpublishbtn.addEventListener("click",
-        function pressPrivate() {
-            var statusicon = document.getElementById("statusicon<?php echo $c->id_c; ?>");
-            if (statusicon.style.color != "orange") {
-                statusicon.style.color = 'orange';
-                return;
-            }
-            swal("Oops!", "Este curso ya se encuentra privado", "warning");
-        });
-</script> -->
 <?php 
 } 
 include '../Inc/userfooter.php' 

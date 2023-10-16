@@ -47,13 +47,16 @@
     <script src="../Public/Js/jquery-3.6.1.min.js"></script>
     <script>
 
-        var themestatus = <?php echo $configiteration->dark_mode?>;
+        var themestatus = <?php echo $_SESSION['themestatus']?>;
 
         var currentThemePrimario = document.getElementsByClassName('bg-primario');
         var currentThemeClaro = document.getElementsByTagName("main");
 
-
+        // Se asegura de que el tema de la pagina concuerde con el guardado en la base de datos
+        // Este cambio ocurre en todas las vistas y es solo visual, no realiza querys a la BD
         if (themestatus == 1){
+            $('#themeslider').attr("checked","checked");
+        
             for (let i = 0; i < currentThemePrimario.length; i++) {
                 $(".bg-primario").addClass("bg-oscuro");
                 $(".bg-primario").addClass("text-white");
@@ -61,8 +64,7 @@
                 $("main").addClass("bg-claro");
                 $("main").addClass("bg-gris");
                 $("main").addClass("text-white");
-                console.log("cambio VISUAL no DB");
-                console.log("es 1");
+                // console.log("cambio VISUAL no DB");
             }
 
             for (let i = 0; i < currentThemeClaro.length; i++) {
@@ -74,7 +76,7 @@
             for (let i = 0; i < currentThemePrimario.length; i++) {
                 currentThemePrimario[i].classList.remove("bg-oscuro");
                 currentThemePrimario[i].classList.remove("text-white");
-                console.log("es 0");
+                // console.log("es 0");
             }
 
             for (let i = 0; i < currentThemeClaro.length; i++) {
@@ -82,6 +84,48 @@
                 $("main").removeClass("text-white");
             }
         }
+
+        // Toggle Webpage Theme
+        // Se encarga de cambiar el valor del tema (claro = 0, oscuro = 1) en la BD
+        // Ademas cambia el tema actual de la pagina al presionar el boton
+        function toggleDarkMode(id_usr) {
+            $(".bg-primario").toggleClass("bg-oscuro");
+            $(".bg-primario").toggleClass("text-white");
+            $("#navbar_brand").toggleClass("text-white");
+            $("main").toggleClass("bg-claro");
+            $("main").toggleClass("bg-gris");
+            $("main").toggleClass("text-white");
+            // console.log("cambio VISUAL no DB");
+
+            let newthemevalue = themestatus == 1 ? 0 : 1 ;
+            function doAjax(){
+                $.ajax({
+                type: "POST",
+                url: "UsuarioController.php",
+                cache: false,
+                data: {
+                    action: "toggleTheme",
+                    id_usr: id_usr,
+                    newthemevalue: newthemevalue,
+                },
+                success: function (response){
+                    swal("Yay!", "Cambios guardados con exito", "success")
+
+                    console.log(response)
+                    themestatus = themestatus == 1 ? 0 : 1 ;
+                    return response;
+                },
+                error: function (xhr) {
+                    swal("Oops", "Algo salio mal :(","error");
+                    $err.innerHTML += "Status del return -> "  + xhr.status +
+                    "Status del return en txt -> "  + xhr.statusText +
+                    " " +
+                    "Texto del return -> "  + xhr.responseText;
+                    $err.removeClass("d-none");
+                },
+            })}
+            doAjax()
+        };
 
     </script>
 </html>
