@@ -115,7 +115,8 @@ class Curso
 
         $publish = $conexion->stm->prepare($sql);
         $publish->execute();
-        return;
+        
+        echo var_dump($publish);
 
     }
 
